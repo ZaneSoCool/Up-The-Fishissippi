@@ -170,5 +170,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
   maxSpeed: 7
-  acceleration: 7
-  friction: 7
+  acceleration: 30
+  friction: 10
