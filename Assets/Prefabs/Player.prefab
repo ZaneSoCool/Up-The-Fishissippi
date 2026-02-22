@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2685477226718106783}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,6 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d365dee83668c4ea187f30a251e1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  maxSpeed: 7
-  acceleration: 7
-  friction: 7
+  maxSpeed: 100
+  acceleration: 100
+  friction: 50
