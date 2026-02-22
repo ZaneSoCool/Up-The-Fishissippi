@@ -169,6 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d365dee83668c4ea187f30a251e1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  maxSpeed: 100
-  acceleration: 100
-  friction: 50
+  maxSpeed: 7
+  acceleration: 30
+  friction: 10
