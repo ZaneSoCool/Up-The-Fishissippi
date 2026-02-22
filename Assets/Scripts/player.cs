@@ -32,8 +32,5 @@ public class player : MonoBehaviour
 
         //clamp max speed
         rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
-
-        Debug.Log(rigidBody.linearVelocity);
-        
     }
 }
