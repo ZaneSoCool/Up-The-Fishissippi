@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class bubble : MonoBehaviour
+public class BigBubble : MonoBehaviour
 {
     Rigidbody2D rigidBody;
 
     [SerializeField]
-    float bounceStrength = 3.0f;
+    float bounceStrength = 5.0f;
 
     [SerializeField]
     Rigidbody2D playerRB;
