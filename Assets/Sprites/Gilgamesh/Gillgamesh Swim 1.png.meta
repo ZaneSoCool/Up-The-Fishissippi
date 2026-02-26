@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca0a6ca0c28d3504e972dbbba391e8c8
+guid: d19d09436a8c4e345b30e4cee7ea681c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6657688143704593718
-    second: Gillgamesh_0
+      213: -2597891264594163969
+    second: Gillgamesh Swim 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gillgamesh_0
+      name: Gillgamesh Swim 1_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 8
         y: 16
-        width: 49
+        width: 47
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63597deb71cd46c50800000000000000
-      internalID: 6657688143704593718
+      spriteID: ff646c8b8af62fbd0800000000000000
+      internalID: -2597891264594163969
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gillgamesh_0: 6657688143704593718
+      Gillgamesh Swim 1_0: -2597891264594163969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
