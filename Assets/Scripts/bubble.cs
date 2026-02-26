@@ -15,7 +15,7 @@ public class bubble : MonoBehaviour
     {
         rigidBody = gameObject.AddComponent<Rigidbody2D>();
     }
-    
+
     // called when player bumps into bubble
     void OnTriggerEnter2D(Collider2D col)
     {
