@@ -15,10 +15,11 @@ public class bubble : MonoBehaviour
     {
         rigidBody = gameObject.AddComponent<Rigidbody2D>();
     }
-
+    
     // called when player bumps into bubble
     void OnTriggerEnter2D(Collider2D col)
     {
+        playerRB = col.gameObject.GetComponent<Rigidbody2D>();
         if (col.gameObject.CompareTag("Player"))
         {
             playerRB.linearVelocity *= -bounceStrength;
