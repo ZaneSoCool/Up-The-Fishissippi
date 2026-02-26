@@ -48,10 +48,10 @@ MonoBehaviour:
   hazardsParent: {fileID: 1238922450211335914}
   mappings:
   - name: Bubble
-    markerTile: {fileID: 0}
-    hazardPrefab: {fileID: 0}
+    markerTile: {fileID: 11400000, guid: d2d2b5322b7d60246bafaef5fde487e6, type: 2}
+    hazardPrefab: {fileID: 3186484885595827001, guid: 928ffaf916512784283b30198e8ddcde, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
-    clearMarkerAfterSpawn: 0
+    clearMarkerAfterSpawn: 1
 --- !u!1 &3009116635720393651
 GameObject:
   m_ObjectHideFlags: 0
