@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa5184c3360821489fc413f3213b972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bounceStrength: 500
+  bounceStrength: 3
   playerRB: {fileID: 623206870}
 --- !u!50 &192139586
 Rigidbody2D:
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6243247718513478205, guid: ba66499a57e32af4ca16423efb0f15de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba66499a57e32af4ca16423efb0f15de, type: 3}
   m_Color: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,12 +284,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.32
+  m_Radius: 0.5
 --- !u!1001 &519270988
 PrefabInstance:
   m_ObjectHideFlags: 0
