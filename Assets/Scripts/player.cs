@@ -16,6 +16,8 @@ public class player : MonoBehaviour
     Rigidbody2D rigidBody;
     InputAction moveAction;
     SpriteRenderer spriteRenderer;
+    Animator anim;
+    
 
     //Health variables
     [SerializeField]
@@ -30,6 +32,7 @@ public class player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         //setup player health
         playerHealth = maxPlayerHealth;
@@ -58,10 +61,22 @@ public class player : MonoBehaviour
         //clamp max speed
         rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
 
+        decideAnimation();
+
         //check if dead
         if (playerHealth <= 0)
         {
             //TODO: GO BACK TO LAST SPAWNPOINT
+        }
+    }
+
+    void decideAnimation()
+    {
+        if (rigidBody.linearVelocity.magnitude > 0){
+            anim.Play("PlayerSwim");
+        } else
+        {
+            anim.Play("PlayerIdle");
         }
     }
 }
