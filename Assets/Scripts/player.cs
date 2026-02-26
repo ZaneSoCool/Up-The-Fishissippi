@@ -12,11 +12,17 @@ public class player : MonoBehaviour
     Rigidbody2D rigidBody;
     InputAction moveAction;
 
+    [SerializeField]
+    int maxPlayerHealth = 5;
+    public int playerHealth;
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
+        playerHealth = maxPlayerHealth;
     }
 
     // Update is called once per frame
@@ -32,5 +38,11 @@ public class player : MonoBehaviour
 
         //clamp max speed
         rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
+
+        //check if dead
+        if (playerHealth <= 0)
+        {
+            //TODO: GO BACK TO LAST SPAWNPOINT
+        }
     }
 }
