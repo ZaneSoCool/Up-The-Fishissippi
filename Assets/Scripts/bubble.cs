@@ -16,13 +16,7 @@ public class bubble : MonoBehaviour
         rigidBody = gameObject.AddComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // called when the cube hits the floor
+    // called when player bumps into bubble
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
