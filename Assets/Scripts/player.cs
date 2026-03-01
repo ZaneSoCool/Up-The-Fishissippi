@@ -23,6 +23,9 @@ public class player : MonoBehaviour
     [SerializeField]
     int maxPlayerHealth = 5;
     public int playerHealth;
+
+    //Wether player is currently doing an animation outside of standard movement
+    public bool isDoingSpecialAnim = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -69,6 +72,8 @@ public class player : MonoBehaviour
 
     void decideAnimation()
     {
+        if (isDoingSpecialAnim) return;
+
         if (rigidBody.linearVelocity.magnitude > 0){
             anim.Play("PlayerSwim");
         } else

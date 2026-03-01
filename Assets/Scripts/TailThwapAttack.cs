@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class TailThwapAttack : MonoBehaviour
 {
-
-    //references
+    //setup references
     InputAction tailThwapAction;
+    Animator anim;
 
     [SerializeField]
     int thwapDamage = 5;
@@ -14,7 +14,10 @@ public class TailThwapAttack : MonoBehaviour
 
     void Start()
     {
+        //find references
         tailThwapAction = InputSystem.actions.FindAction("Attack");
+        anim = transform.parent.gameObject.GetComponent<Animator>();
+
         //call tail thwap if action is performed
         tailThwapAction.performed += OnTailThwapPerformed; 
     }
@@ -23,7 +26,6 @@ public class TailThwapAttack : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Attackable") && !objectsInTailThwap.Contains(col.gameObject))
         {
-            Debug.Log("BUBLE ENTERED");
             objectsInTailThwap.Add(col.gameObject);
         }
     }
@@ -32,7 +34,6 @@ public class TailThwapAttack : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Attackable"))
         {
-            Debug.Log("BUBLE exit");
             objectsInTailThwap.Remove(col.gameObject);
         }
     }
@@ -44,6 +45,10 @@ public class TailThwapAttack : MonoBehaviour
         {
             Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();;
             victimScript.Attacked(thwapDamage);
+
+            //play tail thwap animation
+            transform.parent.gameObject.isDoingSpecialAnim = true;
+            anim.Play("TailThwap");
         }
     }
 }
