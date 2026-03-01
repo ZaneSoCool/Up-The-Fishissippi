@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9056780046570592027}
   - component: {fileID: 4301404261854562197}
   - component: {fileID: 9067246947973576911}
-  - component: {fileID: 4659368383775805158}
+  - component: {fileID: 6323407196705712487}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 3186484885595827001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0449, y: 0.0137, z: 0}
-  m_LocalScale: {x: 0.9102, y: 0.9727, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fdb48e1c83c489340bf9c1f0ba67ae6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba66499a57e32af4ca16423efb0f15de, type: 3}
   m_Color: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.377
---- !u!114 &4659368383775805158
+--- !u!114 &6323407196705712487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,6 +166,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3186484885595827001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc449c3902b14c33806399897302d3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa5184c3360821489fc413f3213b972, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::urchin
+  m_EditorClassIdentifier: Assembly-CSharp::bubble
+  bounceStrength: 3
+  playerRB: {fileID: 0}

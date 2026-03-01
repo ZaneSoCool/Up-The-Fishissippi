@@ -7,7 +7,6 @@ public class bubble : MonoBehaviour
     [SerializeField]
     float bounceStrength = 3.0f;
 
-    [SerializeField]
     Rigidbody2D playerRB;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
