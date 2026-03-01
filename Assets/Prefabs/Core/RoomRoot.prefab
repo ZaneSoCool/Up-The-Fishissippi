@@ -304,6 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4729141006918197135}
   - component: {fileID: 2902275765945264214}
+  - component: {fileID: 1310111825829972658}
   m_Layer: 0
   m_Name: Exit_Right_1
   m_TagString: Untagged
@@ -372,6 +373,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1310111825829972658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674142669117003414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
+  destinationSceneName: 
+  destinationSpawnId: 
 --- !u!1 &7072978802185650344
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6878185034920283576}
+  - component: {fileID: 7714210687445073695}
   m_Layer: 0
   m_Name: Spawnpoint_Right_1
   m_TagString: Untagged
@@ -470,6 +486,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491868045611556053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7714210687445073695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983563286942466355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c8a48eb8d1ce94baa13ec108c7155f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawnpoint
+  spawnId: 
 --- !u!1 &8951794303157862469
 GameObject:
   m_ObjectHideFlags: 0
