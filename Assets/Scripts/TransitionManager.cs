@@ -34,11 +34,6 @@ public class RoomTransitionManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        // Optional: also persist the whole PersistentRoot instead of just this object.
-        // If this manager is already inside PersistentRoot and that root is persistent elsewhere,
-        // you can remove this line.
     }
 
     public void GoToRoom(string destinationSceneName, string destinationSpawnId)
