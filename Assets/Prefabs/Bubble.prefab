@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4301404261854562197}
   - component: {fileID: 9067246947973576911}
   - component: {fileID: 6323407196705712487}
+  - component: {fileID: 5020199319096347611}
   m_Layer: 0
   m_Name: Bubble
-  m_TagString: Untagged
+  m_TagString: Attackable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,4 +171,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bubble
   bounceStrength: 3
-  playerRB: {fileID: 0}
+--- !u!114 &5020199319096347611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186484885595827001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ef99095e636464cbaf9e2a8ba0df13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attackable
+  health: 6
