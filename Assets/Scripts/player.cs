@@ -19,13 +19,10 @@ public class player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     
-
     //Health variables
     [SerializeField]
     int maxPlayerHealth = 5;
     public int playerHealth;
-
-
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,14 +30,14 @@ public class player : MonoBehaviour
         //find object references
         rigidBody = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
+        tailThwapAction = InputSystem.actions.FindAction("Attack");
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
         //setup player health
         playerHealth = maxPlayerHealth;
 
-        //setup player input function calls
-        tailThwapAction = controls.FindAction("Jump");
+        //call tail thwap if action is performed
         tailThwapAction.performed += OnTailThwapPerformed; 
     }
 
