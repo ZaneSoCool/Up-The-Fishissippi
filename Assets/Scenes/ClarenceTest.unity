@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 1484383263}
   - component: {fileID: 1484383262}
   - component: {fileID: 1484383261}
+  - component: {fileID: 1484383265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,10 +275,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: -0.080722064
+    y: -0.14247492
+    width: 1.1628064
+    height: 1.284281
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -313,6 +314,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484383265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484383260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 64
+  m_RefResolutionX: 1138
+  m_RefResolutionY: 640
+  m_CropFrame: 3
+  m_GridSnapping: 2
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1001 &1976179755
 PrefabInstance:
   m_ObjectHideFlags: 0
