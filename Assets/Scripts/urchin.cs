@@ -6,8 +6,7 @@ public class urchin : MonoBehaviour
 
     [SerializeField]
     float bounceStrength = 1.0f;
-
-    [SerializeField]
+    
     Rigidbody2D playerRB;
 
     [SerializeField]

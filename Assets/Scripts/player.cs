@@ -15,6 +15,7 @@ public class player : MonoBehaviour
     //Object references
     Rigidbody2D rigidBody;
     InputAction moveAction;
+    InputAction tailThwapAction;
     SpriteRenderer spriteRenderer;
     Animator anim;
     
@@ -23,8 +24,9 @@ public class player : MonoBehaviour
     [SerializeField]
     int maxPlayerHealth = 5;
     public int playerHealth;
-    
 
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +38,10 @@ public class player : MonoBehaviour
 
         //setup player health
         playerHealth = maxPlayerHealth;
+
+        //setup player input function calls
+        tailThwapAction = controls.FindAction("Jump");
+        tailThwapAction.performed += OnTailThwapPerformed; 
     }
 
     // Update is called once per frame
@@ -78,5 +84,10 @@ public class player : MonoBehaviour
         {
             anim.Play("PlayerIdle");
         }
+    }
+
+    private void OnTailThwapPerformed(InputAction.CallbackContext context)
+    {
+        Debug.Log("Thwapped!"); 
     }
 }
