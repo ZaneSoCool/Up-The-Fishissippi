@@ -13,10 +13,6 @@ public class urchin : MonoBehaviour
     player gillgamesh;
 
 
-<<<<<<< Updated upstream
-    // Start is called once before the fir
-}
-=======
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,4 +38,3 @@ public class urchin : MonoBehaviour
 
     }
 }
->>>>>>> Stashed changes
