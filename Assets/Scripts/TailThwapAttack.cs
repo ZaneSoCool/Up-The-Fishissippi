@@ -1,3 +1,5 @@
+//Written by Zane Pederson
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -47,8 +49,9 @@ public class TailThwapAttack : MonoBehaviour
             victimScript.Attacked(thwapDamage);
 
             //play tail thwap animation
-            // transform.parent.gameObject.isDoingSpecialAnim = true;
-            anim.Play("TailThwap");
+            player player = transform.parent.GetComponent<player>();
+            player.isDoingSpecialAnim = true;
+            //anim.Play("TailThwap");
         }
     }
 }
