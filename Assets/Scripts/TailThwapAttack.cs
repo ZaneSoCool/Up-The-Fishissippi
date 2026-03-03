@@ -47,7 +47,7 @@ public class TailThwapAttack : MonoBehaviour
             victimScript.Attacked(thwapDamage);
 
             //play tail thwap animation
-            transform.parent.gameObject.isDoingSpecialAnim = true;
+            // transform.parent.gameObject.isDoingSpecialAnim = true;
             anim.Play("TailThwap");
         }
     }
