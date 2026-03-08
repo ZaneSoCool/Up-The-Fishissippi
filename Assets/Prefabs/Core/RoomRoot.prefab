@@ -175,6 +175,11 @@ MonoBehaviour:
     hazardPrefab: {fileID: 7610957700187031567, guid: a08d024bb8faf8b4aaa7e8115b287bae, type: 3}
     worldOffset: {x: 0.5, y: -0.5, z: 0}
     clearMarkerAfterSpawn: 1
+  - name: PurpleUrchin
+    markerTile: {fileID: 11400000, guid: 300c3643d364551418bbb20524cc219c, type: 2}
+    hazardPrefab: {fileID: 3878875523392299384, guid: a193bc5d4ffeb4bc989eb70d15f8595e, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
 --- !u!1 &3009116635720393651
 GameObject:
   m_ObjectHideFlags: 0

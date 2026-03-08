@@ -14,7 +14,7 @@ public class bubble : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidBody = gameObject.AddComponent<Rigidbody2D>();
+        // rigidBody = gameObject.AddComponent<Rigidbody2D>();
     }
 
     // called when player bumps into bubble
