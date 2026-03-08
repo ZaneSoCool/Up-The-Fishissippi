@@ -16,8 +16,8 @@ public class urchin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidBody = gameObject.AddComponent<Rigidbody2D>();
-
+        // rigidBody = gameObject.AddComponent<Rigidbody2D>();
+        gillgamesh = GameObject.FindWithTag("Player").GetComponent<player>();
     }
 
     // Update is called once per frame

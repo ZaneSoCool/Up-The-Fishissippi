@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1123253711380089453}
   - component: {fileID: 414236200116386064}
   m_Layer: 0
-  m_Name: Urchin
+  m_Name: PurpleUrchin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

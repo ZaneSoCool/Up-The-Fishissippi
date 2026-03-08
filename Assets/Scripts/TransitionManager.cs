@@ -1,5 +1,7 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.SceneManagement;
 
 /**
@@ -22,6 +24,11 @@ public class RoomTransitionManager : MonoBehaviour
     [Header("Safety")]
     [SerializeField] private bool zeroPlayerVelocityOnSpawn = true;
 
+    [Header("Camera")]
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    private CinemachineConfiner2D cinemachineConfiner2D;
+    private PolygonCollider2D roomBoundsCollider;
+
     private string _pendingSpawnId;
     private bool _isTransitioning;
 
@@ -34,6 +41,11 @@ public class RoomTransitionManager : MonoBehaviour
         }
 
         Instance = this;
+        cinemachineConfiner2D = virtualCamera.GetComponent<CinemachineConfiner2D>();
+        if (cinemachineConfiner2D == null)
+        {
+            Debug.LogError("RoomTransitionManager: No CinemachineConfiner2D found on the assigned virtual camera.");
+        }
     }
 
     public void GoToRoom(string destinationSceneName, string destinationSpawnId)
@@ -61,6 +73,17 @@ public class RoomTransitionManager : MonoBehaviour
         // Tiny delay so objects in the new scene finish Awake/Start
         if (postLoadDelay > 0f)
             yield return new WaitForSeconds(postLoadDelay);
+
+        // Set new roomBounds for the CinemachineConfiner2D
+        roomBoundsCollider = GameObject.Find("RoomBounds")?.GetComponent<PolygonCollider2D>();
+        if (roomBoundsCollider == null)
+        {
+            Debug.LogError("RoomTransitionManager: No GameObject named 'RoomBounds' with a PolygonCollider2D found in the loaded scene.");
+            _isTransitioning = false;
+            yield break;
+        }
+        cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
+        cinemachineConfiner2D.InvalidateCache();
 
         PlacePlayerAtPendingSpawn();
 
