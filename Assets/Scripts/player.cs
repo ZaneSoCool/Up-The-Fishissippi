@@ -58,7 +58,7 @@ public class player : MonoBehaviour
             } else if (rigidBody.linearVelocity.x < 0)
             {
                 spriteRenderer.flipX = true;
-                tailThwapHitbox.offset = new Vector2(-0.8f, 0.0f);; //flip tail thwap hitbox
+                tailThwapHitbox.offset = new Vector2(-0.8f, 0.0f); //flip tail thwap hitbox
             }
 
         }  else
@@ -72,7 +72,7 @@ public class player : MonoBehaviour
         decideAnimation();
     }
 
-    void decideAnimation()
+    private void decideAnimation()
     {
         if (isDoingSpecialAnim) return;
 
@@ -82,5 +82,10 @@ public class player : MonoBehaviour
         {
             anim.Play("PlayerIdle");
         }
+    }
+
+    public void resetAnimation() //called when abnormal player animation finishes
+    {
+        isDoingSpecialAnim = false;
     }
 }
