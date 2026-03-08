@@ -19,7 +19,7 @@ public class Attackable : MonoBehaviour
 
     public void Die()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("Player"))
         {
             //player died
         } else
