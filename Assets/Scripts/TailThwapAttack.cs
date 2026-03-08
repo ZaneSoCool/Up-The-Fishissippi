@@ -42,16 +42,16 @@ public class TailThwapAttack : MonoBehaviour
 
     private void OnTailThwapPerformed(InputAction.CallbackContext context)
     {
+        //play tail thwap animation
+        player player = transform.parent.GetComponent<player>();
+        player.isDoingSpecialAnim = true;
+        anim.Play("TailThwap");
+       
         //for each object in objectInTailThwap call their attacked method
         for (int i = 0; i < objectsInTailThwap.Count; i++)
         {
             Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();;
             victimScript.Attacked(thwapDamage);
-
-            //play tail thwap animation
-            player player = transform.parent.GetComponent<player>();
-            player.isDoingSpecialAnim = true;
-            //anim.Play("TailThwap");
         }
     }
 }
