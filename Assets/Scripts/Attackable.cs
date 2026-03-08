@@ -19,6 +19,12 @@ public class Attackable : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //player died
+        } else
+        {
+            Destroy(gameObject);
+        }  
     }
 }

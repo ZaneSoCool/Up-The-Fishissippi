@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa5184c3360821489fc413f3213b972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bubble
-  bounceStrength: 3
+  bounceStrength: 1.5
 --- !u!114 &5020199319096347611
 MonoBehaviour:
   m_ObjectHideFlags: 0

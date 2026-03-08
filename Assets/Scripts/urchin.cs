@@ -2,29 +2,13 @@ using UnityEngine;
 
 public class urchin : MonoBehaviour
 {
-    Rigidbody2D rigidBody;
-
     [SerializeField]
     float bounceStrength = 1.0f;
-    
-    Rigidbody2D playerRB;
 
     [SerializeField]
-    player gillgamesh;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        // rigidBody = gameObject.AddComponent<Rigidbody2D>();
-        gillgamesh = GameObject.FindWithTag("Player").GetComponent<player>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    int urchinDamage = 1;
+    
+    Rigidbody2D playerRB;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,9 +16,8 @@ public class urchin : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerRB.linearVelocity *= -bounceStrength;
-            gillgamesh.playerHealth -= 1;
-            Debug.Log("Player Health = " + gillgamesh.playerHealth);
+            Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
+            playerAttackableScript.Attacked(urchinDamage);
         }
-
     }
 }

@@ -166,8 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7610957700187031567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc156725459ed0341814e9429a985e83, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa5184c3360821489fc413f3213b972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigBubble
   bounceStrength: 10
-  playerRB: {fileID: 0}
