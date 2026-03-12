@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 6402988989157130421}
   - component: {fileID: 6088627720613882000}
   m_Layer: 0
-  m_Name: Resources
+  m_Name: ResourcesPalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
