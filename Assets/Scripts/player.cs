@@ -69,6 +69,18 @@ public class player : MonoBehaviour
         //clamp max speed
         rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
 
+
+        //rotate player based on vertical speed
+        if (spriteRenderer.flipX == false)
+        {
+            float angleMultiplier = rigidBody.linearVelocity.y/7;
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f * angleMultiplier);
+
+        } else{
+            float angleMultiplier = -rigidBody.linearVelocity.y/7;
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f * angleMultiplier);
+        }
+
         decideAnimation();
     }
 
