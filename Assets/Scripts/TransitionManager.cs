@@ -2,6 +2,7 @@ using System.Collections;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem.iOS;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 /**
@@ -28,6 +29,7 @@ public class RoomTransitionManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     private CinemachineConfiner2D cinemachineConfiner2D;
     private PolygonCollider2D roomBoundsCollider;
+    private RoomCameraSettings roomCameraSettings;
 
     private string _pendingSpawnId;
     private bool _isTransitioning;
@@ -48,6 +50,39 @@ public class RoomTransitionManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        zoomCamera();
+    }
+
+    public void zoomCamera()
+    {
+        // Adjust camera settings here based on new room's RoomCameraSettings component
+        roomCameraSettings = GameObject.Find("RoomCameraSettings")?.GetComponent<RoomCameraSettings>();
+        if (roomCameraSettings != null)
+        {
+            int computedRefResX = roomCameraSettings.GetReferenceResolutionX();
+            int computedRefResY = roomCameraSettings.GetReferenceResolutionY();
+            virtualCamera.m_Lens.OrthographicSize = roomCameraSettings.GetOrthoSize();
+            // Assuming you have a PixelPerfectCamera component on the same GameObject as the virtual camera
+            PixelPerfectCamera ppc = Camera.main.GetComponent<PixelPerfectCamera>();
+            if (ppc != null)
+            {
+                ppc.refResolutionX = computedRefResX;
+                ppc.refResolutionY = computedRefResY;
+            }
+            else
+            {
+                Debug.LogWarning("RoomTransitionManager: No PixelPerfectCamera found on the main camera. Cannot apply reference resolution settings.");
+            }
+        }
+        cinemachineConfiner2D.InvalidateCache();
+    }
+    public void GoToRoom(string destinationSceneName)
+    {
+        GoToRoom(destinationSceneName, "default");
+    }
+
     public void GoToRoom(string destinationSceneName, string destinationSpawnId)
     {
         if (_isTransitioning) return;
@@ -62,6 +97,7 @@ public class RoomTransitionManager : MonoBehaviour
 
         // (Optional later) disable player input here
         // (Optional later) play fade-out here
+        
 
         AsyncOperation loadOp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
@@ -84,15 +120,10 @@ public class RoomTransitionManager : MonoBehaviour
         }
         cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
         cinemachineConfiner2D.InvalidateCache();
+        // Adjust camera settings here based on new room's RoomCameraSettings component
+        zoomCamera();
 
         PlacePlayerAtPendingSpawn();
-
-        // Adjust camera settings here based on new room's RoomCameraSettings component
-        RoomCameraSettings roomCameraSettings = GameObject.Find("RoomCameraSettings")?.GetComponent<RoomCameraSettings>();
-        if (roomCameraSettings != null)
-        {
-            virtualCamera.m_Lens.OrthographicSize = roomCameraSettings.GetOrthoSize();
-        }
 
         // (Optional later) play fade-in here
         // (Optional later) re-enable input here

@@ -5044,6 +5044,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 8379154893090023341, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_SortingOrder
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586159498610911341, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: orthoSize
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7714210687445073695, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
     - {fileID: 1310111825829972658, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
@@ -5268,6 +5276,10 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 969119874}
+    - target: {fileID: 2661149898807265086, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3257994002024148504, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5327,6 +5339,10 @@ PrefabInstance:
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.02451
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x

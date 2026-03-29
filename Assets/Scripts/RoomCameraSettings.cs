@@ -2,22 +2,42 @@ using UnityEngine;
 
 public class RoomCameraSettings : MonoBehaviour
 {
-    [SerializeField]
-    private float OrthoSize = 5;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Master Room Zoom")]
+    [Tooltip("Use 3 not 4")]
+    [SerializeField] private float orthoSize = 5f;
+
+    private int assetsPPU = 64;
+    private int baseRefResX = 1150;
+    private int baseRefResY = 640;
+
+
+    private int computedRefResX;
+    private int computedRefResY;
+    private void OnValidate()
     {
-        
+        // Keep sane values
+        if (assetsPPU <= 0) assetsPPU = 64;
+        if (baseRefResY <= 0) baseRefResY = 640;
+        if (baseRefResX <= 0) baseRefResX = 1150;
+        if (orthoSize < 0.1f) orthoSize = 0.1f;
+
+        RecomputeReferenceResolution();
+    }
+    private void RecomputeReferenceResolution()
+    {
+        // RefResY = 2 * PPU * OrthoSize
+        computedRefResY = Mathf.RoundToInt(2f * assetsPPU * orthoSize);
+
+        // Keep same aspect ratio as your baseline (1150/640)
+        float aspect = (float)baseRefResX / baseRefResY;
+        computedRefResX = Mathf.RoundToInt(computedRefResY * aspect);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Your original getter (still useful for debugging)
+    public float GetOrthoSize() => orthoSize;
 
-    public float GetOrthoSize()
-    {
-        return OrthoSize;
-    }
+    // New getters: what you actually feed into Pixel Perfect Camera
+    public int GetReferenceResolutionX() => computedRefResX;
+    public int GetReferenceResolutionY() => computedRefResY;
+    public int GetAssetsPPU() => assetsPPU;
 }
