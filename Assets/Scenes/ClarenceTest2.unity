@@ -2657,6 +2657,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6972981360836726570, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972981360836726570, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 7072978802185650344, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Name
       value: RoomRoot
@@ -2665,17 +2673,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawnpoint_Left_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8586159498610911341, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: orthoSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -8.9911785
+      value: -8.9398775
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 8.134838
+      value: 7.9638333
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
