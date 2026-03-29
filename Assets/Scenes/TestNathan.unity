@@ -131,7 +131,8 @@ GameObject:
   - component: {fileID: 163108430}
   - component: {fileID: 163108434}
   - component: {fileID: 163108433}
-  - component: {fileID: 163108432}
+  - component: {fileID: 163108436}
+  - component: {fileID: 163108435}
   m_Layer: 0
   m_Name: Enemy Fish Idle_0
   m_TagString: Untagged
@@ -210,24 +211,10 @@ Transform:
   m_LocalPosition: {x: -5.29, y: 3.99, z: 0}
   m_LocalScale: {x: 1.3622053, y: 0.9705712, z: 1.3622053}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1014694852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &163108432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163108429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5168a9beea3452885bc70ade034542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFish
-  bounceStrength: 1
-  enemyfishDamage: 1
-  speed: 0.05
 --- !u!58 &163108433
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -272,7 +259,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163108429}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -291,6 +278,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &163108435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163108429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd66fc9e3a8b4f55b5e6fe7df46d0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DistanceTraveledTracker
+  trackOnStart: 1
+  totalDistance: 0
+--- !u!114 &163108436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163108429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5168a9beea3452885bc70ade034542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFish
+  bounceStrength: 1
+  enemyfishDamage: 1
+  speed: 1.8
 --- !u!1 &170552607
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +444,52 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1014694851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014694852}
+  - component: {fileID: 1014694853}
+  m_Layer: 0
+  m_Name: DistanceTraveledTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014694852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014694851}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.8834088, y: -4.1109815, z: 0}
+  m_LocalScale: {x: 0.73410374, y: 1.0303211, z: 0.73410374}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 163108431}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1014694853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014694851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd66fc9e3a8b4f55b5e6fe7df46d0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DistanceTraveledTracker
+  trackOnStart: 1
+  totalDistance: 0
 --- !u!1001 &2001377664
 PrefabInstance:
   m_ObjectHideFlags: 0
