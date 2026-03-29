@@ -116,12 +116,12 @@ TextureImporter:
       name: Jaune 6_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 36
-        height: 56
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 452acfc2badbb434bb9e757a0cd2ec26
     internalID: 0
     vertices: []
     indices: 
