@@ -1,6 +1,7 @@
 //Written by Zane Pederson
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Attackable : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Attackable : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
-            //player died
+            SceneManager.LoadScene("level_1");
         } else
         {
             Destroy(gameObject);
