@@ -50,8 +50,10 @@ public class TailThwapAttack : MonoBehaviour
         //for each object in objectInTailThwap call their attacked method
         for (int i = 0; i < objectsInTailThwap.Count; i++)
         {
-            Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();;
-            victimScript.Attacked(thwapDamage);
+            Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();
+            if (victimScript != null){
+                victimScript.Attacked(thwapDamage);
+            }
         }
     }
 }

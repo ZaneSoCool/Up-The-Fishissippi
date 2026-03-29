@@ -87,6 +87,13 @@ public class RoomTransitionManager : MonoBehaviour
 
         PlacePlayerAtPendingSpawn();
 
+        // Adjust camera settings here based on new room's RoomCameraSettings component
+        RoomCameraSettings roomCameraSettings = GameObject.Find("RoomCameraSettings")?.GetComponent<RoomCameraSettings>();
+        if (roomCameraSettings != null)
+        {
+            virtualCamera.m_Lens.OrthographicSize = roomCameraSettings.GetOrthoSize();
+        }
+
         // (Optional later) play fade-in here
         // (Optional later) re-enable input here
 
