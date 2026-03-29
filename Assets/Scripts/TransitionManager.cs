@@ -39,7 +39,7 @@ public class RoomTransitionManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        Debug.Log(virtualCamera);
         Instance = this;
         cinemachineConfiner2D = virtualCamera.GetComponent<CinemachineConfiner2D>();
         if (cinemachineConfiner2D == null)
@@ -85,6 +85,7 @@ public class RoomTransitionManager : MonoBehaviour
         cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
         cinemachineConfiner2D.InvalidateCache();
 
+        Debug.Log("UpdatingPlayerPos");
         PlacePlayerAtPendingSpawn();
 
         // Adjust camera settings here based on new room's RoomCameraSettings component
@@ -109,7 +110,7 @@ public class RoomTransitionManager : MonoBehaviour
         }
 
         // Find all SpawnPoint components in the loaded scene
-        Spawnpoint[] spawnPoints = Object.FindObjectsByType<Spawnpoint>(FindObjectsSortMode.None);
+        ExitTrigger[] spawnPoints = Object.FindObjectsByType<ExitTrigger>(FindObjectsSortMode.None);
 
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
@@ -117,9 +118,9 @@ public class RoomTransitionManager : MonoBehaviour
             return;
         }
 
-        Spawnpoint matchedSpawn = null;
+        ExitTrigger matchedSpawn = null;
 
-        foreach (Spawnpoint sp in spawnPoints)
+        foreach (ExitTrigger sp in spawnPoints)
         {
             if (sp.SpawnId == _pendingSpawnId)
             {
@@ -134,6 +135,7 @@ public class RoomTransitionManager : MonoBehaviour
             matchedSpawn = spawnPoints[0];
         }
 
+        matchedSpawn._spawnedInside = true;
         player.position = matchedSpawn.transform.position;
 
         if (zeroPlayerVelocityOnSpawn)
