@@ -7,18 +7,18 @@ public class RoomCameraSettings : MonoBehaviour
     [SerializeField] private float orthoSize = 5f;
 
     private int assetsPPU = 64;
-    private int baseRefResX = 1150;
+    private int baseRefResX = 1138;
     private int baseRefResY = 640;
 
-
-    private int computedRefResX;
-    private int computedRefResY;
+    
+    [SerializeField]private int computedRefResX;
+    [SerializeField]private int computedRefResY;
     private void OnValidate()
     {
         // Keep sane values
         if (assetsPPU <= 0) assetsPPU = 64;
         if (baseRefResY <= 0) baseRefResY = 640;
-        if (baseRefResX <= 0) baseRefResX = 1150;
+        if (baseRefResX <= 0) baseRefResX = 1138;
         if (orthoSize < 0.1f) orthoSize = 0.1f;
 
         RecomputeReferenceResolution();

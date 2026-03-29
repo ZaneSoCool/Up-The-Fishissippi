@@ -53,6 +53,8 @@ public class RoomTransitionManager : MonoBehaviour
     private void Start()
     {
         zoomCamera();
+        StartCoroutine(DoThingNextFrame()); // Wait a frame to ensure everything is initialized
+        cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
     }
 
     public void zoomCamera()
@@ -76,7 +78,6 @@ public class RoomTransitionManager : MonoBehaviour
                 Debug.LogWarning("RoomTransitionManager: No PixelPerfectCamera found on the main camera. Cannot apply reference resolution settings.");
             }
         }
-        cinemachineConfiner2D.InvalidateCache();
     }
     public void GoToRoom(string destinationSceneName)
     {
@@ -91,6 +92,10 @@ public class RoomTransitionManager : MonoBehaviour
         StartCoroutine(LoadRoomRoutine(destinationSceneName));
     }
 
+    private IEnumerator DoThingNextFrame()
+    {
+        yield return null; // wait 1 frame
+    }
     private IEnumerator LoadRoomRoutine(string sceneName)
     {
         _isTransitioning = true;
@@ -122,6 +127,8 @@ public class RoomTransitionManager : MonoBehaviour
         cinemachineConfiner2D.InvalidateCache();
         // Adjust camera settings here based on new room's RoomCameraSettings component
         zoomCamera();
+        yield return null; // Wait a frame for the camera to update
+        cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
 
         PlacePlayerAtPendingSpawn();
 
