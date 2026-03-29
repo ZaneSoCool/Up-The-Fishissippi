@@ -5,7 +5,6 @@ public class EnemyFish : MonoBehaviour
     [SerializeField]
     float bounceStrength = 1.0f;
 
-    [SerializeField]
     int enemyfishDamage = 1;
 
     Rigidbody2D playerRB;
@@ -13,29 +12,36 @@ public class EnemyFish : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
+    Transform pointA;
+
+    [SerializeField]
+    Transform pointB;
+
+    [SerializeField]
     float speed = 0.2f;
 
     float reverse = -1.0f;
 
     Vector2 direction;
+    Transform targetPoint;
 
-    DistanceTraveledTracker distanceTracker;
+    //DistanceTraveledTracker distanceTracker;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        distanceTracker = GetComponent<DistanceTraveledTracker>();
-        direction = Vector2.down;
+        targetPoint = pointB;
+        direction = (pointB.position - transform.position).normalized;
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-        if (distanceTracker.TotalDistance >= 8.0f)
+        if (Vector2.Distance(rb.position, targetPoint.position) < 0.1f)
         {
-            direction *= reverse;
-            distanceTracker.ResetDistance();
+            targetPoint = targetPoint == pointB ? pointA : pointB;
+            direction = ((Vector2)targetPoint.position - rb.position).normalized;
         }
     }
 
