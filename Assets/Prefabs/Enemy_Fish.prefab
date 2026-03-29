@@ -58,8 +58,7 @@ GameObject:
   - component: {fileID: 2073720447910864215}
   - component: {fileID: 4856571450155218292}
   - component: {fileID: 1621594841558899248}
-  - component: {fileID: 5133039958874439843}
-  - component: {fileID: 1799313143783931952}
+  - component: {fileID: 6295751589070583065}
   m_Layer: 0
   m_Name: Enemy_Fish
   m_TagString: Untagged
@@ -205,7 +204,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.30500007
---- !u!114 &5133039958874439843
+--- !u!114 &6295751589070583065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,18 +218,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFish
   bounceStrength: 1
   enemyfishDamage: 1
-  speed: 1.8
---- !u!114 &1799313143783931952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4947752995994566128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd66fc9e3a8b4f55b5e6fe7df46d0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DistanceTraveledTracker
-  trackOnStart: 1
-  totalDistance: 0
+  speed: 0.2
