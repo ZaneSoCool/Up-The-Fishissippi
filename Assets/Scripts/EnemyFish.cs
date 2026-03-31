@@ -18,9 +18,7 @@ public class EnemyFish : MonoBehaviour
     Transform pointB;
 
     [SerializeField]
-    float speed = 0.2f;
-
-    float reverse = -1.0f;
+    float speed = 1.5f;
 
     Vector2 direction;
     Transform targetPoint;
