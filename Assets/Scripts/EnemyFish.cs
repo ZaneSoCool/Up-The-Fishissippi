@@ -40,7 +40,15 @@ public class EnemyFish : MonoBehaviour
         {
             targetPoint = targetPoint == pointB ? pointA : pointB;
             direction = ((Vector2)targetPoint.position - rb.position).normalized;
+            Flip();
         }
+    }
+
+    void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1f;
+        transform.localScale = scale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
