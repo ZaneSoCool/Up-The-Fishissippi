@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1310111825829972658, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: SpawnId
-      value: Exit_Right_5
+      value: Right_1
       objectReference: {fileID: 0}
     - target: {fileID: 1310111825829972658, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: _spawnedInside
@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1310111825829972658, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: destinationSpawnId
-      value: Exit_Top_Left_9
+      value: Left_1
       objectReference: {fileID: 0}
     - target: {fileID: 1310111825829972658, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: destinationSceneName
-      value: Exit_Right_5
+      value: level_9
       objectReference: {fileID: 0}
     - target: {fileID: 1605932434314118318, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Size.x
@@ -4222,6 +4222,22 @@ PrefabInstance:
     - target: {fileID: 1605932434314118318, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Tiles.Array.data[190].second.m_TileObjectToInstantiateIndex
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902275765945264214, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0949936
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902275765945264214, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Size.y
+      value: 2.7787094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902275765945264214, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0836525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902275765945264214, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5082035
       objectReference: {fileID: 0}
     - target: {fileID: 3968241271249541621, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -37233,7 +37249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5674142669117003414, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Name
-      value: Exit_Right_1
+      value: Right_1
       objectReference: {fileID: 0}
     - target: {fileID: 7072978802185650344, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Name
@@ -37315,7 +37331,7 @@ GameObject:
   - component: {fileID: 1002070395}
   - component: {fileID: 1002070394}
   m_Layer: 0
-  m_Name: Exit_Top_1
+  m_Name: Top_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -37348,9 +37364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
-  destinationSceneName: 
-  destinationSpawnId: 
-  SpawnId: 
+  destinationSceneName: level_4
+  destinationSpawnId: Bottom_1
+  SpawnId: Top_1
   _spawnedInside: 0
 --- !u!61 &1002070395
 BoxCollider2D:
@@ -37386,7 +37402,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2541015, y: -0.06352544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -37396,7 +37412,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 6.34434, y: 1.1270509}
   m_EdgeRadius: 0
 --- !u!1001 &1212655432
 PrefabInstance:
@@ -37550,7 +37566,7 @@ GameObject:
   - component: {fileID: 1288900315}
   - component: {fileID: 1288900314}
   m_Layer: 0
-  m_Name: Exit_Left_1
+  m_Name: Left_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -37583,9 +37599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
-  destinationSceneName: 
-  destinationSpawnId: 
-  SpawnId: 
+  destinationSceneName: level_7
+  destinationSpawnId: Right_1
+  SpawnId: Left_1
   _spawnedInside: 0
 --- !u!61 &1288900315
 BoxCollider2D:
@@ -37621,7 +37637,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.19057703, y: 0.0635252}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -37631,7 +37647,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 2.1516619, y: 2.9057636}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
