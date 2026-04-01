@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v \"^d.*\\\\.$\")",
+      "Bash(wc -l /mnt/d/Everything/School/Macalester/Comp325_Videogames/Up-The-Fishissippi/Assets/Scripts/*.cs)"
+    ]
+  }
+}
