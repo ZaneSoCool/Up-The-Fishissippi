@@ -227,6 +227,26 @@ MonoBehaviour:
     hazardPrefab: {fileID: 3878875523392299384, guid: a193bc5d4ffeb4bc989eb70d15f8595e, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
+  enemyFishPrefab: {fileID: 4947752995994566128, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
+  fishColorPairs:
+  - colorName: Red
+    startTile: {fileID: 11400000, guid: 6aa09b43fe656454da75943ff07d8b79, type: 2}
+    endTile: {fileID: 11400000, guid: 4de28545757786840a9ea9f3888cdc45, type: 2}
+  - colorName: Orange
+    startTile: {fileID: 11400000, guid: 2cf5c2ec9a3c9f9449dc002614da51a9, type: 2}
+    endTile: {fileID: 11400000, guid: 19a195621042c8a4bb04bf2285009cd6, type: 2}
+  - colorName: Yellow
+    startTile: {fileID: 11400000, guid: 4660be1bcf36e3b4db43f1fe5f3d5593, type: 2}
+    endTile: {fileID: 11400000, guid: 8570db26b8632c444921578bedee0556, type: 2}
+  - colorName: Green
+    startTile: {fileID: 11400000, guid: 1afb86ca5e1bf244c90cbabf3ac5bad1, type: 2}
+    endTile: {fileID: 11400000, guid: 3eabe5fe48a1c964fb86a65b3be0f5a7, type: 2}
+  - colorName: Blue
+    startTile: {fileID: 11400000, guid: ac99204efb47bca49a1a5134925b0ebb, type: 2}
+    endTile: {fileID: 11400000, guid: dfa125e5c3b40374caa4c95ee746c7ea, type: 2}
+  - colorName: Purple
+    startTile: {fileID: 11400000, guid: 6afc683388db4cd44b0b1f39ce80353b, type: 2}
+    endTile: {fileID: 11400000, guid: 9bfc653536f78ea4790b784122a8258b, type: 2}
 --- !u!1 &2342981973114781971
 GameObject:
   m_ObjectHideFlags: 0
