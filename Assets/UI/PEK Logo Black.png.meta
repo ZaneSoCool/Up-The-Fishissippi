@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 868a6b4a8110be74790d6496dae7811e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4364922128856850439
+    second: PEK Logo Black_0
+  - first:
+      213: 4408397120071090424
+    second: PEK Logo Black_1
+  - first:
+      213: 6583590206768089911
+    second: PEK Logo Black_2
+  - first:
+      213: 5335043785851597229
+    second: PEK Logo Black_3
+  - first:
+      213: 7437189203060470421
+    second: PEK Logo Black_4
+  - first:
+      213: -3685212269099904248
+    second: PEK Logo Black_5
+  - first:
+      213: 3319908186497114889
+    second: PEK Logo Black_6
+  - first:
+      213: 7940075633081080797
+    second: PEK Logo Black_7
+  - first:
+      213: 4671184482555147251
+    second: PEK Logo Black_8
+  - first:
+      213: -3633091854537310710
+    second: PEK Logo Black_9
+  - first:
+      213: 7809768081512242867
+    second: PEK Logo Black_10
+  - first:
+      213: -6778921046232786917
+    second: PEK Logo Black_11
+  - first:
+      213: 1013637464869197064
+    second: PEK Logo Black_12
+  - first:
+      213: -8355654397879142315
+    second: PEK Logo Black_13
+  - first:
+      213: -3181586770196278531
+    second: PEK Logo Black_14
+  - first:
+      213: 708055253487021329
+    second: PEK Logo Black_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PEK Logo Black_0
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 1665
+        width: 81
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ffde3d337eac63c0800000000000000
+      internalID: -4364922128856850439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_1
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 1665
+        width: 76
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f041b2f2d5cd2d30800000000000000
+      internalID: 4408397120071090424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_2
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 1665
+        width: 82
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b0725696c9d5b50800000000000000
+      internalID: 6583590206768089911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_3
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 1662
+        width: 83
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1f6d49e02e90a40800000000000000
+      internalID: 5335043785851597229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_4
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1662
+        width: 83
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5923acf1d24363760800000000000000
+      internalID: 7437189203060470421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_5
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1665
+        width: 73
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803936267fe7bdcc0800000000000000
+      internalID: -3685212269099904248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_6
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 1665
+        width: 82
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903621fe7eea21e20800000000000000
+      internalID: 3319908186497114889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_7
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1474
+        width: 77
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb588f48b0d03e60800000000000000
+      internalID: 7940075633081080797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_8
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1474
+        width: 96
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f33403b98163d040800000000000000
+      internalID: 4671184482555147251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_9
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1474
+        width: 86
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e30fd053aa49dc0800000000000000
+      internalID: -3633091854537310710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_10
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 457
+        width: 775
+        height: 981
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be98b431bed16c60800000000000000
+      internalID: 7809768081512242867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_11
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 262
+        width: 111
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1810e6893f6ce1a0800000000000000
+      internalID: -6778921046232786917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_12
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 259
+        width: 105
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8055e8067e9211e00800000000000000
+      internalID: 1013637464869197064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_13
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 262
+        width: 116
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558bb746890ca0c80800000000000000
+      internalID: -8355654397879142315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_14
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 262
+        width: 93
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df25e5470bbb8d3d0800000000000000
+      internalID: -3181586770196278531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEK Logo Black_15
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 262
+        width: 117
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d6179608483d900800000000000000
+      internalID: 708055253487021329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PEK Logo Black_0: -4364922128856850439
+      PEK Logo Black_1: 4408397120071090424
+      PEK Logo Black_10: 7809768081512242867
+      PEK Logo Black_11: -6778921046232786917
+      PEK Logo Black_12: 1013637464869197064
+      PEK Logo Black_13: -8355654397879142315
+      PEK Logo Black_14: -3181586770196278531
+      PEK Logo Black_15: 708055253487021329
+      PEK Logo Black_2: 6583590206768089911
+      PEK Logo Black_3: 5335043785851597229
+      PEK Logo Black_4: 7437189203060470421
+      PEK Logo Black_5: -3685212269099904248
+      PEK Logo Black_6: 3319908186497114889
+      PEK Logo Black_7: 7940075633081080797
+      PEK Logo Black_8: 4671184482555147251
+      PEK Logo Black_9: -3633091854537310710
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
