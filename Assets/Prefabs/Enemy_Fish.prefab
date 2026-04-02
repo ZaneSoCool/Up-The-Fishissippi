@@ -173,7 +173,7 @@ MonoBehaviour:
   bounceStrength: 1
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  speed: 2
+  speed: 3
   idleSprite: {fileID: -7274487417913809384, guid: e8ce44c5a32904f43874fa96174caaee, type: 3}
   swim1Sprite: {fileID: 3706437089365530149, guid: 128dda30482624474998ed7601c1ffd4, type: 3}
   swim2Sprite: {fileID: 7472860607431853012, guid: 59ce51ea8b95340b58194efbf8609e5d, type: 3}
