@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6295751589070583065, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
       propertyPath: speed
-      value: 1.4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6295751589070583065, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
       propertyPath: pointA
@@ -358,6 +358,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4661548151347116085, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
+    - {fileID: 961609708796744316, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
+    - {fileID: 1426359068635260339, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}

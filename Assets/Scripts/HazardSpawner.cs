@@ -21,8 +21,20 @@ public class HazardSpawner : MonoBehaviour
     [SerializeField] private Tilemap hazardMarkerTilemap;
     [SerializeField] private Transform hazardsParent;
 
+    [System.Serializable]
+    public class FishColorPair
+    {
+        public string colorName;    // e.g. "Red" — just for readability in Inspector
+        public TileBase startTile;  // painted where the fish spawns (pointA)
+        public TileBase endTile;    // painted where the fish turns around (pointB)
+    }
+
     [Header("Marker -> Prefab mappings")]
     [SerializeField] private List<HazardMapping> mappings = new List<HazardMapping>();
+
+    [Header("Enemy Fish")]
+    [SerializeField] private GameObject enemyFishPrefab;
+    [SerializeField] private List<FishColorPair> fishColorPairs = new List<FishColorPair>();
 
     private void Start()
     {
@@ -73,6 +85,86 @@ public class HazardSpawner : MonoBehaviour
             {
                 hazardMarkerTilemap.SetTile(cellPos, null);
             }
+        }
+
+        SpawnFish();
+    }
+
+    private void SpawnFish()
+    {
+        if (enemyFishPrefab == null || fishColorPairs.Count == 0) return;
+
+        // Collect all start/end tile world positions keyed by tile asset
+        var startPositions = new Dictionary<TileBase, Vector3>();
+        var endPositions = new Dictionary<TileBase, Vector3>();
+
+        hazardMarkerTilemap.CompressBounds();
+        BoundsInt bounds = hazardMarkerTilemap.cellBounds;
+
+        // Build sets of which tiles are fish markers so we can scan once
+        var startTiles = new HashSet<TileBase>();
+        var endTiles = new HashSet<TileBase>();
+        foreach (var pair in fishColorPairs)
+        {
+            if (pair.startTile != null) startTiles.Add(pair.startTile);
+            if (pair.endTile != null) endTiles.Add(pair.endTile);
+        }
+
+        foreach (Vector3Int cellPos in bounds.allPositionsWithin)
+        {
+            TileBase tile = hazardMarkerTilemap.GetTile(cellPos);
+            if (tile == null) continue;
+
+            Vector3 worldPos = hazardMarkerTilemap.GetCellCenterWorld(cellPos);
+
+            if (startTiles.Contains(tile))
+            {
+                if (startPositions.ContainsKey(tile))
+                    Debug.LogWarning($"HazardSpawner: duplicate start tile '{tile.name}'. Only one fish per color is supported.");
+                else
+                    startPositions[tile] = worldPos;
+                hazardMarkerTilemap.SetTile(cellPos, null);
+            }
+            else if (endTiles.Contains(tile))
+            {
+                if (endPositions.ContainsKey(tile))
+                    Debug.LogWarning($"HazardSpawner: duplicate end tile '{tile.name}'. Only one fish per color is supported.");
+                else
+                    endPositions[tile] = worldPos;
+                hazardMarkerTilemap.SetTile(cellPos, null);
+            }
+        }
+
+        foreach (var pair in fishColorPairs)
+        {
+            if (pair.startTile == null || pair.endTile == null) continue;
+
+            bool hasStart = startPositions.TryGetValue(pair.startTile, out Vector3 startPos);
+            bool hasEnd = endPositions.TryGetValue(pair.endTile, out Vector3 endPos);
+
+            if (!hasStart && !hasEnd) continue; // color not used in this room
+
+            if (!hasStart || !hasEnd)
+            {
+                Debug.LogWarning($"HazardSpawner: fish color '{pair.colorName}' is missing its {(!hasStart ? "start" : "end")} tile.");
+                continue;
+            }
+
+            // Spawn fish at the start position
+            GameObject fish = Instantiate(enemyFishPrefab, startPos, Quaternion.identity, hazardsParent);
+
+            // Waypoints are siblings of the fish, not children — they must stay fixed in world space
+            GameObject pointAObj = new GameObject("PointA");
+            pointAObj.transform.position = startPos;
+            pointAObj.transform.SetParent(hazardsParent);
+
+            GameObject pointBObj = new GameObject("PointB");
+            pointBObj.transform.position = endPos;
+            pointBObj.transform.SetParent(hazardsParent);
+
+            EnemyFish fishScript = fish.GetComponent<EnemyFish>();
+            if (fishScript != null)
+                fishScript.Initialize(pointAObj.transform, pointBObj.transform);
         }
     }
 }

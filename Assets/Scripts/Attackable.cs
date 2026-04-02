@@ -22,7 +22,7 @@ public class Attackable : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("level_1");
+            RoomTransitionManager.Instance.RespawnAtDefault();
         } else
         {
             Destroy(gameObject);
