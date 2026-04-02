@@ -224,7 +224,17 @@ MonoBehaviour:
     clearMarkerAfterSpawn: 1
   - name: PurpleUrchin
     markerTile: {fileID: 11400000, guid: 300c3643d364551418bbb20524cc219c, type: 2}
+    hazardPrefab: {fileID: 1822745313081779843, guid: fe09cca61929448fc8e1dd2bfea1c5d0, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
+  - name: PinkUrchin
+    markerTile: {fileID: 11400000, guid: e29c0cc05a78bb94aaf4104e40635b09, type: 2}
     hazardPrefab: {fileID: 3878875523392299384, guid: a193bc5d4ffeb4bc989eb70d15f8595e, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
+  - name: BlueUrchin
+    markerTile: {fileID: 11400000, guid: 6308f4689faf5f64c8d7a2a1e086152d, type: 2}
+    hazardPrefab: {fileID: 8552550768399521161, guid: 352bf3e6bf4764321b5a282fa968a4d3, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
   enemyFishPrefab: {fileID: 4947752995994566128, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
