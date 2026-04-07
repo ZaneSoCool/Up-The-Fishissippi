@@ -14,6 +14,8 @@ public class Attackable : MonoBehaviour
     public float flashDuration = 0.1f;
     private Renderer rend;
 
+    private int maxHealth;
+
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -33,6 +35,8 @@ public class Attackable : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
+            health = 5; //TODO: IF CHANGE PLAYER HEALTH CHANGE THIS TOO
+            rend.material.color = rend.material.color;
             RoomTransitionManager.Instance.RespawnAtDefault();
         } else
         {

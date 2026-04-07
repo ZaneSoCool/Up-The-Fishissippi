@@ -46,9 +46,11 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moveAction.ReadValue<Vector2>() != new Vector2(0,0))
+        Vector2 direction = moveAction.ReadValue<Vector2>();
+
+        if (direction != new Vector2(0,0))
         {   //move player
-            rigidBody.linearVelocity += acceleration * moveAction.ReadValue<Vector2>() * Time.deltaTime;
+            rigidBody.linearVelocity += acceleration * direction * Time.deltaTime;
 
             if (rigidBody.linearVelocity.x > 0)
             {
@@ -71,14 +73,16 @@ public class player : MonoBehaviour
 
 
         //rotate player based on vertical speed
-        if (spriteRenderer.flipX == false)
-        {
-            float angleMultiplier = rigidBody.linearVelocity.y/7;
-            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f * angleMultiplier);
+        if (rigidBody.linearVelocity != new Vector2(0,0)){
+            float angle = Mathf.Atan2(rigidBody.linearVelocity.y, rigidBody.linearVelocity.x) * Mathf.Rad2Deg;
+            if (spriteRenderer.flipX == false)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        } else{
-            float angleMultiplier = -rigidBody.linearVelocity.y/7;
-            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f * angleMultiplier);
+            } else{
+                angle -= 180;
+                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
         }
 
         decideAnimation();
