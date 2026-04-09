@@ -9,6 +9,7 @@ public class TailThwapAttack : MonoBehaviour
     //setup references
     InputAction tailThwapAction;
     Animator anim;
+    player playerScript;
 
     [SerializeField]
     int thwapDamage = 5;
@@ -19,9 +20,10 @@ public class TailThwapAttack : MonoBehaviour
         //find references
         tailThwapAction = InputSystem.actions.FindAction("Attack");
         anim = transform.parent.gameObject.GetComponent<Animator>();
+        playerScript = transform.parent.GetComponent<player>();
 
         //call tail thwap if action is performed
-        tailThwapAction.performed += OnTailThwapPerformed; 
+        tailThwapAction.performed += OnTailThwapPerformed;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -42,9 +44,10 @@ public class TailThwapAttack : MonoBehaviour
 
     private void OnTailThwapPerformed(InputAction.CallbackContext context)
     {
+        if (playerScript == null) return;
+
         //play tail thwap animation
-        player player = transform.parent.GetComponent<player>();
-        player.isDoingSpecialAnim = true;
+        playerScript.isDoingSpecialAnim = true;
         anim.Play("TailThwap");
        
         //for each object in objectInTailThwap call their attacked method

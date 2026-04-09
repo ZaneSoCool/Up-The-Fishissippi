@@ -77,7 +77,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &2398945425388796802
 MonoBehaviour:
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 744058672526740035}
   - component: {fileID: 2685477226718106783}
   - component: {fileID: -2949073202235639812}
+  - component: {fileID: 8493328302543239727}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -286,11 +287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d365dee83668c4ea187f30a251e1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  maxSpeed: 7
+  maxSpeed: 5
   acceleration: 30
   friction: 10
   maxPlayerHealth: 5
   playerHealth: 0
+  isDoingSpecialAnim: 0
 --- !u!114 &-2949073202235639812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,3 +306,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attackable
   health: 5
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
+--- !u!114 &8493328302543239727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863730465372293458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8322c2efb66572444a0e7c5b793411f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TailThwapAttack
+  thwapDamage: 5

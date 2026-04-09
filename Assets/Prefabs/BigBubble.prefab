@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8352396773935411190}
   - component: {fileID: 6366895676859735861}
   - component: {fileID: 4288005476569231514}
+  - component: {fileID: 6217905303473876123}
   m_Layer: 0
   m_Name: BigBubble
   m_TagString: Attackable
@@ -170,3 +171,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigBubble
   bounceStrength: 10
+--- !u!114 &6217905303473876123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610957700187031567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ef99095e636464cbaf9e2a8ba0df13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attackable
+  health: 6
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
