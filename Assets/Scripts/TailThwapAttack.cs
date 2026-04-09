@@ -9,6 +9,7 @@ public class TailThwapAttack : MonoBehaviour
     //setup references
     InputAction tailThwapAction;
     Animator anim;
+    Animator effect_anim;
     player playerScript;
 
     [SerializeField]
@@ -20,6 +21,7 @@ public class TailThwapAttack : MonoBehaviour
         //find references
         tailThwapAction = InputSystem.actions.FindAction("Attack");
         anim = transform.parent.gameObject.GetComponent<Animator>();
+        effect_anim = gameObject.GetComponent<Animator>();
         playerScript = transform.parent.GetComponent<player>();
 
         //call tail thwap if action is performed
@@ -49,6 +51,7 @@ public class TailThwapAttack : MonoBehaviour
         //play tail thwap animation
         playerScript.isDoingSpecialAnim = true;
         anim.Play("TailThwap");
+        effect_anim.Play("TailThwapWave");
        
         //for each object in objectInTailThwap call their attacked method
         for (int i = 0; i < objectsInTailThwap.Count; i++)
@@ -58,5 +61,11 @@ public class TailThwapAttack : MonoBehaviour
                 victimScript.Attacked(thwapDamage);
             }
         }
+
+    }
+
+    public void TailThwapWaveAnimEnded()
+    {
+        effect_anim.Play("TailThwapWaveIdle");
     }
 }
