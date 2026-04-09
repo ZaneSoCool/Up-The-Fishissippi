@@ -33,6 +33,7 @@ public class player : MonoBehaviour
 
     //progression booleans
     public bool hasTailThwap = false;
+    public bool hasSkullBash = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -111,5 +112,11 @@ public class player : MonoBehaviour
     public void resetAnimation() //called when abnormal player animation finishes
     {
         isDoingSpecialAnim = false;
+    }
+
+    public void OnBashAnimEnded()
+    {
+        SkullBash skullBashScript = transform.Find("SkullBashHitbox").GetComponent<SkullBash>();
+        skullBashScript.isSkullBashing = false;
     }
 }
