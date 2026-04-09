@@ -116,12 +116,12 @@ TextureImporter:
       name: Seaweed L1_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 55
-        height: 163
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.166667}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
