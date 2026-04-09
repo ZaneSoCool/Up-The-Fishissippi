@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     BoxCollider2D tailThwapHitbox;
+    SpriteRenderer tailThwapSprite;
     
     //Health variables
     [SerializeField]
@@ -28,8 +29,11 @@ public class player : MonoBehaviour
 
     //Wether player is currently doing an animation outside of standard movement
     public bool isDoingSpecialAnim = false;
-
     public bool inputEnabled = true;
+
+    //progression booleans
+    public bool hasTailThwap = false;
+    public bool hasSkullBash = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +43,7 @@ public class player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         spriteRenderer = GetComponent<SpriteRenderer>();
         tailThwapHitbox = transform.Find("TailThwapHitbox").gameObject.GetComponent<BoxCollider2D>();
+        tailThwapSprite = transform.Find("TailThwapHitbox").gameObject.GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
         //setup player health
@@ -57,12 +62,12 @@ public class player : MonoBehaviour
             if (rigidBody.linearVelocity.x > 0)
             {
                 spriteRenderer.flipX = false;
-                tailThwapHitbox.offset = new Vector2(0.8f, 0.0f); //flip tail thwap hitbox
+                tailThwapSprite.flipX = false;
 
             } else if (rigidBody.linearVelocity.x < 0)
             {
                 spriteRenderer.flipX = true;
-                tailThwapHitbox.offset = new Vector2(-0.8f, 0.0f); //flip tail thwap hitbox
+                tailThwapSprite.flipX = true;
             }
 
         }  else
@@ -80,10 +85,12 @@ public class player : MonoBehaviour
             if (spriteRenderer.flipX == false)
             {
                 gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                tailThwapHitbox.transform.localPosition = new Vector2(1f, 0f);
 
             } else{
                 angle -= 180;
                 gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                tailThwapHitbox.transform.localPosition = new Vector2(-1f, 0f);
             }
         }
 
@@ -105,5 +112,11 @@ public class player : MonoBehaviour
     public void resetAnimation() //called when abnormal player animation finishes
     {
         isDoingSpecialAnim = false;
+    }
+
+    public void OnBashAnimEnded()
+    {
+        SkullBash skullBashScript = transform.Find("SkullBashHitbox").GetComponent<SkullBash>();
+        skullBashScript.isSkullBashing = false;
     }
 }

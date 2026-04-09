@@ -5147,6 +5147,118 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Tiles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Tiles.Array.data[0].first.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Tiles.Array.data[0].first.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 36fe505c103734749add9707110edd5a, type: 2}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 1505458450679062592, guid: bf4d646376131004698b9c6312a82ee7, type: 3}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e00
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e02
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e03
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e11
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e12
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e13
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e20
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e22
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e23
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e30
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e32
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_Data.e33
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileMatrixArray.Array.data[0].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_AllTileFlags
+      value: 1073741825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_TileObjectToInstantiateIndex
+      value: 65535
+      objectReference: {fileID: 0}
     - target: {fileID: 8379154893090023341, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_SortingOrder
       value: -100
