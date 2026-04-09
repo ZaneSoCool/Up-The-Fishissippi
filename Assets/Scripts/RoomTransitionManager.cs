@@ -27,6 +27,11 @@ public class RoomTransitionManager : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
+    [Header("Fade")]
+    [SerializeField] private CanvasGroup fadePanel;
+    [SerializeField] private float normalFadeDuration = 0.3f;
+    [SerializeField] private float deathFadeDuration = 1.0f;
+
     [Header("Default Spawn Settings")]
     [SerializeField] private string defaultScene = "level_1";
     // Change these values in the Inspector or hardcode them here to fit your starting room
@@ -35,8 +40,21 @@ public class RoomTransitionManager : MonoBehaviour
     private PolygonCollider2D roomBoundsCollider;
     private RoomCameraSettings roomCameraSettings;
 
+    private player _playerScript;
     private string _pendingSpawnId;
     private bool _isTransitioning;
+
+    // Checkpoint state (persists across scenes)
+    private bool _hasCheckpoint = false;
+    private string _checkpointScene;
+    private Vector3 _checkpointPosition;
+
+    public void SetCheckpoint(string scene, Vector3 position)
+    {
+        _hasCheckpoint = true;
+        _checkpointScene = scene;
+        _checkpointPosition = position;
+    }
 
     private void Awake()
     {
@@ -47,6 +65,7 @@ public class RoomTransitionManager : MonoBehaviour
         }
         Debug.Log(virtualCamera);
         Instance = this;
+        _playerScript = player.GetComponent<player>();
         cinemachineConfiner2D = virtualCamera.GetComponent<CinemachineConfiner2D>();
         if (cinemachineConfiner2D == null)
         {
@@ -93,7 +112,7 @@ public class RoomTransitionManager : MonoBehaviour
         if (_isTransitioning) return;
 
         _pendingSpawnId = destinationSpawnId;
-        StartCoroutine(LoadRoomRoutine(destinationSceneName));
+        StartCoroutine(LoadRoomRoutine(destinationSceneName, normalFadeDuration));
     }
 
     //Call this when the player dies
@@ -101,22 +120,57 @@ public class RoomTransitionManager : MonoBehaviour
     {
         if (_isTransitioning) return;
 
+        if (_hasCheckpoint)
+        {
+            _pendingSpawnId = "CheckpointRespawn";
+            StartCoroutine(LoadRoomRoutine(_checkpointScene, deathFadeDuration));
+            return;
+        }
+
         // Use a specific keyword to tell the spawner to use the hardcoded coordinates
-        _pendingSpawnId = "RespawnDefault"; 
-        StartCoroutine(LoadRoomRoutine(defaultScene));
+        _pendingSpawnId = "RespawnDefault";
+        StartCoroutine(LoadRoomRoutine(defaultScene, deathFadeDuration));
     }
 
     private IEnumerator DoThingNextFrame()
     {
         yield return null; // wait 1 frame
     }
-    private IEnumerator LoadRoomRoutine(string sceneName)
+
+    private IEnumerator FadeToBlack(float duration)
+    {
+        if (fadePanel == null) yield break;
+        fadePanel.alpha = 0f;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fadePanel.alpha = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+        fadePanel.alpha = 1f;
+    }
+
+    private IEnumerator FadeFromBlack(float duration)
+    {
+        if (fadePanel == null) yield break;
+        fadePanel.alpha = 1f;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fadePanel.alpha = 1f - Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+        fadePanel.alpha = 0f;
+    }
+
+    private IEnumerator LoadRoomRoutine(string sceneName, float fadeDuration)
     {
         _isTransitioning = true;
+        if (_playerScript != null) _playerScript.inputEnabled = false;
 
-        // (Optional later) disable player input here
-        // (Optional later) play fade-out here
-        
+        yield return StartCoroutine(FadeToBlack(fadeDuration));
 
         AsyncOperation loadOp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
 
@@ -134,22 +188,22 @@ public class RoomTransitionManager : MonoBehaviour
         if (roomBoundsCollider == null)
         {
             Debug.LogError("RoomTransitionManager: No GameObject named 'RoomBounds' with a PolygonCollider2D found in the loaded scene.");
+            yield return StartCoroutine(FadeFromBlack(fadeDuration));
+            if (_playerScript != null) _playerScript.inputEnabled = true;
             _isTransitioning = false;
             yield break;
         }
         cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
         cinemachineConfiner2D.InvalidateCache();
-        // Adjust camera settings here based on new room's RoomCameraSettings component
         zoomCamera();
         yield return null; // Wait a frame for the camera to update
         cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
 
-        Debug.Log("UpdatingPlayerPos");
         PlacePlayerAtPendingSpawn();
 
-        // (Optional later) play fade-in here
-        // (Optional later) re-enable input here
+        yield return StartCoroutine(FadeFromBlack(fadeDuration));
 
+        if (_playerScript != null) _playerScript.inputEnabled = true;
         _isTransitioning = false;
     }
 
@@ -161,7 +215,15 @@ public class RoomTransitionManager : MonoBehaviour
             return;
         }
 
-        // --- NEW: Intercept the hardcoded default spawn ---
+        // --- Intercept checkpoint respawn ---
+        if (_pendingSpawnId == "CheckpointRespawn")
+        {
+            player.position = _checkpointPosition;
+            ResetPlayerVelocity();
+            return;
+        }
+
+        // --- Intercept the hardcoded default spawn ---
         if (_pendingSpawnId == "RespawnDefault")
         {
             player.position = defaultSpawnPosition;

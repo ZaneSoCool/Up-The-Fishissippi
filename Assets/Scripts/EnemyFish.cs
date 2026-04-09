@@ -93,7 +93,8 @@ public class EnemyFish : MonoBehaviour
         playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerRB.linearVelocity = direction * -bounceStrength;
+            Vector2 bounceDir = ((Vector2)collision.transform.position - rb.position).normalized;
+            playerRB.linearVelocity = bounceDir * bounceStrength;
             Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
             playerAttackableScript.Attacked(enemyfishDamage);
         }

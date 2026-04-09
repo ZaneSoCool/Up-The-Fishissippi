@@ -10,6 +10,7 @@ public class TailThwapAttack : MonoBehaviour
     InputAction tailThwapAction;
     Animator anim;
     Animator effect_anim;
+    player playerScript;
 
     [SerializeField]
     int thwapDamage = 5;
@@ -21,9 +22,10 @@ public class TailThwapAttack : MonoBehaviour
         tailThwapAction = InputSystem.actions.FindAction("Attack");
         anim = transform.parent.gameObject.GetComponent<Animator>();
         effect_anim = gameObject.GetComponent<Animator>();
+        playerScript = transform.parent.GetComponent<player>();
 
         //call tail thwap if action is performed
-        tailThwapAction.performed += OnTailThwapPerformed; 
+        tailThwapAction.performed += OnTailThwapPerformed;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -44,9 +46,10 @@ public class TailThwapAttack : MonoBehaviour
 
     private void OnTailThwapPerformed(InputAction.CallbackContext context)
     {
+        if (playerScript == null) return;
+
         //play tail thwap animation
-        player player = transform.parent.GetComponent<player>();
-        player.isDoingSpecialAnim = true;
+        playerScript.isDoingSpecialAnim = true;
         anim.Play("TailThwap");
         effect_anim.Play("TailThwapWave");
        
