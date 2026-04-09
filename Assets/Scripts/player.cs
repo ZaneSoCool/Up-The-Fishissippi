@@ -29,8 +29,10 @@ public class player : MonoBehaviour
 
     //Wether player is currently doing an animation outside of standard movement
     public bool isDoingSpecialAnim = false;
-
     public bool inputEnabled = true;
+
+    //progression booleans
+    public bool hasTailThwap = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

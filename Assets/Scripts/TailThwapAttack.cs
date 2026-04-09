@@ -46,7 +46,7 @@ public class TailThwapAttack : MonoBehaviour
 
     private void OnTailThwapPerformed(InputAction.CallbackContext context)
     {
-        if (playerScript == null) return;
+        if (playerScript == null || !playerScript.hasTailThwap) return;
 
         //play tail thwap animation
         playerScript.isDoingSpecialAnim = true;
