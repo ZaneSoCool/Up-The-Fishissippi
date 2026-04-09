@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private string checkpointScene;
     [SerializeField] private SpriteRenderer visuals;
 
     private Transform player;
@@ -51,9 +51,10 @@ public class Checkpoint : MonoBehaviour
 
     private void Activate()
     {
-        Vector3 spawnPos = transform.position + new Vector3(0, 5, 0);
-        RoomTransitionManager.Instance.SetCheckpoint(checkpointScene, spawnPos);
-        Debug.Log("Checkpoint activated: " + checkpointScene + " @ " + spawnPos);
+        string currentScene = SceneManager.GetActiveScene().name;
+        Vector3 spawnPos = transform.position + new Vector3(0, 1, 0); // Adjust spawn position as needed
+        RoomTransitionManager.Instance.SetCheckpoint(currentScene, spawnPos);
+        Debug.Log("Checkpoint activated: " + currentScene + " @ " + spawnPos);
         StartCoroutine(SaveFeedback());
         // TODO: trigger Jaune dialogue here
     }

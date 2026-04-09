@@ -28,6 +28,8 @@ public class player : MonoBehaviour
 
     //Wether player is currently doing an animation outside of standard movement
     public bool isDoingSpecialAnim = false;
+
+    public bool inputEnabled = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +48,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
+        Vector2 direction = inputEnabled ? moveAction.ReadValue<Vector2>() : Vector2.zero;
 
         if (direction != new Vector2(0,0))
         {   //move player
