@@ -38,6 +38,18 @@ public class RoomTransitionManager : MonoBehaviour
     private string _pendingSpawnId;
     private bool _isTransitioning;
 
+    // Checkpoint state (persists across scenes)
+    private bool _hasCheckpoint = false;
+    private string _checkpointScene;
+    private Vector3 _checkpointPosition;
+
+    public void SetCheckpoint(string scene, Vector3 position)
+    {
+        _hasCheckpoint = true;
+        _checkpointScene = scene;
+        _checkpointPosition = position;
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -101,8 +113,15 @@ public class RoomTransitionManager : MonoBehaviour
     {
         if (_isTransitioning) return;
 
+        if (_hasCheckpoint)
+        {
+            _pendingSpawnId = "CheckpointRespawn";
+            StartCoroutine(LoadRoomRoutine(_checkpointScene));
+            return;
+        }
+
         // Use a specific keyword to tell the spawner to use the hardcoded coordinates
-        _pendingSpawnId = "RespawnDefault"; 
+        _pendingSpawnId = "RespawnDefault";
         StartCoroutine(LoadRoomRoutine(defaultScene));
     }
 
@@ -161,7 +180,15 @@ public class RoomTransitionManager : MonoBehaviour
             return;
         }
 
-        // --- NEW: Intercept the hardcoded default spawn ---
+        // --- Intercept checkpoint respawn ---
+        if (_pendingSpawnId == "CheckpointRespawn")
+        {
+            player.position = _checkpointPosition;
+            ResetPlayerVelocity();
+            return;
+        }
+
+        // --- Intercept the hardcoded default spawn ---
         if (_pendingSpawnId == "RespawnDefault")
         {
             player.position = defaultSpawnPosition;
