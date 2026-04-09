@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     BoxCollider2D tailThwapHitbox;
+    SpriteRenderer tailThwapSprite;
     
     //Health variables
     [SerializeField]
@@ -37,6 +38,7 @@ public class player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         spriteRenderer = GetComponent<SpriteRenderer>();
         tailThwapHitbox = transform.Find("TailThwapHitbox").gameObject.GetComponent<BoxCollider2D>();
+        tailThwapSprite = transform.Find("TailThwapHitbox").gameObject.GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
         //setup player health
@@ -55,12 +57,12 @@ public class player : MonoBehaviour
             if (rigidBody.linearVelocity.x > 0)
             {
                 spriteRenderer.flipX = false;
-                tailThwapHitbox.offset = new Vector2(0.8f, 0.0f); //flip tail thwap hitbox
+                tailThwapSprite.flipX = false;
 
             } else if (rigidBody.linearVelocity.x < 0)
             {
                 spriteRenderer.flipX = true;
-                tailThwapHitbox.offset = new Vector2(-0.8f, 0.0f); //flip tail thwap hitbox
+                tailThwapSprite.flipX = true;
             }
 
         }  else
@@ -78,10 +80,12 @@ public class player : MonoBehaviour
             if (spriteRenderer.flipX == false)
             {
                 gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                tailThwapHitbox.transform.localPosition = new Vector2(1f, 0f);
 
             } else{
                 angle -= 180;
                 gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                tailThwapHitbox.transform.localPosition = new Vector2(-1f, 0f);
             }
         }
 

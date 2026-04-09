@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 4d985c40046b5334fbba3c827c0ee354
+guid: 8b6bb1fafcbe5694ba09067ac84130bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7941192328975692780
-    second: Gillgamesh Tailslap 4_0
+      213: -3900388418340231991
+    second: Tailslap Wave 5_0
+  - first:
+      213: -6361405930762027097
+    second: Tailslap Wave 5_1
+  - first:
+      213: 5792638550509738834
+    second: Tailslap Wave 5_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gillgamesh Tailslap 4_0
+      name: Tailslap Wave 5_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 15
-        width: 42
-        height: 34
+        x: 0
+        y: 0
+        width: 128
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce337a55958c43e60800000000000000
-      internalID: 7941192328975692780
+      spriteID: 9c468ce06690fd9c0800000000000000
+      internalID: -3900388418340231991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tailslap Wave 5_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 7
+        width: 10
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afbdd8920fb7b7a0800000000000000
+      internalID: -6361405930762027097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tailslap Wave 5_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 17
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bdd5b2216936050800000000000000
+      internalID: 5792638550509738834
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f3bf52c569247b849bcc4f178cc204e3
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gillgamesh Tailslap 4_0: 7941192328975692780
+      Tailslap Wave 5_0: -3900388418340231991
+      Tailslap Wave 5_1: -6361405930762027097
+      Tailslap Wave 5_2: 5792638550509738834
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
