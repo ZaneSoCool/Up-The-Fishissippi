@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Seaweed L1_0
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -7051222379885278934, guid: 55a6ca2ac4e7fa141b3abee01e50a0b5, type: 3}
+  m_Sprite: {fileID: -4223693805613246041, guid: 1d3ff7f4456c82b41ab0f4ea78e31d67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

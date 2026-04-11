@@ -9,6 +9,8 @@ public class Attackable : MonoBehaviour
     [SerializeField]
     int health;
 
+    public int CurrentHealth => health;
+
     //for sprite flash red
     public Color flashColor = Color.red;
     public float flashDuration = 0.1f;

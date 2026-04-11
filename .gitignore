@@ -5,6 +5,9 @@
 CLAUDE.md
 .claude/
 
+# Coplay MCP plugin — local only, never push
+/Packages/Coplay/
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/

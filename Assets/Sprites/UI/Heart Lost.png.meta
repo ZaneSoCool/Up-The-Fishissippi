@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ad1aba414f00abf4584f31ab6842b7f0
+guid: 332496e4d8e45ca478dda93b476c76a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 399722029685454537
-    second: Heart Lost_0
+      213: 5954465744009664799
+    second: Heart Lost (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart Lost_0
+      name: Heart Lost (1)_0
       rect:
         serializedVersion: 2
         x: 20
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c6bc4471191c8500800000000000000
-      internalID: 399722029685454537
+      spriteID: f199deacb0382a250800000000000000
+      internalID: 5954465744009664799
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heart Lost_0: 399722029685454537
+      Heart Lost (1)_0: 5954465744009664799
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
