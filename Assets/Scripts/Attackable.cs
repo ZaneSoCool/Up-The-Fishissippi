@@ -21,10 +21,14 @@ public class Attackable : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
+        maxHealth = health;
     }
 
     public void Attacked(int damage)
     {
+        // Don't take damage during scene transitions
+        if (RoomTransitionManager.Instance != null && RoomTransitionManager.Instance.IsTransitioning) return;
+
         StartCoroutine(FlashRoutine());
         health -= damage;
         if (health <= 0)
@@ -33,17 +37,21 @@ public class Attackable : MonoBehaviour
         }
     }
 
+    public void ResetHealth()
+    {
+        health = maxHealth;
+    }
+
     public void Die()
     {
         if (gameObject.CompareTag("Player"))
         {
-            health = 5; //TODO: IF CHANGE PLAYER HEALTH CHANGE THIS TOO
             rend.material.color = rend.material.color;
             RoomTransitionManager.Instance.RespawnAtDefault();
         } else
         {
             Destroy(gameObject);
-        }  
+        }
     }
     IEnumerator FlashRoutine() {
         Color ogColor = rend.material.color;

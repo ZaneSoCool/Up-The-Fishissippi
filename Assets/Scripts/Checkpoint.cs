@@ -18,12 +18,7 @@ public class Checkpoint : MonoBehaviour
         player = GameObject.FindWithTag("Player")?.transform;
         interactAction = InputSystem.actions.FindAction("Interact");
     }
-
-    private void OnEnable()
-    {
-        // Subscribed in Start once interactAction is found; re-subscribe on enable
-    }
-
+    
     private void Update()
     {
         // Flip Jaune to face the player
@@ -54,6 +49,10 @@ public class Checkpoint : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
         Vector3 spawnPos = transform.position + new Vector3(0, 1, 0); // Adjust spawn position as needed
         RoomTransitionManager.Instance.SetCheckpoint(currentScene, spawnPos);
+
+        // Restore player health on checkpoint activation
+        player?.GetComponent<Attackable>()?.ResetHealth();
+
         Debug.Log("Checkpoint activated: " + currentScene + " @ " + spawnPos);
         StartCoroutine(SaveFeedback());
         // TODO: trigger Jaune dialogue here

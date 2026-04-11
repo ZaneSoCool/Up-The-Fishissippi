@@ -43,6 +43,7 @@ public class RoomTransitionManager : MonoBehaviour
     private player _playerScript;
     private string _pendingSpawnId;
     private bool _isTransitioning;
+    public bool IsTransitioning => _isTransitioning;
 
     // Checkpoint state (persists across scenes)
     private bool _hasCheckpoint = false;
@@ -200,6 +201,12 @@ public class RoomTransitionManager : MonoBehaviour
         cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
 
         PlacePlayerAtPendingSpawn();
+
+        // Reset health after death respawn, once screen is black and scene is loaded
+        if (_pendingSpawnId == "RespawnDefault" || _pendingSpawnId == "CheckpointRespawn")
+        {
+            player.GetComponent<Attackable>()?.ResetHealth();
+        }
 
         yield return StartCoroutine(FadeFromBlack(fadeDuration));
 
