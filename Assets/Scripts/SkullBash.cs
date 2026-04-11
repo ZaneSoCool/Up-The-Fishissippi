@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class SkullBash : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SkullBash : MonoBehaviour
 
     [SerializeField]
     int bashDamage = 5;
+    [SerializeField]
+    float bashTime = 1.0f;
     List<GameObject> objectsInSkullBash = new List<GameObject>(); //list of object currently in the hitbox of the tail thwap
 
     public bool isSkullBashing = false;
@@ -18,7 +21,7 @@ public class SkullBash : MonoBehaviour
     void Start()
     {
         //find references
-        skullBashAction = InputSystem.actions.FindAction("Interact");
+        skullBashAction = InputSystem.actions.FindAction("SkullBash");
         anim = transform.parent.gameObject.GetComponent<Animator>();
         playerScript = transform.parent.GetComponent<player>();
 
@@ -51,11 +54,23 @@ public class SkullBash : MonoBehaviour
     {
         if (playerScript == null || !playerScript.hasSkullBash) return;
 
+        //set bools to track player action
         isSkullBashing = true;
-
-        //play tail thwap animation
         playerScript.isDoingSpecialAnim = true;
+
+        //Do damage to any objects currently in hitbox
+        hurtVictim();
+
+        //play animation and wait bashTime (in seconds) then end bash
         anim.Play("SkullBash");
+        Invoke("endSkullBash", bashTime);
+    }
+
+    private void endSkullBash()
+    {
+        //reset bools
+        isSkullBashing = false;
+        playerScript.isDoingSpecialAnim = false;
     }
 
     private void hurtVictim()
