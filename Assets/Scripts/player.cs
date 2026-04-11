@@ -78,11 +78,12 @@ public class player : MonoBehaviour
                 skullBashDirection = direction;
 
                 rigidBody.linearVelocity += acceleration * direction * Time.deltaTime; //move player
-                rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed); //clamp max speed
 
             }  else { //if not inputing direction -> friction
                 rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, new Vector2(0,0), friction * Time.deltaTime);
             }
+
+            rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed); //clamp max speed
         }
         
         //flip sprite if needed
