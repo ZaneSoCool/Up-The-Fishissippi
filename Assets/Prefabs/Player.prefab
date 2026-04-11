@@ -471,8 +471,8 @@ MonoBehaviour:
   playerHealth: 0
   isDoingSpecialAnim: 0
   inputEnabled: 1
-  hasTailThwap: 1
-  hasSkullBash: 1
+  hasTailThwap: 0
+  hasSkullBash: 0
   bashSpeed: 10
 --- !u!114 &-2949073202235639812
 MonoBehaviour:
