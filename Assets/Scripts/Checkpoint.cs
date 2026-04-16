@@ -7,16 +7,24 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer visuals;
+    [SerializeField] private CanvasGroup interactPrompt;
+    [SerializeField] private float promptFadeDuration = 0.2f;
 
     private Transform player;
     private bool playerIsNear = false;
     private bool playerInInteractZone = false;
     private InputAction interactAction;
+    private Coroutine fadeCoroutine;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player")?.transform;
         interactAction = InputSystem.actions.FindAction("Interact");
+        if (interactPrompt != null)
+        {
+            interactPrompt.alpha = 0f;
+            interactPrompt.gameObject.SetActive(false);
+        }
     }
     
     private void Update()
@@ -42,6 +50,28 @@ public class Checkpoint : MonoBehaviour
     public void SetInInteractZone(bool inZone)
     {
         playerInInteractZone = inZone;
+        if (interactPrompt == null) return;
+
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadePrompt(inZone ? 1f : 0f));
+    }
+
+    private IEnumerator FadePrompt(float target)
+    {
+        interactPrompt.gameObject.SetActive(true);
+        float start = interactPrompt.alpha;
+        float elapsed = 0f;
+
+        while (elapsed < promptFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            interactPrompt.alpha = Mathf.Lerp(start, target, elapsed / promptFadeDuration);
+            yield return null;
+        }
+
+        interactPrompt.alpha = target;
+        if (target == 0f)
+            interactPrompt.gameObject.SetActive(false);
     }
 
     private void Activate()
