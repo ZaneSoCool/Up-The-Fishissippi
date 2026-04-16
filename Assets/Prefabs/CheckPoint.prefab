@@ -60,9 +60,9 @@ MonoBehaviour:
   - ... Not a talker? Well, I'll start... The name's Dr. Jaune. I'm the only healthcare
     professional you'll find around these parts. Trust me, I've looked.
   - 'If you ever need a checkup or a place to rest, I can provide. These services
-    aren''t normally free, though, but you came at a good time. I haven''t been able
-    to contact my supervisors as of recent so for now what you owe me will be charged
-    sometime down the line. '
+    aren''t normally free, though, but you came at a good time. '
+  - 'I haven''t been able to contact my supervisors as of recent so for now what
+    you owe me will be charged sometime down the line. '
   - Alright, you're all cleaned up, this'll be added to your bill.
   dialogAlpha: 0.85
   dialogFadeDuration: 0.25
