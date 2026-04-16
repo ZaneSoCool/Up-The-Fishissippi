@@ -9,6 +9,10 @@ public class SkullBashPickup : MonoBehaviour
     private bool playerInInteractZone = false;
     private InputAction interactAction;
     private SpriteRenderer sprite;
+    private Coroutine fadeCoroutine;
+    [SerializeField] private CanvasGroup interactPrompt;
+    [SerializeField] private float promptFadeDuration = 0.2f;
+    
 
     private GameObject canvas;
 
@@ -19,6 +23,30 @@ public class SkullBashPickup : MonoBehaviour
         canvas = transform.GetChild(0).gameObject;
         canvas.SetActive(false);
         sprite = GetComponent<SpriteRenderer>();
+
+        if (interactPrompt != null)
+        {
+            interactPrompt.alpha = 0f;
+            interactPrompt.gameObject.SetActive(false);
+        }
+    }
+
+    private IEnumerator FadePrompt(float target)
+    {
+        interactPrompt.gameObject.SetActive(true);
+        float start = interactPrompt.alpha;
+        float elapsed = 0f;
+
+        while (elapsed < promptFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            interactPrompt.alpha = Mathf.Lerp(start, target, elapsed / promptFadeDuration);
+            yield return null;
+        }
+
+        interactPrompt.alpha = target;
+        if (target == 0f)
+            interactPrompt.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -33,12 +61,21 @@ public class SkullBashPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
             playerInInteractZone = true;
+            if (interactPrompt == null) return;
+
+            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadePrompt(1f));
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
             playerInInteractZone = false;
+
+            if (interactPrompt == null) return;
+
+            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadePrompt(0f));
     }
 
     private void Activate()
