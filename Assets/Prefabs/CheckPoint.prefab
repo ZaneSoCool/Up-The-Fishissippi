@@ -52,6 +52,14 @@ MonoBehaviour:
   visuals: {fileID: 1634724135080338689}
   interactPrompt: {fileID: 2472226742062244777}
   promptFadeDuration: 0.2
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
+  firstMeetLines:
+  - Hey there!
+  - Wanna save
+  - 'I''ll put it on your bill
+
+'
 --- !u!1 &3714581104360762295
 GameObject:
   m_ObjectHideFlags: 0
