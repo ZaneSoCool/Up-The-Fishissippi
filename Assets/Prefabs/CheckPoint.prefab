@@ -52,14 +52,19 @@ MonoBehaviour:
   visuals: {fileID: 1634724135080338689}
   interactPrompt: {fileID: 2472226742062244777}
   promptFadeDuration: 0.2
-  dialogBox: {fileID: 0}
+  dialogCanvasGroup: {fileID: 0}
   dialogText: {fileID: 0}
   firstMeetLines:
-  - Hey there!
-  - Wanna save
-  - 'I''ll put it on your bill
-
-'
+  - Oh, new face? Well nice to meet you Mr....
+  - ... Not a talker? Well, I'll start... The name's Dr. Jaune. I'm the only healthcare
+    professional you'll find around these parts. Trust me, I've looked.
+  - 'If you ever need a checkup or a place to rest, I can provide. These services
+    aren''t normally free, though, but you came at a good time. I haven''t been able
+    to contact my supervisors as of recent so for now what you owe me will be charged
+    sometime down the line. '
+  - Alright, you're all cleaned up, this'll be added to your bill.
+  dialogAlpha: 0.85
+  dialogFadeDuration: 0.25
 --- !u!1 &3714581104360762295
 GameObject:
   m_ObjectHideFlags: 0
