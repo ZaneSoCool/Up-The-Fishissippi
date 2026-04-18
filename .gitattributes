@@ -1,6 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+# TextMeshPro SDF font assets embed a binary texture atlas — treat as binary via LFS
+Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
+
 # Unity files
 *.meta -text merge=unityyamlmerge diff
 *.unity -text merge=unityyamlmerge diff
