@@ -1,9 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-
 # TextMeshPro SDF font assets embed a binary texture atlas — treat as binary via LFS
 Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
-
 # Unity files
 *.meta -text merge=unityyamlmerge diff
 *.unity -text merge=unityyamlmerge diff
@@ -27,7 +25,6 @@ Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
 *.terrainlayer -text merge=unityyamlmerge diff
 *.mixer -text merge=unityyamlmerge diff
 *.shadervariants -text merge=unityyamlmerge diff
-
 # Image formats
 *.psd filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
@@ -41,7 +38,6 @@ Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
 *.pict filter=lfs diff=lfs merge=lfs -text
 *.dds filter=lfs diff=lfs merge=lfs -text
 *.xcf filter=lfs diff=lfs merge=lfs -text
-
 # Audio formats
 *.mp3 filter=lfs diff=lfs merge=lfs -text
 *.ogg filter=lfs diff=lfs merge=lfs -text
@@ -52,7 +48,6 @@ Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
 *.it filter=lfs diff=lfs merge=lfs -text
 *.s3m filter=lfs diff=lfs merge=lfs -text
 *.xm filter=lfs diff=lfs merge=lfs -text
-
 # Video formats
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.avi filter=lfs diff=lfs merge=lfs -text
@@ -60,7 +55,6 @@ Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
 *.mpg filter=lfs diff=lfs merge=lfs -text
 *.mpeg filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
-
 # 3D formats
 *.fbx filter=lfs diff=lfs merge=lfs -text
 *.obj filter=lfs diff=lfs merge=lfs -text
@@ -76,12 +70,10 @@ Assets/Fonts/*.asset filter=lfs diff=lfs merge=lfs -text
 *.lwo2 filter=lfs diff=lfs merge=lfs -text
 *.abc filter=lfs diff=lfs merge=lfs -text
 *.3dm filter=lfs diff=lfs merge=lfs -text
-
 # Build
 *.dll filter=lfs diff=lfs merge=lfs -text
 *.pdb filter=lfs diff=lfs merge=lfs -text
 *.mdb filter=lfs diff=lfs merge=lfs -text
-
 # Packaging
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.7z filter=lfs diff=lfs merge=lfs -text
