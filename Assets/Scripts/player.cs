@@ -33,9 +33,10 @@ public class player : MonoBehaviour
     public bool isDoingSpecialAnim = false;
     public bool inputEnabled = true;
 
-    //progression booleans
+    //progression trackers
     public bool hasTailThwap;
     public bool hasSkullBash;
+    public int coinsCount = 0;
 
     //vars for skullbash
     private Vector2 skullBashDirection = new Vector2(1,0);
