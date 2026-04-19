@@ -123,6 +123,7 @@ public class Checkpoint : MonoBehaviour
             }
             dialogText.text = firstMeetLines[dialogIndex];
             isDialogOpen = true;
+            if (animator != null) animator.SetBool("IsSpeaking", true);
             if (playerScript != null) playerScript.inputEnabled = false;
             if (dialogFadeCoroutine != null) StopCoroutine(dialogFadeCoroutine);
             dialogFadeCoroutine = StartCoroutine(FadeDialog(dialogAlpha));
@@ -143,6 +144,7 @@ public class Checkpoint : MonoBehaviour
         else
         {
             isDialogOpen = false;
+            if (animator != null) animator.SetBool("IsSpeaking", false);
             if (playerScript != null) playerScript.inputEnabled = true;
             if (dialogFadeCoroutine != null) StopCoroutine(dialogFadeCoroutine);
             dialogFadeCoroutine = StartCoroutine(FadeDialog(0f));
