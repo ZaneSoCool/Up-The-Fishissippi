@@ -57,7 +57,7 @@ public class TailThwapAttack : MonoBehaviour
         for (int i = 0; i < objectsInTailThwap.Count; i++)
         {
             Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();
-            if (victimScript != null){
+            if (victimScript != null && victimScript.canBeTailThwapped){
                 victimScript.Attacked(thwapDamage);
             }
         }
