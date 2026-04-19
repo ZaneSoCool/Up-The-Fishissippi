@@ -18,6 +18,9 @@ public class Attackable : MonoBehaviour
 
     private int maxHealth;
 
+    public bool canBeTailThwapped = true;
+    public bool canBeSkullBashed = true;
+
     void Start()
     {
         rend = GetComponent<Renderer>();

@@ -79,7 +79,8 @@ public class SkullBash : MonoBehaviour
         for (int i = 0; i < objectsInSkullBash.Count; i++)
         {
             Attackable victimScript = objectsInSkullBash[i].GetComponent<Attackable>();
-            if (victimScript != null){
+            if (victimScript != null && victimScript.canBeSkullBashed){
+                Debug.Log("attacked");
                 victimScript.Attacked(bashDamage);
             }
         }
