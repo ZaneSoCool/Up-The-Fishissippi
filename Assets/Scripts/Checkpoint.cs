@@ -15,6 +15,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private CanvasGroup dialogCanvasGroup;
     [SerializeField] private TextMeshProUGUI dialogText;
     [SerializeField] [TextArea] private string[] firstMeetLines;
+    [SerializeField] [TextArea] private string[] respawnLines;
     [SerializeField] private float dialogAlpha = 0.85f;
     [SerializeField] private float dialogFadeDuration = 0.25f;
 
@@ -27,6 +28,7 @@ public class Checkpoint : MonoBehaviour
     private bool hasActivated = false;
     private bool isDialogOpen = false;
     private int dialogIndex = 0;
+    private string[] _activeLines;
     private player playerScript;
     private Coroutine dialogFadeCoroutine;
 
@@ -111,17 +113,28 @@ public class Checkpoint : MonoBehaviour
 
         if (dialogCanvasGroup != null && firstMeetLines.Length > 0)
         {
-            if (!hasActivated)
+            bool isRespawn = RoomTransitionManager.Instance != null && RoomTransitionManager.Instance.WasCheckpointRespawn;
+            if (isRespawn && respawnLines.Length > 0)
             {
+                RoomTransitionManager.Instance.ClearRespawnFlag();
                 hasActivated = true;
                 dialogIndex = 0;
+                _activeLines = respawnLines;
+            }
+            else if (!hasActivated)
+            {
+                if (isRespawn) RoomTransitionManager.Instance?.ClearRespawnFlag();
+                hasActivated = true;
+                dialogIndex = 0;
+                _activeLines = firstMeetLines;
             }
             else
             {
                 // Repeat visit: jump straight to last line
                 dialogIndex = firstMeetLines.Length - 1;
+                _activeLines = firstMeetLines;
             }
-            dialogText.text = firstMeetLines[dialogIndex];
+            dialogText.text = _activeLines[dialogIndex];
             isDialogOpen = true;
             if (animator != null) animator.SetBool("IsSpeaking", true);
             if (playerScript != null) playerScript.inputEnabled = false;
@@ -137,9 +150,9 @@ public class Checkpoint : MonoBehaviour
     private void AdvanceDialog()
     {
         dialogIndex++;
-        if (dialogIndex < firstMeetLines.Length)
+        if (dialogIndex < _activeLines.Length)
         {
-            dialogText.text = firstMeetLines[dialogIndex];
+            dialogText.text = _activeLines[dialogIndex];
         }
         else
         {

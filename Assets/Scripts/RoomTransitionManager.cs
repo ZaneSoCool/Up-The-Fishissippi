@@ -49,6 +49,9 @@ public class RoomTransitionManager : MonoBehaviour
     private bool _hasCheckpoint = false;
     private string _checkpointScene;
     private Vector3 _checkpointPosition;
+    public bool WasCheckpointRespawn { get; private set; }
+
+    public void ClearRespawnFlag() => WasCheckpointRespawn = false;
 
     public void SetCheckpoint(string scene, Vector3 position)
     {
@@ -124,6 +127,7 @@ public class RoomTransitionManager : MonoBehaviour
         if (_hasCheckpoint)
         {
             _pendingSpawnId = "CheckpointRespawn";
+            WasCheckpointRespawn = true;
             StartCoroutine(LoadRoomRoutine(_checkpointScene, deathFadeDuration));
             return;
         }

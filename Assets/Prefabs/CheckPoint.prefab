@@ -64,6 +64,10 @@ MonoBehaviour:
   - 'I haven''t been able to contact my supervisors as of recent so for now what
     you owe me will be charged sometime down the line. '
   - Alright, you're all cleaned up, this'll be added to your bill.
+  respawnLines:
+  - 'Alright, you''re all cleaned up, this''ll be added to your bill.
+
+'
   dialogAlpha: 0.85
   dialogFadeDuration: 0.25
 --- !u!1 &430757519589425961
