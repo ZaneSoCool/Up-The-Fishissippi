@@ -59,23 +59,23 @@ public class SkullBashPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            playerInInteractZone = true;
-            if (interactPrompt == null) return;
+        if (!collision.CompareTag("Player")) return;
+        playerInInteractZone = true;
+        if (interactPrompt == null) return;
 
-            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
-            fadeCoroutine = StartCoroutine(FadePrompt(1f));
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadePrompt(1f));
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            playerInInteractZone = false;
+        if (!collision.CompareTag("Player")) return;
+        playerInInteractZone = false;
 
-            if (interactPrompt == null) return;
+        if (interactPrompt == null) return;
 
-            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
-            fadeCoroutine = StartCoroutine(FadePrompt(0f));
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadePrompt(0f));
     }
 
     private void Activate()
@@ -84,6 +84,14 @@ public class SkullBashPickup : MonoBehaviour
         playerScript.hasSkullBash = true;
         playerScript.hasTailThwap = true;
         canvas.SetActive(true);
+
+        if (interactPrompt != null)
+        {
+            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadePrompt(0f));
+        }
+        Destroy(interactPrompt.gameObject, 1.0f);
+
         Destroy(gameObject, 5.0f);
     }
 }
