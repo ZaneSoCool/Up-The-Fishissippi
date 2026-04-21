@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactPrompt: {fileID: 5142416817933432641}
   promptFadeDuration: 0.2
+  collectableId: skullBashUnlock
 --- !u!212 &8957634107219559517
 SpriteRenderer:
   serializedVersion: 2

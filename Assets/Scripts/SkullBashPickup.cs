@@ -12,12 +12,18 @@ public class SkullBashPickup : MonoBehaviour
     private Coroutine fadeCoroutine;
     [SerializeField] private CanvasGroup interactPrompt;
     [SerializeField] private float promptFadeDuration = 0.2f;
-    
+    [SerializeField] private string collectableId;
 
     private GameObject canvas;
 
     private void Start()
     {
+        if (CollectableManager.Instance != null && CollectableManager.Instance.IsCollected(collectableId))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         playerScript = GameObject.FindWithTag("Player").GetComponent<player>();
         interactAction = InputSystem.actions.FindAction("Interact");
         canvas = transform.GetChild(0).gameObject;
@@ -80,6 +86,7 @@ public class SkullBashPickup : MonoBehaviour
 
     private void Activate()
     {
+        CollectableManager.Instance?.Collect(collectableId);
         sprite.enabled = false;
         playerScript.hasSkullBash = true;
         playerScript.hasTailThwap = true;
