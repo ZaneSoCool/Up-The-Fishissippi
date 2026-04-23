@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6624695811740752596}
   - component: {fileID: 5127303626655907956}
   - component: {fileID: 1881196254695270901}
+  - component: {fileID: 6538940215574334818}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Nickel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,8 +84,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 04a26af393c8742a3bdf84b43bed6c16, type: 3}
-  m_Color: {r: 0.79622644, g: 0.746407, b: 0.20281231, a: 1}
+  m_Sprite: {fileID: -6295212638292068169, guid: 42ea64aed6673534ab7dc809d039a3a8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b334f8789080d344fa92c3bbb8f99f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  value: 5
 --- !u!58 &1881196254695270901
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,4 +142,17 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.35
+--- !u!114 &6538940215574334818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109563412789299149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbf08cb52c6a7d4e82aa4e737c2ed0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+  collectableId: 

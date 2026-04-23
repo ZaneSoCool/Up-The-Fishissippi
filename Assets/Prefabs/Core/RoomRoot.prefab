@@ -170,9 +170,14 @@ MonoBehaviour:
     resourcePrefab: {fileID: 109563412789299149, guid: fab03ff8b793c1345b8b4241ede79528, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
-  - name: Coin
-    markerTile: {fileID: 11400000, guid: 4dae6d4a2c669694697e1bcaaf07755b, type: 2}
+  - name: Penny
+    markerTile: {fileID: 11400000, guid: f93427e5327e35248891e767970136f6, type: 2}
     resourcePrefab: {fileID: 109563412789299149, guid: 33a20c123a48a70469cbe1ba70df24aa, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
+  - name: Nickel
+    markerTile: {fileID: 11400000, guid: 603f4f33caa35034381a1d1db4b8c64a, type: 2}
+    resourcePrefab: {fileID: 109563412789299149, guid: 87b0a12be19702744a9f90092d638597, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
 --- !u!1 &1473272439933922374
