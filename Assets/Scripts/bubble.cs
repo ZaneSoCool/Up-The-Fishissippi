@@ -9,13 +9,13 @@ public class bubble : MonoBehaviour
 
     Rigidbody2D playerRB;
 
-    //Animator bubbleAnimator;
+    Animator bubbleAnimator;
 
     // called when player bumps into bubble
 
     void Start()
     {
-        //bubbleAnimator = GetComponent<Animator>();
+        bubbleAnimator = GetComponent<Animator>();
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -24,13 +24,23 @@ public class bubble : MonoBehaviour
         {
             playerRB.linearVelocity *= -bounceStrength;
             Debug.Log("Calling SetTrigger Pop");
-            //bubbleAnimator.SetTrigger("Pop");
+            bubbleAnimator.SetTrigger("Pop");
         }
+    }
+
+    void Attacked(Attackable attack)
+    {
+
     }
 
     public void bubblePop()
     {
         Debug.Log("Pop animation triggered!");
+    }
+
+    public void bubbleDeath()
+    {
+        Debug.Log("Death animation triggered!");
     }
 }
 
