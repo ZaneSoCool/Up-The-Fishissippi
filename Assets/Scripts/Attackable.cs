@@ -45,18 +45,29 @@ public class Attackable : MonoBehaviour
         health = maxHealth;
     }
 
-    public void Die()
+    //Added a return statement of game object; In order to catch whcih game object died
+    public GameObject Die()
     {
         if (gameObject.CompareTag("Player"))
         {
             rend.material.color = rend.material.color;
             RoomTransitionManager.Instance.RespawnAtDefault();
-        } else
+
+            return null;
+        }
+        else
         {
+            if (gameObject.CompareTag("Bubble"))
+            {
+                return gameObject;
+            }
             Destroy(gameObject);
+
+            return null;
         }
     }
-    IEnumerator FlashRoutine() {
+    IEnumerator FlashRoutine()
+    {
         Color ogColor = rend.material.color;
         rend.material.color = flashColor;
         yield return new WaitForSeconds(flashDuration);

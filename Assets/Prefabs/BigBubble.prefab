@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6366895676859735861}
   - component: {fileID: 4288005476569231514}
   - component: {fileID: 6217905303473876123}
+  - component: {fileID: 8464912720006880127}
+  - component: {fileID: 7624505262101372257}
   m_Layer: 0
   m_Name: BigBubble
   m_TagString: Attackable
@@ -188,3 +190,40 @@ MonoBehaviour:
   flashDuration: 0.1
   canBeTailThwapped: 1
   canBeSkullBashed: 1
+--- !u!95 &8464912720006880127
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610957700187031567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84c584f013aca41fb9e8fe1fb037777c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7624505262101372257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610957700187031567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513bbf70b19524712880f31b7a2e7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wobble
+  verticalRange: 0.15
+  horizontalRange: 0.08
+  floatSpeed: 0.8
