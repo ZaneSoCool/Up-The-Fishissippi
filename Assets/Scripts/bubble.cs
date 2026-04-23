@@ -2,6 +2,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class bubble : MonoBehaviour
 {
@@ -14,16 +15,14 @@ public class bubble : MonoBehaviour
 
     Attackable attack;
 
-    //Collider2D bubbleCollider;
-
-    //Boolean colliderIsActive;
+    private CircleCollider2D bubbleCollider;
 
     // called when player bumps into bubble
 
     void Start()
     {
         bubbleAnimator = GetComponent<Animator>();
-        //bubbleCollider = GetComponent<Collider2D>();
+        bubbleCollider = GetComponent<CircleCollider2D>();
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -41,8 +40,9 @@ public class bubble : MonoBehaviour
         if (attack.Die() == this)
         {
             Debug.Log("Calling SetTrigger Death");
-            //bubbleCollider.
+            bubbleCollider.enabled = false;
             bubbleAnimator.SetTrigger("Death");
+            Destroy(this);
         }
     }
 
@@ -55,10 +55,6 @@ public class bubble : MonoBehaviour
     {
         Debug.Log("Death animation triggered!");
     }
-
-    //public void colliderActive()
-    //{
-    //}
 }
 
 
