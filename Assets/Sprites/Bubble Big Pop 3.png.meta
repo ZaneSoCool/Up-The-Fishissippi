@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1f412b9dedf6544d88a817d4892768a2
+guid: a7570a0e00be546ca9fcb5f69b922578
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -852089650805645541
-    second: Bubble Small Bounce 2_0
+      213: -3006509887488754063
+    second: Bubble Big Pop 3_0
+  - first:
+      213: 5529302167191199389
+    second: Bubble Big Pop 3_1
+  - first:
+      213: -3383760094473122884
+    second: Bubble Big Pop 3_2
+  - first:
+      213: 3320975968663740985
+    second: Bubble Big Pop 3_3
+  - first:
+      213: 45835893819853048
+    second: Bubble Big Pop 3_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bubble Small Bounce 2_0
+      name: Bubble Big Pop 3_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 58
-        height: 64
+        x: 32
+        y: 51
+        width: 54
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1f51f62af4cc24f0800000000000000
-      internalID: -852089650805645541
+      spriteID: 17e788ebf2bb646d0800000000000000
+      internalID: -3006509887488754063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble Big Pop 3_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e9a3b86070cbc40800000000000000
+      internalID: 5529302167191199389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble Big Pop 3_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 79
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb89cb3f187a01d0800000000000000
+      internalID: -3383760094473122884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble Big Pop 3_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 41
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932afc75c0a761e20800000000000000
+      internalID: 3320975968663740985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble Big Pop 3_4
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 49
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f84819a087d2a000800000000000000
+      internalID: 45835893819853048
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bubble Small Bounce 2_0: -852089650805645541
+      Bubble Big Pop 3_0: -3006509887488754063
+      Bubble Big Pop 3_1: 5529302167191199389
+      Bubble Big Pop 3_2: -3383760094473122884
+      Bubble Big Pop 3_3: 3320975968663740985
+      Bubble Big Pop 3_4: 45835893819853048
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

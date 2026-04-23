@@ -1,5 +1,6 @@
 //Written by Zane Pederson and Nathan Gumagay
 
+using System;
 using UnityEngine;
 
 public class bubble : MonoBehaviour
@@ -9,13 +10,20 @@ public class bubble : MonoBehaviour
 
     Rigidbody2D playerRB;
 
-    //Animator bubbleAnimator;
+    Animator bubbleAnimator;
+
+    Attackable attack;
+
+    //Collider2D bubbleCollider;
+
+    //Boolean colliderIsActive;
 
     // called when player bumps into bubble
 
     void Start()
     {
-        //bubbleAnimator = GetComponent<Animator>();
+        bubbleAnimator = GetComponent<Animator>();
+        //bubbleCollider = GetComponent<Collider2D>();
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -24,7 +32,17 @@ public class bubble : MonoBehaviour
         {
             playerRB.linearVelocity *= -bounceStrength;
             Debug.Log("Calling SetTrigger Pop");
-            //bubbleAnimator.SetTrigger("Pop");
+            bubbleAnimator.SetTrigger("Pop");
+        }
+    }
+
+    public void Attacked()
+    {
+        if (attack.Die() == this)
+        {
+            Debug.Log("Calling SetTrigger Death");
+            //bubbleCollider.
+            bubbleAnimator.SetTrigger("Death");
         }
     }
 
@@ -32,6 +50,15 @@ public class bubble : MonoBehaviour
     {
         Debug.Log("Pop animation triggered!");
     }
+
+    public void bubbleDeath()
+    {
+        Debug.Log("Death animation triggered!");
+    }
+
+    //public void colliderActive()
+    //{
+    //}
 }
 
 

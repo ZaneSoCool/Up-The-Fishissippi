@@ -22,26 +22,12 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 7173662663342190046, guid: 02cc16b0743784b0ab4039c96597f1db, type: 3}
-    attribute: m_Sprite
-    path: Bubble Small Bounce 1_0
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
-  - serializedVersion: 2
-    curve:
-    - time: 0.16666667
+    - time: 0.016666668
       value: {fileID: -852089650805645541, guid: 1f412b9dedf6544d88a817d4892768a2, type: 3}
-    attribute: m_Sprite
-    path: Bubble Small Bounce 2_0
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
-  - serializedVersion: 2
-    curve:
-    - time: 0.33333334
+    - time: 0.033333335
       value: {fileID: -3268487233000027883, guid: 2a4c514d9aa744fa2add53f3116fa308, type: 3}
     attribute: m_Sprite
-    path: Bubble Small Bounce 3_0
+    path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -53,25 +39,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3894546901
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 3932467084
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 3953575355
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -88,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.050000004
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -109,7 +77,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: OnTriggerEnter2D
+    functionName: bubblePop
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

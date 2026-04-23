@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1f412b9dedf6544d88a817d4892768a2
+guid: 71e6b2a8470e444a3b2039b28d6e13f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -852089650805645541
-    second: Bubble Small Bounce 2_0
+      213: 8842816500013728020
+    second: Bubble Big Pop 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bubble Small Bounce 2_0
+      name: Bubble Big Pop 2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 58
-        height: 64
+        x: 18
+        y: 29
+        width: 82
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1f51f62af4cc24f0800000000000000
-      internalID: -852089650805645541
+      spriteID: 411084961cef7ba70800000000000000
+      internalID: 8842816500013728020
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bubble Small Bounce 2_0: -852089650805645541
+      Bubble Big Pop 2_0: 8842816500013728020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
