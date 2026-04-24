@@ -12,10 +12,9 @@ public class Trash : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided with Trash");
+            playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
             playerRB.linearVelocity *= -bounceStrength;
             Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
             playerAttackableScript.Attacked(trashDamage);
