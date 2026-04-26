@@ -42,6 +42,12 @@ public class player : MonoBehaviour
     private Vector2 skullBashDirection = new Vector2(1,0);
     [SerializeField]
     private float bashSpeed = 5.0f;
+
+    //above-water gravity (only active during boss fight)
+    [SerializeField] private float aboveWaterGravity = 12f;
+    [SerializeField] private float maxFallSpeed = 6f;
+    private float fallVelocity = 0f;
+    private bool wasAboveWater = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,27 +71,36 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (skullBashScript.isSkullBashing == true) { //do dash 
-            skullBashDirection.Normalize(); //so speed is consistent even if player was barely inputting dir
+        bool aboveWater = IsAboveWater();
+
+        if (skullBashScript.isSkullBashing == true) { //do dash — allowed above water, gravity kicks in after it ends
+            skullBashDirection.Normalize();
             rigidBody.linearVelocity = bashSpeed * skullBashDirection;
 
-        } else { ///if not dashing move normally
-            
+        } else if (aboveWater) { //above water: fall, no swimming
+            fallVelocity += aboveWaterGravity * Time.deltaTime;
+            fallVelocity = Mathf.Min(fallVelocity, maxFallSpeed);
+            float newX = Mathf.MoveTowards(rigidBody.linearVelocity.x, 0f, friction * Time.deltaTime);
+            rigidBody.linearVelocity = new Vector2(newX, -fallVelocity);
+
+        } else { //normal underwater swimming
+            if (wasAboveWater) rigidBody.linearVelocity = Vector2.zero; //lose momentum on water re-entry
+            fallVelocity = 0f;
+
             Vector2 direction = inputEnabled ? moveAction.ReadValue<Vector2>() : Vector2.zero;
 
-            if (direction != new Vector2(0,0)) //if inputing direction move player
-            {   
-                //set skullBashDirection
+            if (direction != new Vector2(0,0))
+            {
                 skullBashDirection = direction;
-
-                rigidBody.linearVelocity += acceleration * direction * Time.deltaTime; //move player
-
-            }  else { //if not inputing direction -> friction
+                rigidBody.linearVelocity += acceleration * direction * Time.deltaTime;
+            }  else {
                 rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, new Vector2(0,0), friction * Time.deltaTime);
             }
 
-            rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed); //clamp max speed
+            rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
         }
+
+        wasAboveWater = aboveWater;
         
         //flip sprite if needed
         if (rigidBody.linearVelocity.x > 0){
@@ -132,5 +147,11 @@ public class player : MonoBehaviour
     public void resetAnimation() //called when abnormal player animation finishes
     {
         isDoingSpecialAnim = false;
+    }
+
+    private bool IsAboveWater()
+    {
+        if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return false;
+        return transform.position.y > TheRoyalFlush.Instance.WaterLevel;
     }
 }

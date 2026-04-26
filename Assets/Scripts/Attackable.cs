@@ -23,7 +23,8 @@ public class Attackable : MonoBehaviour
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<SpriteRenderer>();
+        if (rend == null) rend = GetComponent<Renderer>();
         maxHealth = health;
     }
 
@@ -68,6 +69,7 @@ public class Attackable : MonoBehaviour
     }
     IEnumerator FlashRoutine()
     {
+        if (rend == null || !rend.material.HasProperty("_Color")) yield break;
         Color ogColor = rend.material.color;
         rend.material.color = flashColor;
         yield return new WaitForSeconds(flashDuration);
