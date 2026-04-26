@@ -149,6 +149,13 @@ public class player : MonoBehaviour
         isDoingSpecialAnim = false;
     }
 
+    // Called by BossBoat on a successful skull bash hit — flips Y so the bash speed carries the player back down.
+    public void FlipBashY()
+    {
+        skullBashDirection.y = -skullBashDirection.y;
+        rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, -rigidBody.linearVelocity.y);
+    }
+
     private bool IsAboveWater()
     {
         if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return false;

@@ -6,6 +6,7 @@ public class TheRoyalFlush : MonoBehaviour
 
     [Header("Battle State")]
     public bool bossStarted = false;
+    [SerializeField] private BossHealthBar healthBar;
 
     [Header("Water")]
     [SerializeField] private Transform boat;
@@ -36,6 +37,8 @@ public class TheRoyalFlush : MonoBehaviour
     {
         if (bossStarted) return;
         bossStarted = true;
+
+        if (healthBar != null) healthBar.gameObject.SetActive(true);
 
         if (mongerRenderer != null && mongerBattleSprite != null)
             mongerRenderer.sprite = mongerBattleSprite;
