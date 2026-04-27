@@ -9,7 +9,7 @@ public class Bobby : MonoBehaviour
 
     [Header("Chase")]
     [SerializeField] private float chaseSpeed = 2f;
-    [SerializeField] private float turnSpeed = 60f; // degrees per second — lower = clunkier
+    [SerializeField] private float turnSpeed = 60f; // degrees per second: lower = clunkier
     [SerializeField] private float aboveWaterGravity = 10f;
     [SerializeField] private float maxFallSpeed = 8f;
 
@@ -17,6 +17,7 @@ public class Bobby : MonoBehaviour
     [SerializeField] private float knockbackSpeed = 5f;
     [SerializeField] private float knockbackDuration = 0.4f;
     [SerializeField] private float hitStunDuration = 0.3f;
+    [SerializeField] private float bashBounceSpeed = 3f;
 
     [Header("Damage")]
     [SerializeField] private int contactDamage = 1;
@@ -33,6 +34,7 @@ public class Bobby : MonoBehaviour
     private int lastHealth;
 
     private bool phaseStarted = false;
+    private bool isLaunching = false;
     private bool isKnockedBack = false;
     private bool isHitStunned = false;
     private float damageTimer = 0f;
@@ -78,6 +80,7 @@ public class Bobby : MonoBehaviour
         }
 
         if (!phaseStarted) return;
+        if (isLaunching) return;
 
         // Skull bash hit detected via health drop
         if (attackable != null && attackable.CurrentHealth < lastHealth)
@@ -127,6 +130,39 @@ public class Bobby : MonoBehaviour
         phaseStarted = true;
         transform.SetParent(null); // detach so boat movement doesn't carry Bobby
         anim.enabled = true;
+        StartCoroutine(DiveSequence());
+    }
+
+    IEnumerator DiveSequence()
+    {
+        isLaunching = true;
+
+        currentAngle = -180f;
+        transform.rotation = Quaternion.Euler(0f, 0f, currentAngle);
+
+        // Small hop off the boat deck
+        float elapsed = 0f;
+        float hopDuration = 0.25f;
+        float hopSpeed = 4f;
+        while (elapsed < hopDuration)
+        {
+            elapsed += Time.deltaTime;
+            float vy = Mathf.Lerp(hopSpeed, 0f, elapsed / hopDuration);
+            transform.position += Vector3.up * vy * Time.deltaTime;
+            yield return null;
+        }
+
+        // Fall until Bobby crosses the water surface
+        fallVelocity = 0f;
+        while (transform.position.y > TheRoyalFlush.Instance.WaterLevel)
+        {
+            fallVelocity = Mathf.Min(fallVelocity + aboveWaterGravity * Time.deltaTime, maxFallSpeed);
+            transform.position += Vector3.down * fallVelocity * Time.deltaTime;
+            yield return null;
+        }
+
+        fallVelocity = 0f;
+        isLaunching = false;
     }
 
     void StartKnockback()
@@ -139,7 +175,11 @@ public class Bobby : MonoBehaviour
         isHitStunned = true;
         knockbackTimer = knockbackDuration;
 
-        if (playerScript != null) playerScript.FlipBashY();
+        if (playerScript != null)
+        {
+            Vector2 bounceDir = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            playerScript.BashBounce(bounceDir, bashBounceSpeed);
+        }
 
         StartCoroutine(HitStunRoutine());
     }

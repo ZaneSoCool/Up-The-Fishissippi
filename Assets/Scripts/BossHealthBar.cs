@@ -27,8 +27,8 @@ public class BossHealthBar : MonoBehaviour
         layout.childControlHeight = true;
         layout.padding = new RectOffset(4, 4, 4, 4);
 
-        // Red background on the panel itself
-        GetComponent<Image>().color = Color.red;
+        // Purple background on the panel
+        GetComponent<Image>().color = Color.purple;
 
         segments = new Image[segmentCount];
         for (int i = 0; i < segmentCount; i++)
@@ -36,7 +36,7 @@ public class BossHealthBar : MonoBehaviour
             GameObject seg = new GameObject("Seg_" + i);
             seg.transform.SetParent(transform, false);
             Image img = seg.AddComponent<Image>();
-            img.color = Color.red;
+            img.color = Color.purple;
             segments[i] = img;
         }
     }
@@ -49,6 +49,6 @@ public class BossHealthBar : MonoBehaviour
         int activeSegments = Mathf.RoundToInt(healthFraction * segmentCount);
 
         for (int i = 0; i < segments.Length; i++)
-            segments[i].color = i < activeSegments ? Color.red : Color.white;
+            segments[i].color = i < activeSegments ? Color.purple : Color.white;
     }
 }

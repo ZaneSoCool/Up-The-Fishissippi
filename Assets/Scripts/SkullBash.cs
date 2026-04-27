@@ -16,7 +16,10 @@ public class SkullBash : MonoBehaviour
     float bashTime = 1.0f;
     List<GameObject> objectsInSkullBash = new List<GameObject>(); //list of object currently in the hitbox of the tail thwap
 
+    [SerializeField] float cancelCooldown = 0.5f;
+
     public bool isSkullBashing = false;
+    private float cooldownTimer = 0f;
 
     void Start()
     {
@@ -27,6 +30,11 @@ public class SkullBash : MonoBehaviour
 
         //call tail thwap if action is performed
         skullBashAction.performed += OnBashPerformed;
+    }
+
+    void Update()
+    {
+        if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -53,6 +61,7 @@ public class SkullBash : MonoBehaviour
     private void OnBashPerformed(InputAction.CallbackContext context)
     {
         if (playerScript == null || !playerScript.hasSkullBash) return;
+        if (cooldownTimer > 0f) return;
 
         //set bools to track player action
         isSkullBashing = true;
@@ -64,6 +73,13 @@ public class SkullBash : MonoBehaviour
         //play animation and wait bashTime (in seconds) then end bash
         anim.Play("SkullBash");
         Invoke("endSkullBash", bashTime);
+    }
+
+    public void CancelBash()
+    {
+        CancelInvoke(nameof(endSkullBash));
+        endSkullBash();
+        cooldownTimer = cancelCooldown;
     }
 
     private void endSkullBash()

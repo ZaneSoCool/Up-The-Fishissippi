@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BossBoat : MonoBehaviour
 {
+    [SerializeField] private float bashBounceSpeed = 3f;
+
     private Attackable attackable;
     private int lastHealth;
     private player playerScript;
@@ -25,7 +27,8 @@ public class BossBoat : MonoBehaviour
         if (attackable.CurrentHealth < lastHealth)
         {
             lastHealth = attackable.CurrentHealth;
-            playerScript.FlipBashY();
+            Vector2 bounceDir = ((Vector2)playerScript.transform.position - (Vector2)transform.position).normalized;
+            playerScript.BashBounce(bounceDir, bashBounceSpeed);
         }
     }
 }

@@ -5551,6 +5551,10 @@ PrefabInstance:
       propertyPath: mappings.Array.data[4].clearMarkerAfterSpawn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3780428995211527382, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.91
+      objectReference: {fileID: 0}
     - target: {fileID: 3968241271249541621, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 1
@@ -10291,6 +10295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 7258559466339529342, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.91
+      objectReference: {fileID: 0}
     - target: {fileID: 7893189815827466487, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Tiles.Array.size
       value: 0
@@ -10425,7 +10433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8515020949652564634, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.49
+      value: -7.83
       objectReference: {fileID: 0}
     - target: {fileID: 8586159498610911341, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: orthoSize
@@ -10527,7 +10535,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759826613358029850, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: bashDamage
-      value: 7
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759826613358029850, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+      propertyPath: cancelCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3992079201666534574, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_Name
@@ -10683,6 +10695,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1466422509637061783, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426201101711767530, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bashBounceSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4128670213691638710, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.83348
@@ -10769,13 +10789,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bobby
   bossAttackable: {fileID: 1381296563}
   phaseThreshold: 0.667
-  chaseSpeed: 3
+  chaseSpeed: 2.5
   turnSpeed: 60
   aboveWaterGravity: 10
   maxFallSpeed: 8
-  knockbackSpeed: 5
-  knockbackDuration: 0.4
-  hitStunDuration: 0.3
+  knockbackSpeed: 7
+  knockbackDuration: 0.5
+  hitStunDuration: 0.5
+  bashBounceSpeed: 3
   contactDamage: 1
   damageCooldown: 1
 --- !u!95 &5587540069680787371

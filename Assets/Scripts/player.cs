@@ -149,11 +149,11 @@ public class player : MonoBehaviour
         isDoingSpecialAnim = false;
     }
 
-    // Called by BossBoat on a successful skull bash hit — flips Y so the bash speed carries the player back down.
-    public void FlipBashY()
+    // Cancels the bash and applies a light nudge in the given direction.
+    public void BashBounce(Vector2 direction, float speed)
     {
-        skullBashDirection.y = -skullBashDirection.y;
-        rigidBody.linearVelocity = new Vector2(rigidBody.linearVelocity.x, -rigidBody.linearVelocity.y);
+        skullBashScript.CancelBash();
+        rigidBody.linearVelocity = direction.normalized * speed;
     }
 
     private bool IsAboveWater()
