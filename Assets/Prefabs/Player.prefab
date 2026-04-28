@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bashDamage: 7
   bashTime: 0.6
+  cancelCooldown: 0.5
   isSkullBashing: 0
 --- !u!1 &1637006647020356395
 GameObject:
@@ -473,7 +474,11 @@ MonoBehaviour:
   inputEnabled: 1
   hasTailThwap: 0
   hasSkullBash: 0
+  canMove: 1
+  coinsCount: 0
   bashSpeed: 10
+  aboveWaterGravity: 12
+  maxFallSpeed: 6
 --- !u!114 &-2949073202235639812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,3 +494,5 @@ MonoBehaviour:
   health: 5
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  canBeTailThwapped: 1
+  canBeSkullBashed: 1
