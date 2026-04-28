@@ -22,6 +22,7 @@ public class Bobby : MonoBehaviour
     [Header("Damage")]
     [SerializeField] private int contactDamage = 1;
     [SerializeField] private float damageCooldown = 1f;
+    [SerializeField] private float bounceStrength = 3.0f;
 
     private SpriteRenderer spriteRenderer;
     private Animator anim;
@@ -43,6 +44,7 @@ public class Bobby : MonoBehaviour
 
     private Vector2 knockbackDir;
     private float knockbackTimer = 0f;
+    private Rigidbody2D playerRB;
 
     void Start()
     {
@@ -195,5 +197,7 @@ public class Bobby : MonoBehaviour
         if (!col.CompareTag("Player") || damageTimer > 0f) return;
         if (playerAttackable != null) playerAttackable.Attacked(contactDamage);
         damageTimer = damageCooldown;
+        playerRB = col.gameObject.GetComponent<Rigidbody2D>();
+        playerRB.linearVelocity *= -bounceStrength;       
     }
 }

@@ -164,6 +164,11 @@ public class player : MonoBehaviour
         rigidBody.linearVelocity = direction.normalized * speed;
     }
 
+    public void BounceOff(Vector2 direction, float strength)
+    {
+        rigidBody.linearVelocity = direction.normalized * strength;
+    }
+
     private bool IsAboveWater()
     {
         if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return false;

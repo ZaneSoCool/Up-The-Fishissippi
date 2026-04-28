@@ -16,8 +16,8 @@ TagManager:
   - UI
   - PlayerAttack
   - Enemy/Entity
+  - Walls
   - CameraBounds
-  - 
   - 
   - 
   - 
