@@ -319,6 +319,37 @@ MonoBehaviour:
   - colorName: Purple
     startTile: {fileID: 11400000, guid: 6afc683388db4cd44b0b1f39ce80353b, type: 2}
     endTile: {fileID: 11400000, guid: 9bfc653536f78ea4790b784122a8258b, type: 2}
+--- !u!1 &2234793652074809463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 851441834887600475}
+  m_Layer: 4
+  m_Name: Set_Pieces
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &851441834887600475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234793652074809463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5554890160676480909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2290532638068320564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1783,7 @@ Transform:
   - {fileID: 3780428995211527382}
   - {fileID: 7258559466339529342}
   - {fileID: 6648660155539222595}
+  - {fileID: 851441834887600475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7421831048255652405

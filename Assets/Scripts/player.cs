@@ -36,6 +36,7 @@ public class player : MonoBehaviour
     //progression trackers
     public bool hasTailThwap;
     public bool hasSkullBash;
+    public bool canMove = true;
     public int coinsCount = 0;
 
     //vars for skullbash
@@ -71,6 +72,13 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) //boolean that prevents player from moving (used in cutscenes)
+        {
+            rigidBody.linearVelocity = new Vector2(0,0);
+            return;
+        }
+    
+
         bool aboveWater = IsAboveWater();
 
         if (skullBashScript.isSkullBashing == true) { //do dash — allowed above water, gravity kicks in after it ends

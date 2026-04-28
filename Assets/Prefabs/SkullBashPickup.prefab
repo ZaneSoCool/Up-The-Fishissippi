@@ -211,9 +211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press K to use SkullBash
-
-    Press J to attack.'
+  m_text: Press K to use SkullBash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
