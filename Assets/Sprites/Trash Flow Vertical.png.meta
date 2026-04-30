@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 5232c0939e61ed24a94d8256424e86a0
+guid: 22a7fb54f14ce46dda3ac5261f3beb2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525018074350218676
-    second: Trash Flow Vertical_0
+      213: 1779538957948471949
+    second: Trash Flow Vertical (1)_0
   - first:
-      213: 4567782453143300102
-    second: Trash Flow Vertical_1
+      213: 4105307763765276474
+    second: Trash Flow Vertical (1)_1
   - first:
-      213: -7787566171927521910
-    second: Trash Flow Vertical_2
+      213: -7883235126142222325
+    second: Trash Flow Vertical (1)_2
   - first:
-      213: 2705438839896168493
-    second: Trash Flow Vertical_3
+      213: 5705801697955662978
+    second: Trash Flow Vertical (1)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trash Flow Vertical_0
+      name: Trash Flow Vertical (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bde1b5dbd3f92510800000000000000
-      internalID: 1525018074350218676
+      spriteID: d8acc7cf04132b810800000000000000
+      internalID: 1779538957948471949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trash Flow Vertical_1
+      name: Trash Flow Vertical (1)_1
       rect:
         serializedVersion: 2
         x: 74
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6086ed2a0f5046f30800000000000000
-      internalID: 4567782453143300102
+      spriteID: a3fe1e809abf8f830800000000000000
+      internalID: 4105307763765276474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trash Flow Vertical_2
+      name: Trash Flow Vertical (1)_2
       rect:
         serializedVersion: 2
         x: 113
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a855961b3d10de390800000000000000
-      internalID: -7787566171927521910
+      spriteID: b0049618b6f199290800000000000000
+      internalID: -7883235126142222325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trash Flow Vertical_3
+      name: Trash Flow Vertical (1)_3
       rect:
         serializedVersion: 2
         x: 138
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d285e857a46ab8520800000000000000
-      internalID: 2705438839896168493
+      spriteID: 28cc775e9641f2f40800000000000000
+      internalID: 5705801697955662978
       vertices: []
       indices: 
       edges: []
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trash Flow Vertical_0: 1525018074350218676
-      Trash Flow Vertical_1: 4567782453143300102
-      Trash Flow Vertical_2: -7787566171927521910
-      Trash Flow Vertical_3: 2705438839896168493
+      Trash Flow Vertical (1)_0: 1779538957948471949
+      Trash Flow Vertical (1)_1: 4105307763765276474
+      Trash Flow Vertical (1)_2: -7883235126142222325
+      Trash Flow Vertical (1)_3: 5705801697955662978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

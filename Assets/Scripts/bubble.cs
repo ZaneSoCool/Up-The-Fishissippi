@@ -23,6 +23,7 @@ public class bubble : MonoBehaviour
     {
         bubbleAnimator = GetComponent<Animator>();
         bubbleCollider = GetComponent<CircleCollider2D>();
+        attack = GetComponent<Attackable>();
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -35,7 +36,7 @@ public class bubble : MonoBehaviour
         }
     }
 
-    public void Attacked()
+    public void bubbleAttacked()
     {
         if (attack.Die() == this)
         {
