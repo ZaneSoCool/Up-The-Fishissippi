@@ -299,6 +299,21 @@ MonoBehaviour:
     hazardPrefab: {fileID: 8552550768399521161, guid: 352bf3e6bf4764321b5a282fa968a4d3, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
+  - name: Trash Ring
+    markerTile: {fileID: 11400000, guid: f8b406ab7720843d49b0c0b53bffa61d, type: 2}
+    hazardPrefab: {fileID: 8024555194267898188, guid: 2aaf5f010e6944811a544e86a076b61f, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
+  - name: Trash Soda
+    markerTile: {fileID: 11400000, guid: 6ca3536e9ecca4e4ebbae36110823b10, type: 2}
+    hazardPrefab: {fileID: 4231301039900087989, guid: a0ce0c0306e4647d28d58370b15e211c, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
+  - name: Trash Particle
+    markerTile: {fileID: 11400000, guid: e100334084a4642e5beb37b1433e60b8, type: 2}
+    hazardPrefab: {fileID: 9030516609231356497, guid: 1cfe5bd670ec84ae8bc7eabd84d94747, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
   enemyFishPrefab: {fileID: 4947752995994566128, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
   fishColorPairs:
   - colorName: Red

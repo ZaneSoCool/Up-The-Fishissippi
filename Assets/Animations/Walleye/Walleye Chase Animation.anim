@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: smallBubble Pop Animation
+  m_Name: Walleye Chase Animation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -7388250550792147261, guid: 884ee2b536b164d888e7fb437a227be0, type: 3}
-    - time: 0.033333335
-      value: {fileID: 3906450060739424823, guid: 1a828ea3535524f8e864e5118528d391, type: 3}
-    - time: 0.06666667
-      value: {fileID: 4845628004089752764, guid: 4a8bc5631260a4f5ea5683fd6d0c5793, type: 3}
-    - time: 0.1
-      value: {fileID: 6596630089043376784, guid: 632de0106d8c749a7b376b03f41a4964, type: 3}
-    - time: 0.13333334
-      value: {fileID: -7209584722798607206, guid: 418861ddabf9a47e8ba3a555b51aa4c6, type: 3}
+      value: {fileID: -1602991736268707612, guid: 8f997be3f3381b34abc4dab06020bba1, type: 3}
+    - time: 0.16666667
+      value: {fileID: -1199402142275152127, guid: 6f4fbc9ebe8aeba4ca3b8816328fc8fb, type: 3}
+    - time: 0.33333334
+      value: {fileID: 4183205441185447151, guid: 2cb9cca9da3d9d74db388914357cd64c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,17 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -7388250550792147261, guid: 884ee2b536b164d888e7fb437a227be0, type: 3}
-    - {fileID: 3906450060739424823, guid: 1a828ea3535524f8e864e5118528d391, type: 3}
-    - {fileID: 4845628004089752764, guid: 4a8bc5631260a4f5ea5683fd6d0c5793, type: 3}
-    - {fileID: 6596630089043376784, guid: 632de0106d8c749a7b376b03f41a4964, type: 3}
-    - {fileID: -7209584722798607206, guid: 418861ddabf9a47e8ba3a555b51aa4c6, type: 3}
+    - {fileID: -1602991736268707612, guid: 8f997be3f3381b34abc4dab06020bba1, type: 3}
+    - {fileID: -1199402142275152127, guid: 6f4fbc9ebe8aeba4ca3b8816328fc8fb, type: 3}
+    - {fileID: 4183205441185447151, guid: 2cb9cca9da3d9d74db388914357cd64c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.15
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,7 +77,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: bubbleAttacked
+    functionName: 
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
