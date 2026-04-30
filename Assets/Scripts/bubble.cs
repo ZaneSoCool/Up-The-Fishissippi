@@ -35,16 +35,16 @@ public class bubble : MonoBehaviour
         }
     }
 
-    public void Attacked()
-    {
-        if (attack.Die() == this)
-        {
-            Debug.Log("Calling SetTrigger Death");
-            bubbleCollider.enabled = false;
-            bubbleAnimator.SetTrigger("Death");
-            Destroy(this);
-        }
-    }
+    //public void Attacked()
+    //{
+    //    if (attack.Die() == this)
+    //    {
+    //        Debug.Log("Calling SetTrigger Death");
+    //        bubbleCollider.enabled = false;
+    //        bubbleAnimator.SetTrigger("Death");
+    //        Destroy(this);
+    //    }
+    //}
 
     public void bubblePop()
     {
