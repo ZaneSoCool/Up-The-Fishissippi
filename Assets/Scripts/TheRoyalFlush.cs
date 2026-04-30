@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TheRoyalFlush : MonoBehaviour
@@ -22,6 +23,12 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private Sprite anglerBattleSprite;
     [SerializeField] private Sprite bobbyBattleSprite;
 
+    [Header("Hit Sprites")]
+    [SerializeField] private Sprite mongerHitSprite;
+    [SerializeField] private Sprite bobbyHitSprite;
+    [SerializeField] private float hitFlashDuration = 0.5f;
+    public bool bobbyOnBoat = true;
+
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -45,6 +52,26 @@ public class TheRoyalFlush : MonoBehaviour
         if (anglerRenderer != null && anglerBattleSprite != null)
             anglerRenderer.sprite = anglerBattleSprite;
         if (bobbyRenderer != null && bobbyBattleSprite != null)
+            bobbyRenderer.sprite = bobbyBattleSprite;
+    }
+
+    public void OnBoatHit()
+    {
+        StartCoroutine(HitFlashRoutine());
+    }
+
+    private IEnumerator HitFlashRoutine()
+    {
+        if (mongerRenderer != null && mongerHitSprite != null)
+            mongerRenderer.sprite = mongerHitSprite;
+        if (bobbyOnBoat && bobbyRenderer != null && bobbyHitSprite != null)
+            bobbyRenderer.sprite = bobbyHitSprite;
+
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        if (mongerRenderer != null && mongerBattleSprite != null)
+            mongerRenderer.sprite = mongerBattleSprite;
+        if (bobbyOnBoat && bobbyRenderer != null && bobbyBattleSprite != null)
             bobbyRenderer.sprite = bobbyBattleSprite;
     }
 }

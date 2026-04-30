@@ -29,6 +29,7 @@ public class BossBoat : MonoBehaviour
             lastHealth = attackable.CurrentHealth;
             Vector2 bounceDir = ((Vector2)playerScript.transform.position - (Vector2)transform.position).normalized;
             playerScript.BashBounce(bounceDir, bashBounceSpeed);
+            TheRoyalFlush.Instance?.OnBoatHit();
         }
     }
 }
