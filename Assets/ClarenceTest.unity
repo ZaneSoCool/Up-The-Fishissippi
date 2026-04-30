@@ -690,6 +690,17 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!114 &1323658777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2124294704609879282, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+  m_PrefabInstance: {fileID: 1532995307158598637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d692d9f3aa83fa498701740caa0d003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealthBar
 --- !u!1 &1348660901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5674142669117003414, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
@@ -10666,6 +10677,14 @@ PrefabInstance:
     - target: {fileID: 4259722112067656594, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_Name
       value: The Royal Flush
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1323658777}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bossStarted
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -129,6 +129,7 @@ public class Bobby : MonoBehaviour
 
     void ActivatePhase2()
     {
+        TheRoyalFlush.Instance.bobbyOnBoat = false;
         phaseStarted = true;
         transform.SetParent(null); // detach so boat movement doesn't carry Bobby
         anim.enabled = true;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5347008276179684676}
   - component: {fileID: 7916489944735952991}
   - component: {fileID: 2787978723416466399}
+  - component: {fileID: 4457819251457830223}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Attackable
@@ -219,6 +220,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4457819251457830223
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201160877544224687}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c71e87c90f9114f459bfbc73d7593d97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2248213901757710764
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +453,10 @@ MonoBehaviour:
   mongerBattleSprite: {fileID: -8599352820169461156, guid: f97e58fea9470a8429cf45444a7e213d, type: 3}
   anglerBattleSprite: {fileID: 6360750635851268815, guid: 550eeb1afcc6f1d488f3b6a052560ac7, type: 3}
   bobbyBattleSprite: {fileID: 4786381079661380111, guid: bbead035f389f9f42ad9c9ceb063bf73, type: 3}
+  mongerHitSprite: {fileID: -686753609008124365, guid: e0cc9dbf90f59f947838874f49791b76, type: 3}
+  bobbyHitSprite: {fileID: 1796284496712075856, guid: 340e704bc8c441142983745dc5133021, type: 3}
+  hitFlashDuration: 0.5
+  bobbyOnBoat: 1
 --- !u!1 &5513106600479101157
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,11 +571,9 @@ MonoBehaviour:
   rifleRenderer: {fileID: 2635374443270335588}
   rifleTip: {fileID: 6928315868855018687}
   rifleRotationOffset: 56
+  lineSortingOrder: -1
   line: {fileID: 3366428027452051854}
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 256
-  maxRange: 30
+  lineExtension: 30
   telegraphDuration: 3
   flashIntervalStart: 0.4
   flashIntervalEnd: 0.06
