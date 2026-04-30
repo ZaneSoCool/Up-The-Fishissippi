@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 625541464062055224}
   - component: {fileID: 4115300496644454249}
   - component: {fileID: 890046369829924181}
-  - component: {fileID: 8165000025485625724}
   - component: {fileID: 8628389838961622803}
   m_Layer: 0
   m_Name: Trash Soda
@@ -86,15 +85,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8151401866813786777, guid: 21770471a2da7054796e4a75d2df0634, type: 3}
+  m_Sprite: {fileID: 8151401866813786777, guid: 3e7ab001f62f94c8288f747239372068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.25, y: 1.40625}
+  m_Size: {x: 0.4, y: 0.45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!50 &625541464062055224
 Rigidbody2D:
@@ -153,12 +152,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.052262306}
-  m_Radius: 0.7553873
+  m_Radius: 0.35
 --- !u!114 &890046369829924181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,23 +172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Trash
   bounceStrength: 1
   trashDamage: 1
---- !u!114 &8165000025485625724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4231301039900087989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ef99095e636464cbaf9e2a8ba0df13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attackable
-  health: 0
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
-  canBeTailThwapped: 0
-  canBeSkullBashed: 0
 --- !u!114 &8628389838961622803
 MonoBehaviour:
   m_ObjectHideFlags: 0

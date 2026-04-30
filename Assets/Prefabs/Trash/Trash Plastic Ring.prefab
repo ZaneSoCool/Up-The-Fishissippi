@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 6501834681800565744}
   - component: {fileID: 7876499693274947241}
   - component: {fileID: 5789815325925552516}
-  - component: {fileID: 7072462584219349188}
   - component: {fileID: 3392868045716921461}
-  - component: {fileID: 4266537819192130232}
   - component: {fileID: -7976772535167404043}
+  - component: {fileID: 904687174104568855}
   m_Layer: 0
   m_Name: Trash Plastic Ring
   m_TagString: Untagged
@@ -123,8 +122,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7072462584219349188
-CircleCollider2D:
+--- !u!114 &3392868045716921461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024555194267898188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57bf395e360394c0e81b7f88eff4fb71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trash
+  bounceStrength: 1
+  trashDamage: 1
+--- !u!114 &-7976772535167404043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024555194267898188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513bbf70b19524712880f31b7a2e7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wobble
+  verticalRange: 0.15
+  horizontalRange: 0.08
+  floatSpeed: 0.8
+--- !u!61 &904687174104568855
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -153,55 +181,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.793139
---- !u!114 &3392868045716921461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8024555194267898188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57bf395e360394c0e81b7f88eff4fb71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Trash
-  bounceStrength: 1
-  trashDamage: 1
---- !u!114 &4266537819192130232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8024555194267898188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ef99095e636464cbaf9e2a8ba0df13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attackable
-  health: 0
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.1
-  canBeTailThwapped: 0
-  canBeSkullBashed: 0
---- !u!114 &-7976772535167404043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8024555194267898188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513bbf70b19524712880f31b7a2e7dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wobble
-  verticalRange: 0.15
-  horizontalRange: 0.08
-  floatSpeed: 0.8
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.75, y: 1.203125}
+    newSize: {x: 3.5, y: 2.40625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.6, y: 1}
+  m_EdgeRadius: 0
