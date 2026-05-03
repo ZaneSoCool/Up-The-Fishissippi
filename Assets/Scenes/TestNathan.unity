@@ -304,9 +304,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3149978090790353753, guid: 012e2b98d3b5146ef9b5acda2324478b, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3363452668636133869, guid: 012e2b98d3b5146ef9b5acda2324478b, type: 3}
       propertyPath: m_Name
       value: Pipe Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230059444636640853, guid: 012e2b98d3b5146ef9b5acda2324478b, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -418,14 +426,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3377171959764181740, guid: 7a9407604fc4f4154805458dc0e782b0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
-    - target: {fileID: 3377171959764181740, guid: 7a9407604fc4f4154805458dc0e782b0, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4211730201059870649, guid: 7a9407604fc4f4154805458dc0e782b0, type: 3}
       propertyPath: m_Name
       value: Walleye
@@ -483,25 +483,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301483650532713814, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 921857991295230334, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
       propertyPath: m_Name
       value: Pipe Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596164379733702346, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1908060667102129136, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.68
       objectReference: {fileID: 0}
-    - target: {fileID: 7067483637284961682, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7798297227157719799, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749517937032820190, guid: a6b26bc201010491585369bbd21fdb81, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

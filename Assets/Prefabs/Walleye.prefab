@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8326439654623849946}
   - component: {fileID: 6880055442216415087}
   - component: {fileID: 7241277281702818938}
+  - component: {fileID: 1108767871197978272}
   m_Layer: 0
   m_Name: Walleye
   m_TagString: Untagged
@@ -179,3 +180,27 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.0019493103}
   m_Radius: 0.5369494
+--- !u!114 &1108767871197978272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211730201059870649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b53f7c5fde4b473eb824b86efd3553c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerritorialFish
+  playerTag: Player
+  drawGizmos: 1
+  territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
+  trackingInterval: 0.1
+  alertDistance: 1.5
+  chaseDistance: 1
+  alertSpeed: 1.5
+  chaseSpeed: 4
+  territoryRadius: 4
+  patrolRadius: 1.4
+  patrolSpeed: 2
+  clockwise: 1
