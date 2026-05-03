@@ -15,7 +15,7 @@ public class muskieTease : MonoBehaviour
         StartCoroutine(timer()); //short timer to avoid player pos not being correct yet
 
         //Destroy Muskie if player already has tailThwap
-        if (playerScript.transform.position.x < transform.position.x)
+        if (playerScript.transform.position.x < transform.position.x || playerScript.hasTailThwap)
         {
             Destroy(gameObject);
         }
