@@ -1767,6 +1767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5554890160676480909}
+  - component: {fileID: 3467967949886877938}
   m_Layer: 0
   m_Name: RoomRoot
   m_TagString: Untagged
@@ -1801,6 +1802,23 @@ Transform:
   - {fileID: 851441834887600475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3467967949886877938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072978802185650344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e72b299028a7fb47bda1f0dae2d1c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  isArea2: 0
+  background: {fileID: 7421831048255652405}
+  wallTiles: {fileID: 8951794303157862469}
+  area2backColor: {r: 0, g: 1, b: 0.23586345, a: 1}
+  area2wallColor: {r: 0.5464513, g: 0.8037735, b: 0.53231037, a: 1}
 --- !u!1 &7421831048255652405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1955,7 @@ GameObject:
   - component: {fileID: 2205242779790416086}
   - component: {fileID: 860394333609015078}
   - component: {fileID: 3968241271249541621}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tilemap_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
