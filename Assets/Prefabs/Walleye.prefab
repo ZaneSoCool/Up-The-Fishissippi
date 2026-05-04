@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6880055442216415087}
   - component: {fileID: 7241277281702818938}
   - component: {fileID: 1108767871197978272}
+  - component: {fileID: 4356403133284746912}
   m_Layer: 0
   m_Name: Walleye
   m_TagString: Untagged
@@ -196,11 +197,22 @@ MonoBehaviour:
   drawGizmos: 1
   territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
   trackingInterval: 0.1
-  alertDistance: 1.5
-  chaseDistance: 1
-  alertSpeed: 1.5
-  chaseSpeed: 4
+  alertDistance: 4
+  alertSpeed: 20
   territoryRadius: 4
-  patrolRadius: 1.4
+  patrolRadius: 0.5
   patrolSpeed: 2
   clockwise: 1
+  walleyeDamage: 1
+--- !u!114 &4356403133284746912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211730201059870649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e488d688d6934efebcecbb5503d3ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBodyCollider

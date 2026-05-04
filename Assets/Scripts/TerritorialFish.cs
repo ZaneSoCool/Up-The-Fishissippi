@@ -1,17 +1,15 @@
-using Unity.VisualScripting;
+// Written by Nathan Gumagay in collaboration with Claude
 using UnityEngine;
 
-public enum EnemyState { Patrol, Alert, Chase }
+public enum EnemyState { Patrol, Alert }
 
 public class TerritorialFish : Territory
 {
-    [Header("Detection Distances")]
+    [Header("Detection Distance")]
     public float alertDistance = 4f;
-    public float chaseDistance = 2f;
 
     [Header("Movement Speeds")]
-    public float alertSpeed = 1.5f;
-    public float chaseSpeed = 4f;
+    public float alertSpeed = 20f;
 
     [Header("Territory Settings")]
     public float territoryRadius = 6f;
@@ -22,35 +20,28 @@ public class TerritorialFish : Territory
     public bool clockwise = true;
 
     private Rigidbody2D rb;
-
     private Rigidbody2D playerRB;
-
-    private float bounceStrength = 1f;
-
+    private float bounceStrength = 15f;
     public int walleyeDamage = 1;
     private SpriteRenderer spriteRenderer;
-    private AudioSource audioSource;
-    private CircleCollider2D territoryCollider;
+    //private AudioSource audioSource;
     private EnemyState currentState = EnemyState.Patrol;
+
+    private Transform trackedPlayer;
 
     private float patrolAngle = 0f;
     private Vector2 patrolCenter;
-
     private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        territoryCollider = GetComponent<CircleCollider2D>();
-        if (territoryCollider == null)
-            territoryCollider = gameObject.AddComponent<CircleCollider2D>();
-
-        territoryCollider.isTrigger = true;
-        territoryCollider.radius = territoryRadius;
+        SetupBodyCollider();
+        SetupTerritoryTrigger();
     }
 
     private void Start()
@@ -61,9 +52,29 @@ public class TerritorialFish : Territory
     private void Update()
     {
         if (currentState == EnemyState.Patrol)
-        {
             Patrol();
-        }
+        else if (currentState == EnemyState.Alert && trackedPlayer != null)
+            ChasePlayer();
+    }
+
+    private void SetupBodyCollider()
+    {
+        GameObject bodyObject = new GameObject("BodyCollider");
+        bodyObject.transform.SetParent(transform);
+        bodyObject.transform.localPosition = Vector3.zero;
+
+        CircleCollider2D bodyCollider = bodyObject.AddComponent<CircleCollider2D>();
+        bodyCollider.isTrigger = true;
+        bodyCollider.radius = 0.5f;
+
+        EnemyBodyCollider bodyScript = bodyObject.AddComponent<EnemyBodyCollider>();
+        bodyScript.Initialize(this);
+
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        if (enemyLayer != -1)
+            bodyObject.layer = enemyLayer;
+        else
+            Debug.LogWarning("Enemy layer not found!");
     }
 
     private void SetupTerritoryTrigger()
@@ -79,14 +90,12 @@ public class TerritorialFish : Territory
         TerritoryTriggerRelay relay = territoryObject.AddComponent<TerritoryTriggerRelay>();
         relay.Initialize(this);
 
-        // Assign Territory layer to child so it doesn't cause damage collisions
         int territoryLayer = LayerMask.NameToLayer("Territory");
         if (territoryLayer != -1)
             territoryObject.layer = territoryLayer;
         else
-            Debug.LogWarning("Territory layer not found! Please add it in Project Settings.");
+            Debug.LogWarning("Territory layer not found!");
     }
-
 
     private void Patrol()
     {
@@ -102,16 +111,32 @@ public class TerritorialFish : Territory
 
         rb.MovePosition(targetPosition);
 
-        // Flip sprite based on movement direction
-        Vector2 moveDirection = targetPosition - rb.position;
-        spriteRenderer.flipX = moveDirection.x < 0;
+        // Calculate the tangent direction based on clockwise or counterclockwise
+        // This gives the actual forward direction of movement around the circle
+        Vector2 tangentDirection = clockwise
+            ? new Vector2(Mathf.Sin(patrolAngle), -Mathf.Cos(patrolAngle))   // Clockwise tangent
+            : new Vector2(-Mathf.Sin(patrolAngle), Mathf.Cos(patrolAngle));  // Counterclockwise tangent
+
+        float angle = Mathf.Atan2(tangentDirection.y, tangentDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+
+    private void ChasePlayer()
+    {
+
+        Vector2 directionToPlayer = ((Vector2)trackedPlayer.position - rb.position).normalized;
+        rb.MovePosition(rb.position + directionToPlayer * alertSpeed * Time.deltaTime);
+        spriteRenderer.flipX = trackedPlayer.position.x < transform.position.x;
+
+        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
     public void PlayerEnteredTerritory(Transform player)
     {
         OnPlayerEnterTerritory(player);
     }
 
-    // Called by TerritoryTriggerRelay when player exits territory
     public void PlayerExitedTerritory(Transform player)
     {
         OnPlayerExitTerritory(player);
@@ -120,66 +145,40 @@ public class TerritorialFish : Territory
     protected override void OnPlayerEnterTerritory(Transform player)
     {
         base.OnPlayerEnterTerritory(player);
+        trackedPlayer = player;
         animator.SetTrigger("Chase");
-        // flip enemy sprite to face player, play alert sound
-        Vector2 directionToPlayer = player.position - transform.position;
-        spriteRenderer.flipX = directionToPlayer.x < 0;
-
-        audioSource.Play();
+        //audioSource.Play();
         SetState(EnemyState.Alert);
     }
 
     protected override void OnPlayerExitTerritory(Transform player)
     {
         base.OnPlayerExitTerritory(player);
-        // return enemy to patrol state
+        trackedPlayer = null;
         SetState(EnemyState.Patrol);
     }
 
     protected override void OnPlayerMoved(Transform player, Vector2 localPos, float distance)
     {
-        float distanceToPlayer = Vector2.Distance(rb.position, player.position);
 
-        if (distanceToPlayer < chaseDistance)
-        {
-            Debug.Log($"Player too close! Chasing! Distance: {distance:F2}");
-            // e.g., trigger chase behavior, deal damage, etc.
-            SetState(EnemyState.Chase);
-            Vector2 directionToPlayer = ((Vector2)player.position - rb.position).normalized;
-            rb.MovePosition(rb.position + directionToPlayer * chaseSpeed * Time.deltaTime);
-        }
-        else if (distance < alertDistance)
-        {
-            Debug.Log($"Player detected! Alerting! Distance: {distance:F2}");
-            // e.g., move toward player slowly
-            SetState(EnemyState.Alert);
-            Vector2 directionToPlayer = ((Vector2)player.position - rb.position).normalized;
-            rb.MovePosition(rb.position + directionToPlayer * alertSpeed * Time.deltaTime);
-        }
-        else
-        {
-            SetState(EnemyState.Patrol);
-        }
         spriteRenderer.flipX = player.position.x < transform.position.x;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void HandlePlayerBodyContact(Collider2D collision)
     {
-        // Ignore territory trigger collisions
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Territory")) return;
+        playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (playerRB != null)
         {
-            playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            // Calculate direction from fish to player
+            Vector2 bounceDirection = ((Vector2)collision.transform.position - rb.position).normalized;
 
-            if (playerRB != null)
-            {
-                playerRB.linearVelocity *= -bounceStrength;
+            // Apply bounce force regardless of player's current velocity
+            playerRB.linearVelocity = bounceDirection * bounceStrength;
 
-                Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
-                if (playerAttackableScript != null)
-                    playerAttackableScript.Attacked(walleyeDamage);
-            }
+            Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
+            if (playerAttackableScript != null)
+                playerAttackableScript.Attacked(walleyeDamage);
         }
     }
 
@@ -190,31 +189,22 @@ public class TerritorialFish : Territory
         Debug.Log($"[{gameObject.name}] State changed to: {newState}");
     }
 
-    private void WalleyeChase()
-    {
-        Debug.Log("Walleye chasing Player");
-    }
-
     private void OnDrawGizmosSelected()
     {
-        // Visualize the patrol circle in the editor
-        Gizmos.color = Color.yellow;
         Vector3 center = Application.isPlaying ?
             new Vector3(patrolCenter.x, patrolCenter.y, 0f) : transform.position;
 
-        int segments = 36;
-        float angleStep = 360f / segments;
-        Vector3 prevPoint = center + new Vector3(patrolRadius, 0f, 0f);
+        // Yellow = patrol circle
+        Gizmos.color = Color.yellow;
+        DrawGizmoCircle(center, patrolRadius);
 
-        for (int i = 1; i <= segments; i++)
-        {
-            float angle = i * angleStep * Mathf.Deg2Rad;
-            Vector3 nextPoint = center + new Vector3(
-                Mathf.Cos(angle) * patrolRadius,
-                Mathf.Sin(angle) * patrolRadius, 0f);
-            Gizmos.DrawLine(prevPoint, nextPoint);
-            prevPoint = nextPoint;
-        }
+        // Cyan = alert distance
+        Gizmos.color = Color.cyan;
+        DrawGizmoCircle(transform.position, alertDistance);
+
+        // White = territory zone
+        Gizmos.color = Color.white;
+        DrawGizmoCircle(center, territoryRadius);
     }
 
     private void DrawGizmoCircle(Vector3 center, float radius, int segments = 36)

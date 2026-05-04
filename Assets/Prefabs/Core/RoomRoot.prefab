@@ -314,6 +314,11 @@ MonoBehaviour:
     hazardPrefab: {fileID: 9030516609231356497, guid: 1cfe5bd670ec84ae8bc7eabd84d94747, type: 3}
     worldOffset: {x: 0, y: 0, z: 0}
     clearMarkerAfterSpawn: 1
+  - name: Walleye
+    markerTile: {fileID: 11400000, guid: 5a88322ad06cc40c39e01e22c1399587, type: 2}
+    hazardPrefab: {fileID: 4211730201059870649, guid: 7a9407604fc4f4154805458dc0e782b0, type: 3}
+    worldOffset: {x: 0, y: 0, z: 0}
+    clearMarkerAfterSpawn: 1
   enemyFishPrefab: {fileID: 4947752995994566128, guid: 0730b25c85a2349f188376e849efd5b5, type: 3}
   fishColorPairs:
   - colorName: Red
