@@ -15,6 +15,8 @@ public class Attackable : MonoBehaviour
     public Color flashColor = Color.red;
     public float flashDuration = 0.1f;
     private Renderer rend;
+    private Color _originalColor;
+    private Coroutine _flashCoroutine;
 
     private int maxHealth;
 
@@ -30,6 +32,8 @@ public class Attackable : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         if (rend == null) rend = GetComponent<Renderer>();
         maxHealth = health;
+        if (rend != null && rend.material.HasProperty("_Color"))
+            _originalColor = rend.material.color;
     }
 
     public void Attacked(int damage)
@@ -37,7 +41,8 @@ public class Attackable : MonoBehaviour
         // Don't take damage during scene transitions
         if (RoomTransitionManager.Instance != null && RoomTransitionManager.Instance.IsTransitioning) return;
 
-        StartCoroutine(FlashRoutine());
+        if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
+        _flashCoroutine = StartCoroutine(FlashRoutine());
         health -= damage;
         if (health <= 0)
         {
@@ -87,9 +92,8 @@ public class Attackable : MonoBehaviour
     IEnumerator FlashRoutine()
     {
         if (rend == null || !rend.material.HasProperty("_Color")) yield break;
-        Color ogColor = rend.material.color;
         rend.material.color = flashColor;
         yield return new WaitForSeconds(flashDuration);
-        rend.material.color = ogColor;
+        rend.material.color = _originalColor;
     }
 }
