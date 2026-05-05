@@ -472,7 +472,7 @@ MonoBehaviour:
   playerHealth: 0
   isDoingSpecialAnim: 0
   inputEnabled: 1
-  hasTailThwap: 0
+  hasTailThwap: 1
   hasSkullBash: 0
   canMove: 1
   coinsCount: 0

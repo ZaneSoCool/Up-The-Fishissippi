@@ -21,6 +21,8 @@ public class Attackable : MonoBehaviour
     public bool canBeTailThwapped = true;
     public bool canBeSkullBashed = true;
 
+    public bool parentDestroyOnDeath = false;
+
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -62,7 +64,15 @@ public class Attackable : MonoBehaviour
             {
                 return gameObject;
             }
-            Destroy(gameObject);
+
+            if (parentDestroyOnDeath)
+            {
+                Destroy(transform.parent.gameObject);
+            } else
+            {
+                Destroy(gameObject);
+            }
+            
 
             return null;
         }
