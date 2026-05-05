@@ -706,6 +706,17 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
   m_PrefabInstance: {fileID: 1176676287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1169447367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3165271381407725885, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665dd5a3579cb324c93b4c4b09c385bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bobby
 --- !u!1001 &1176676287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11709,6 +11720,14 @@ PrefabInstance:
       propertyPath: bobbingFrequency
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2853645166177818696, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: chaseSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853645166177818696, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: returnSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4128670213691638710, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11762,6 +11781,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bobby
+      value: 
+      objectReference: {fileID: 1169447367}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: roomExit
       value: 
       objectReference: {fileID: 1176676289}
@@ -11769,6 +11792,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 389394426}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: anglerSniper
+      value: 
+      objectReference: {fileID: 2132230155}
     - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: introLines.Array.size
       value: 6
@@ -12438,6 +12465,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2983852863636293251, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
   m_PrefabInstance: {fileID: 1601869944}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2132230155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3401705081812955626, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304eab666a6632749ae5e97e14fc3549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnglerSniper
 --- !u!4 &2145242739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104355143929648088, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}

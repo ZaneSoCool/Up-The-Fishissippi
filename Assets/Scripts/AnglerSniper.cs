@@ -64,14 +64,9 @@ public class AnglerSniper : MonoBehaviour
     {
         if (!TheRoyalFlush.Instance.bossStarted) return;
 
-        if (!phaseStarted && bossAttackable != null)
-        {
-            if ((float)bossAttackable.CurrentHealth / bossMaxHealth <= phaseThreshold)
-                ActivatePhase3();
-        }
     }
 
-    void ActivatePhase3()
+    public void ActivatePhase3()
     {
         phaseStarted = true;
 

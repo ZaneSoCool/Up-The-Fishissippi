@@ -30,6 +30,10 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private float hitFlashDuration = 0.5f;
     public bool bobbyOnBoat = true;
 
+    [Header("Phase Scripts")]
+    [SerializeField] private Bobby bobby;
+    [SerializeField] private AnglerSniper anglerSniper;
+
     [Header("Cutscenes")]
     [SerializeField] private CutsceneDirector.DialogLine[] introLines;
     [SerializeField] private CutsceneDirector.DialogLine[] phase2Lines;
@@ -76,14 +80,14 @@ public class TheRoyalFlush : MonoBehaviour
             bobbyRenderer.sprite = bobbyBattleSprite;
     }
 
-    // Call this when the boss enters phase 2
     public void StartPhase2()
     {
-        _cutsceneDirector.Play(phase2Lines);
+        _cutsceneDirector.Play(phase2Lines, () => bobby?.ActivatePhase2());
     }
+
     public void StartPhase3()
     {
-        _cutsceneDirector.Play(phase3Lines);
+        _cutsceneDirector.Play(phase3Lines, () => anglerSniper?.ActivatePhase3());
     }
 
     // Call this when the boss is defeated

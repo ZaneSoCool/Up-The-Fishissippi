@@ -74,13 +74,6 @@ public class Bobby : MonoBehaviour
 
         damageTimer -= Time.deltaTime;
 
-        // Watch for phase 2 trigger
-        if (!phaseStarted && bossAttackable != null)
-        {
-            if ((float)bossAttackable.CurrentHealth / bossMaxHealth <= phaseThreshold)
-                ActivatePhase2();
-        }
-
         if (!phaseStarted) return;
         if (isLaunching) return;
 
@@ -127,7 +120,7 @@ public class Bobby : MonoBehaviour
         transform.position += transform.up * chaseSpeed * Time.deltaTime;
     }
 
-    void ActivatePhase2()
+    public void ActivatePhase2()
     {
         TheRoyalFlush.Instance.bobbyOnBoat = false;
         phaseStarted = true;
