@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CutsceneDirector : MonoBehaviour
 {
-    public enum Speaker { Land, Water }
+    public enum Speaker { Bobby, Angler, Monger, Gillgamesh }
 
     [Serializable]
     public class DialogLine
@@ -16,6 +17,19 @@ public class CutsceneDirector : MonoBehaviour
 
     [SerializeField] private DialogBox landBox;
     [SerializeField] private DialogBox waterBox;
+
+    [Header("Speaker Transforms")]
+    [SerializeField] private Transform bobbySpeaker;
+    [SerializeField] private Transform anglerSpeaker;
+    [SerializeField] private Transform mongerSpeaker;
+    [SerializeField] private Transform gillgameshSpeaker;
+
+    [SerializeField] private float bobAmount = 0.15f;
+    [SerializeField] private float bobSpeed = 10f;
+
+    [Header("Camera")]
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private Transform boatCameraTarget;
 
     public bool IsPlaying { get; private set; }
 
@@ -39,15 +53,46 @@ public class CutsceneDirector : MonoBehaviour
         StartCoroutine(PlayRoutine(lines, onComplete));
     }
 
+    private DialogBox BoxForSpeaker(Speaker speaker)
+    {
+        return speaker == Speaker.Gillgamesh ? waterBox : landBox;
+    }
+
+    private Transform TransformForSpeaker(Speaker speaker)
+    {
+        return speaker switch
+        {
+            Speaker.Bobby      => bobbySpeaker,
+            Speaker.Angler     => anglerSpeaker,
+            Speaker.Monger     => mongerSpeaker,
+            Speaker.Gillgamesh => gillgameshSpeaker,
+            _                  => null,
+        };
+    }
+
     private IEnumerator PlayRoutine(DialogLine[] lines, Action onComplete)
     {
         IsPlaying = true;
         if (_playerScript != null) _playerScript.inputEnabled = false;
+        float originalTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+
+        Transform originalFollow = virtualCamera != null ? virtualCamera.Follow : null;
 
         foreach (DialogLine line in lines)
         {
-            DialogBox box = line.speaker == Speaker.Land ? landBox : waterBox;
+            DialogBox box = BoxForSpeaker(line.speaker);
+            Transform speakerTransform = TransformForSpeaker(line.speaker);
+
+            if (virtualCamera != null)
+                virtualCamera.Follow = line.speaker == Speaker.Gillgamesh
+                    ? _playerScript?.transform
+                    : boatCameraTarget;
+
             box.ShowLine(line.text);
+
+            Vector3 speakerOrigin = speakerTransform != null ? speakerTransform.localPosition : Vector3.zero;
+            Coroutine bob = speakerTransform != null ? StartCoroutine(BobRoutine(speakerTransform)) : null;
 
             // Skip one frame so the input that triggered Play() doesn't immediately advance
             yield return null;
@@ -61,12 +106,29 @@ public class CutsceneDirector : MonoBehaviour
                 yield return null;
             }
 
+            if (bob != null) StopCoroutine(bob);
+            if (speakerTransform != null) speakerTransform.localPosition = speakerOrigin;
+
             box.Hide();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
 
+        if (virtualCamera != null) virtualCamera.Follow = originalFollow;
+        Time.timeScale = originalTimeScale;
         if (_playerScript != null) _playerScript.inputEnabled = true;
         IsPlaying = false;
         onComplete?.Invoke();
+    }
+
+    private IEnumerator BobRoutine(Transform target)
+    {
+        Vector3 origin = target.localPosition;
+        float t = 0f;
+        while (true)
+        {
+            t += Time.unscaledDeltaTime * bobSpeed;
+            target.localPosition = origin + Vector3.up * Mathf.Sin(t) * bobAmount;
+            yield return null;
+        }
     }
 }

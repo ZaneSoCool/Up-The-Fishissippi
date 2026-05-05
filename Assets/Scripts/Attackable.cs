@@ -22,6 +22,8 @@ public class Attackable : MonoBehaviour
     public bool canBeSkullBashed = true;
 
     public bool parentDestroyOnDeath = false;
+    // Optional: set to intercept death instead of auto-destroying
+    public System.Action onDeath = null;
 
     void Start()
     {
@@ -64,6 +66,12 @@ public class Attackable : MonoBehaviour
             {
                 return gameObject;
             }
+            
+            if (onDeath != null)
+            {
+                onDeath.Invoke();
+                return null;
+            }
 
             if (parentDestroyOnDeath)
             {
@@ -72,7 +80,6 @@ public class Attackable : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            
 
             return null;
         }

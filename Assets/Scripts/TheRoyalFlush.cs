@@ -37,6 +37,7 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private CutsceneDirector.DialogLine[] outroLines;
 
     private CutsceneDirector _cutsceneDirector;
+    private bool _introStarted = false;
 
     void Awake()
     {
@@ -52,8 +53,8 @@ public class TheRoyalFlush : MonoBehaviour
 
     public void StartBossFight()
     {
-        if (bossStarted) return;
-        bossStarted = true;
+        if (_introStarted) return;
+        _introStarted = true;
 
         if (roomExit != null) roomExit.Lock();
 
@@ -63,6 +64,8 @@ public class TheRoyalFlush : MonoBehaviour
 
     private void OnIntroComplete()
     {
+        bossStarted = true;
+
         if (healthBar != null) healthBar.gameObject.SetActive(true);
 
         if (mongerRenderer != null && mongerBattleSprite != null)
@@ -89,6 +92,7 @@ public class TheRoyalFlush : MonoBehaviour
         _cutsceneDirector.Play(outroLines, () =>
         {
             if (roomExit != null) roomExit.Unlock();
+            if (boat != null) Destroy(boat.gameObject);
         });
     }
 
