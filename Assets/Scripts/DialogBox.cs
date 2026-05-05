@@ -19,6 +19,7 @@ public class DialogBox : MonoBehaviour
 
     public void ShowLine(string line)
     {
+        gameObject.SetActive(true);
         dialogText.text = line;
         if (_fadeCoroutine != null) StopCoroutine(_fadeCoroutine);
         _fadeCoroutine = StartCoroutine(Fade(targetAlpha));
@@ -32,12 +33,11 @@ public class DialogBox : MonoBehaviour
 
     private IEnumerator Fade(float target)
     {
-        gameObject.SetActive(true);
         float start = canvasGroup.alpha;
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             canvasGroup.alpha = Mathf.Lerp(start, target, elapsed / fadeDuration);
             yield return null;
         }

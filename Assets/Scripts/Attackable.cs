@@ -21,6 +21,9 @@ public class Attackable : MonoBehaviour
     public bool canBeTailThwapped = true;
     public bool canBeSkullBashed = true;
 
+    // Optional: set to intercept death instead of auto-destroying
+    public System.Action onDeath = null;
+
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -61,6 +64,11 @@ public class Attackable : MonoBehaviour
             if (gameObject.CompareTag("Bubble") || gameObject.CompareTag("BigBubble"))
             {
                 return gameObject;
+            }
+            if (onDeath != null)
+            {
+                onDeath.Invoke();
+                return null;
             }
             Destroy(gameObject);
 

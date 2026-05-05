@@ -6,7 +6,7 @@ public class Boat : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float bobbingAmplitude = 0.5f;
-    [SerializeField] private float bobbingFrequency = 1f;
+    [SerializeField] private float bobbingFrequency = 4f;
     [SerializeField] private Transform PointLeft;
     [SerializeField] private Transform PointRight;
 
@@ -48,11 +48,12 @@ public class Boat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Bobbing effect
+        if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return;
+
         float bobbingOffset = Mathf.Sin(Time.time * bobbingFrequency) * bobbingAmplitude;
         targetpos = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
         transform.position = new Vector2(targetpos.x, initialPosition.y + bobbingOffset);
-        if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
+        if (Mathf.Abs(transform.position.x - targetPoint.position.x) < 0.1f)
         {
             if (!isFlipping)
             {

@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &739650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1631546966570830057, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &23476409
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +195,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 32.210426, y: 0.1875}
+  m_Size: {x: 32.58577, y: 0.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -204,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 23476409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8948, y: 11.98, z: 0}
+  m_LocalPosition: {x: -4.0825, y: 11.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -511,8 +516,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -536,8 +541,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -575,7 +580,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -355.7175, y: -158.88098, z: -366.49634, w: -170.95041}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -589,6 +594,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303804030}
   m_CullTransparentMesh: 1
+--- !u!4 &315467437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 991691535704042534, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &389394426 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2124294704609879282, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
@@ -11613,7 +11623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 64
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -11678,6 +11688,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef99095e636464cbaf9e2a8ba0df13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attackable
+--- !u!4 &1595266317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6182045185916823085, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+  m_PrefabInstance: {fileID: 90109699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1601869944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11686,6 +11701,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1466422509637061783, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bobbingAmplitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466422509637061783, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bobbingFrequency
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4128670213691638710, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11732,11 +11755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493298189534100685, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.5
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 5512292125032249005, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
       propertyPath: roomExit
@@ -11746,6 +11769,275 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 389394426}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase3Lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[0].text
+      value: Motor fixed!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[1].text
+      value: Took you long enough. We still have to find that fish she's looking
+        for.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[2].text
+      value: I'm not paying you to fix motors, I'm paying you to catch a- FISH! FISH!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[3].text
+      value: "Ow, my ears\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[4].text
+      value: I see you now, Gill! Monger, hook him!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[5].text
+      value: Right away, miss.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[0].text
+      value: Did we do it? Did we catch him?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[1].text
+      value: My boat! My lucky Royal Flush! She's torn!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[2].text
+      value: "No\u2026 NO! You aren't going to get away with this! You think this
+        is over, Gill? You think I'm the only one he sent?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[3].text
+      value: No matter how far you run, we will bring your slippery little life to
+        an end.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[4].text
+      value: "\u2026 Who said I was running?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[5].text
+      value: Did- did that fish just-
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[6].text
+      value: I knew he would send you here to kill me. I'm truly baffled that he
+        wasted his chance by granting me exile, but we both know that the Prime Finister
+        isn't the brightest fish in the bowl.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[7].text
+      value: "My brain hurts\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[8].text
+      value: The nation is reaching its first golden age in a century! He knows what
+        is best for us! What did you do, huh? Ride the wave of Gill Bill to the top?
+        What about unemployment, Gill?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[9].text
+      value: Is that yours or the money's mouth that's moving?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[10].text
+      value: Shut up!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[11].text
+      value: Nothing has changed. Despite the whole coup d'etat, I still live and
+        breathe and the country still goes on without people noticing anything better
+        about their lives.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[12].text
+      value: Frankly, Angie, I don't care about them- and I know your Prime Finister
+        doesn't either. All I care about is calling the shots again, and you nor
+        any amount of his money will stop me from watching his blood stain the glass
+        of his perfect little bowl.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[13].text
+      value: I *will* take my seat again.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[14].text
+      value: "\u2026 You really think you can take all of us, you slimy bastard?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[15].text
+      value: Try me, worm.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[0].text
+      value: Boat leaking! Boat leaking!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[1].text
+      value: What kind of bluegill is this?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[2].text
+      value: A *very* dangerous bluegill. Bobby, catch him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[3].text
+      value: "I\u2026 What?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[4].text
+      value: I said, CATCH HIM!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[5].text
+      value: O- Okay!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase3Lines.Array.data[0].text
+      value: You think you're sooooo clever, huh, Gill? You think that you know what's
+        best for this country?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase3Lines.Array.data[1].text
+      value: You have a lot to learn about politics, traitor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[0].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[1].speaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[2].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[3].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[4].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: introLines.Array.data[5].speaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[0].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[1].speaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[2].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[3].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[4].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[5].speaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[6].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[7].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[8].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[9].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[10].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[11].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[12].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[13].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[14].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: outroLines.Array.data[15].speaker
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[0].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[1].speaker
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[2].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[3].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[4].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase2Lines.Array.data[5].speaker
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase3Lines.Array.data[0].speaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: phase3Lines.Array.data[1].speaker
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11773,6 +12065,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneDirector
   landBox: {fileID: 1833787443}
   waterBox: {fileID: 1624853776}
+  bobbySpeaker: {fileID: 315467437}
+  anglerSpeaker: {fileID: 2132230153}
+  mongerSpeaker: {fileID: 739650}
+  gillgameshSpeaker: {fileID: 1595266317}
+  bobAmount: 0.05
+  bobSpeed: 20
+  virtualCamera: {fileID: 1781181549}
+  boatCameraTarget: {fileID: 2145242739}
 --- !u!1 &1624853774
 GameObject:
   m_ObjectHideFlags: 0
@@ -11808,10 +12108,10 @@ RectTransform:
   - {fileID: 2074679725}
   m_Father: {fileID: 1246146029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 1000, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624853776
 MonoBehaviour:
@@ -11825,8 +12125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf571669a300cc4dac47dec21c8480c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogBox
-  canvasGroup: {fileID: 0}
-  dialogText: {fileID: 0}
+  canvasGroup: {fileID: 1624853777}
+  dialogText: {fileID: 2074679726}
   fadeDuration: 0.2
   targetAlpha: 0.9
 --- !u!225 &1624853777
@@ -11861,8 +12161,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -8307597897036353639, guid: b7263ef7e44fd8e4b83a18c5e41b443e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11925,10 +12225,10 @@ RectTransform:
   - {fileID: 303804031}
   m_Father: {fileID: 1246146029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 1000, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833787443
 MonoBehaviour:
@@ -11942,8 +12242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf571669a300cc4dac47dec21c8480c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogBox
-  canvasGroup: {fileID: 0}
-  dialogText: {fileID: 0}
+  canvasGroup: {fileID: 1833787444}
+  dialogText: {fileID: 303804032}
   fadeDuration: 0.2
   targetAlpha: 0.9
 --- !u!225 &1833787444
@@ -11978,8 +12278,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -4921613105719137239, guid: c4be0f4f66ed5a240b5aae9b3439312b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12055,8 +12355,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12080,8 +12380,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12119,7 +12419,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -287.10535, y: -138.34195, z: -312.90747, w: -166.04626}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12133,6 +12433,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074679724}
   m_CullTransparentMesh: 1
+--- !u!4 &2132230153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2983852863636293251, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2145242739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 104355143929648088, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+  m_PrefabInstance: {fileID: 1601869944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
