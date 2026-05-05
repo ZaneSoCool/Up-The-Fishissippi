@@ -40,7 +40,6 @@ public class TerritorialFish : Territory
         //audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
-        SetupBodyCollider();
         SetupTerritoryTrigger();
     }
 
@@ -55,26 +54,6 @@ public class TerritorialFish : Territory
             Patrol();
         else if (currentState == EnemyState.Alert && trackedPlayer != null)
             ChasePlayer();
-    }
-
-    private void SetupBodyCollider()
-    {
-        GameObject bodyObject = new GameObject("BodyCollider");
-        bodyObject.transform.SetParent(transform);
-        bodyObject.transform.localPosition = Vector3.zero;
-
-        CircleCollider2D bodyCollider = bodyObject.AddComponent<CircleCollider2D>();
-        bodyCollider.isTrigger = true;
-        bodyCollider.radius = 0.5f;
-
-        EnemyBodyCollider bodyScript = bodyObject.AddComponent<EnemyBodyCollider>();
-        bodyScript.Initialize(this);
-
-        int enemyLayer = LayerMask.NameToLayer("Enemy");
-        if (enemyLayer != -1)
-            bodyObject.layer = enemyLayer;
-        else
-            Debug.LogWarning("Enemy layer not found!");
     }
 
     private void SetupTerritoryTrigger()
@@ -118,17 +97,32 @@ public class TerritorialFish : Territory
             : new Vector2(-Mathf.Sin(patrolAngle), Mathf.Cos(patrolAngle));  // Counterclockwise tangent
 
         float angle = Mathf.Atan2(tangentDirection.y, tangentDirection.x) * Mathf.Rad2Deg;
+
+        if (Mathf.Abs(angle) < 90)
+        {
+            spriteRenderer.flipX = true;
+        } else
+        {
+            spriteRenderer.flipX = false;
+            angle -= 180;
+        }
+
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     private void ChasePlayer()
     {
-
         Vector2 directionToPlayer = ((Vector2)trackedPlayer.position - rb.position).normalized;
         rb.MovePosition(rb.position + directionToPlayer * alertSpeed * Time.deltaTime);
-        spriteRenderer.flipX = trackedPlayer.position.x < transform.position.x;
+        spriteRenderer.flipX = trackedPlayer.position.x > transform.position.x;
 
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+
+        if (spriteRenderer.flipX == false) //makes fish angle work with flipped sprite
+        {
+            angle -= 180;
+        }
+
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
@@ -155,13 +149,13 @@ public class TerritorialFish : Territory
     {
         base.OnPlayerExitTerritory(player);
         trackedPlayer = null;
+        patrolCenter = transform.position;
         SetState(EnemyState.Patrol);
     }
 
     protected override void OnPlayerMoved(Transform player, Vector2 localPos, float distance)
     {
-
-        spriteRenderer.flipX = player.position.x < transform.position.x;
+        spriteRenderer.flipX = player.position.x > transform.position.x;
     }
 
     public void HandlePlayerBodyContact(Collider2D collision)
@@ -177,8 +171,9 @@ public class TerritorialFish : Territory
             playerRB.linearVelocity = bounceDirection * bounceStrength;
 
             Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
-            if (playerAttackableScript != null)
+            if (playerAttackableScript != null) {
                 playerAttackableScript.Attacked(walleyeDamage);
+            }
         }
     }
 
