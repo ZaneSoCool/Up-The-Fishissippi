@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 3377171959764181740}
   - component: {fileID: 8326439654623849946}
   - component: {fileID: 6880055442216415087}
-  - component: {fileID: 7241277281702818938}
   - component: {fileID: 1108767871197978272}
-  - component: {fileID: 4356403133284746912}
   m_Layer: 0
   m_Name: Walleye
   m_TagString: Untagged
@@ -34,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -2.96, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 199708314800053262}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3377171959764181740
@@ -88,7 +87,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.07, y: 0.35}
@@ -106,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 4211730201059870649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f930c22b75144ecfbe252b7476610c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4628775e18963a941a38c1ff0961cb55, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,13 +144,82 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7241277281702818938
-CircleCollider2D:
+--- !u!114 &1108767871197978272
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4211730201059870649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b53f7c5fde4b473eb824b86efd3553c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TerritorialFish
+  playerTag: Player
+  drawGizmos: 1
+  territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
+  trackingInterval: 0.1
+  alertDistance: 4
+  alertSpeed: 20
+  territoryRadius: 4
+  patrolRadius: 0.5
+  patrolSpeed: 2
+  clockwise: 1
+  walleyeDamage: 1
+--- !u!1 &4608667589712620603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199708314800053262}
+  - component: {fileID: 4384642732570108949}
+  - component: {fileID: 3101633725423991749}
+  m_Layer: 0
+  m_Name: BodyHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199708314800053262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608667589712620603}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1062076948586277541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4384642732570108949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608667589712620603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e488d688d6934efebcecbb5503d3ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBodyCollider
+  fish: {fileID: 1108767871197978272}
+--- !u!70 &3101633725423991749
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608667589712620603}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -179,40 +247,6 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0019493103}
-  m_Radius: 0.5369494
---- !u!114 &1108767871197978272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4211730201059870649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b53f7c5fde4b473eb824b86efd3553c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TerritorialFish
-  playerTag: Player
-  drawGizmos: 1
-  territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
-  trackingInterval: 0.1
-  alertDistance: 4
-  alertSpeed: 20
-  territoryRadius: 4
-  patrolRadius: 0.5
-  patrolSpeed: 2
-  clockwise: 1
-  walleyeDamage: 1
---- !u!114 &4356403133284746912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4211730201059870649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e488d688d6934efebcecbb5503d3ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBodyCollider
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.3, y: 0.5}
+  m_Direction: 1
