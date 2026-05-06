@@ -33515,9 +33515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
-  destinationSceneName: level_2
-  destinationSpawnId: Left_1
-  SpawnId: Right_1
+  destinationSceneName: 
+  destinationSpawnId: 
+  SpawnId: Top_1
   SpawnOffset: {x: 0, y: -1}
   _spawnedInside: 0
 --- !u!61 &1810774092

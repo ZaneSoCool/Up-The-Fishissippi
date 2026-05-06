@@ -58,6 +58,8 @@ public class OpeningCutscene : MonoBehaviour
     private SpriteRenderer[] _playerRenderers;
     private SpriteRenderer _playerSprite;
 
+    [SerializeField] private GameObject UI;
+
     private void Start()
     {
         _interactAction = InputSystem.actions.FindAction("Interact");
@@ -131,6 +133,7 @@ public class OpeningCutscene : MonoBehaviour
         }
 
         MusicManager.Instance?.PlayBGMusic();
+        UI.SetActive(true);
         RoomTransitionManager.Instance?.GoToRoom(nextScene, nextSpawnId);
     }
 
