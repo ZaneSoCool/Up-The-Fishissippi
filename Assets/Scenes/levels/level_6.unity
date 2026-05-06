@@ -381,7 +381,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -30
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3294,6 +3294,7 @@ MonoBehaviour:
   destinationSceneName: level_4
   destinationSpawnId: Left_1
   SpawnId: Right_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &942372944
 BoxCollider2D:
@@ -3517,11 +3518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3601489
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.77076
+      value: -8.76
       objectReference: {fileID: 0}
     - target: {fileID: 5059908283798710326, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: playerScript
@@ -3529,11 +3530,11 @@ PrefabInstance:
       objectReference: {fileID: 1042725844}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.469851
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010759354
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5262826704955428752, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -116588,7 +116589,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -75
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -117977,6 +117978,7 @@ MonoBehaviour:
   destinationSceneName: level_7
   destinationSpawnId: Top_1
   SpawnId: Bottom_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &1951565261
 BoxCollider2D:
