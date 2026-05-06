@@ -639,7 +639,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -75
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -809,7 +809,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3427785485489990309, guid: 4821ab6ca02a6894ea6c399844214dd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
@@ -900,7 +900,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -50
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3427785485489990309, guid: 4821ab6ca02a6894ea6c399844214dd3, type: 3}
   m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 0.39215687}
@@ -1755,7 +1755,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -30
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

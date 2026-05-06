@@ -579,9 +579,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.25277779
-    width: 0.25208336
-    height: 0.2520341
+    y: 0.11388889
+    width: 0.1890625
+    height: 0.18902558
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1964,6 +1964,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3257994002024148504}
     m_Modifications:
+    - target: {fileID: 2685477226718106783, guid: c9f9d4cc162f5d747a0ab60cef444378, type: 3}
+      propertyPath: hasTailThwap
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3023634062348407964, guid: c9f9d4cc162f5d747a0ab60cef444378, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
