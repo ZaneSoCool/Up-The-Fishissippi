@@ -1133,6 +1133,7 @@ MonoBehaviour:
   destinationSceneName: 
   destinationSpawnId: 
   SpawnId: 
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!1 &6422576913109684662
 GameObject:
@@ -1827,6 +1828,8 @@ MonoBehaviour:
   backgroundWallTiles2: {fileID: 2342981973114781971}
   area2backColor: {r: 0, g: 1, b: 0.23586345, a: 1}
   area2wallColor: {r: 0.5464513, g: 0.8037735, b: 0.53231037, a: 1}
+  area2backWallColor: {r: 0.30623704, g: 0.6679245, b: 0.4775486, a: 1}
+  area2backWall2Color: {r: 0.1890281, g: 0.5245282, b: 0.4164519, a: 1}
 --- !u!1 &7421831048255652405
 GameObject:
   m_ObjectHideFlags: 0

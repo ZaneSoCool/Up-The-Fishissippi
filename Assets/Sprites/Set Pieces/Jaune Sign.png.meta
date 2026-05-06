@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1621ea163ff179e4ebbc5f177b3e3709
+guid: abf22b9fc5c59614fb28b20cf656efa3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3814049381055676594
-    second: "Hardhat Location (Somethin\u2019s Fishy in Here)_0"
+      213: 8917413728237513805
+    second: Jaune Sign_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Hardhat Location (Somethin\u2019s Fishy in Here)_0"
+      name: Jaune Sign_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 512
-        height: 512
+        width: 51
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b04f9154b93ee430800000000000000
-      internalID: 3814049381055676594
+      spriteID: d4ce9c21a8401cb70800000000000000
+      internalID: 8917413728237513805
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Hardhat Location (Somethin\u2019s Fishy in Here)_0": 3814049381055676594
+      Jaune Sign_0: 8917413728237513805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

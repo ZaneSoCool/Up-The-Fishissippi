@@ -301,9 +301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
-  destinationSceneName: level_14
+  destinationSceneName: level_13
   destinationSpawnId: Top_1
   SpawnId: Bottom_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &568297313
 BoxCollider2D:
@@ -378,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 942372941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.5, y: -5.68, z: 0}
+  m_LocalPosition: {x: 16.32, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -399,6 +400,7 @@ MonoBehaviour:
   destinationSceneName: level_24
   destinationSpawnId: Left_1
   SpawnId: Right_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &942372944
 BoxCollider2D:
