@@ -167,6 +167,7 @@ MonoBehaviour:
   destinationSceneName: level_21
   destinationSpawnId: Top_1
   SpawnId: Bottom_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &391297949
 BoxCollider2D:
@@ -146900,7 +146901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -10.0043545
+      value: -13.0043545
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
@@ -146908,7 +146909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -10.078024
+      value: -13.078024
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
@@ -146916,7 +146917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 4.540079
+      value: 6.540079
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
@@ -146924,7 +146925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 4.692566
+      value: 6.692566
       objectReference: {fileID: 0}
     - target: {fileID: 8718442058170593126, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
