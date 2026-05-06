@@ -10,8 +10,8 @@ public class GeyserManager : MonoBehaviour
     [SerializeField] private GameObject trashPrefab;
 
     [Header("Timing")]
-    [SerializeField] private float intervalMin = 2f;
-    [SerializeField] private float intervalMax = 4f;
+    [SerializeField] private float intervalMin = 1f;
+    [SerializeField] private float intervalMax = 3f;
 
     private float _timer;
 
