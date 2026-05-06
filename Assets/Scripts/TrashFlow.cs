@@ -18,7 +18,9 @@ public class TrashFlow : MonoBehaviour
     public void Initialize(Vector3 start, Vector3 end, float flightTime)
     {
         _start = start;
-        _end = end;
+        Vector3 direction = (end - start).normalized;
+        float spriteHalfLength = 5f;
+        _end = new Vector3(end.x, start.y, end.z) + direction * spriteHalfLength;
         _flightTime = flightTime;
         _elapsed = 0f;
         _initialized = true;
