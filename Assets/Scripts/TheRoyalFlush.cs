@@ -69,6 +69,7 @@ public class TheRoyalFlush : MonoBehaviour
     private void OnIntroComplete()
     {
         bossStarted = true;
+        MusicManager.Instance?.StopBGMusic();
 
         if (healthBar != null) healthBar.gameObject.SetActive(true);
 
