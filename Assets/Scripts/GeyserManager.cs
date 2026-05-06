@@ -3,15 +3,15 @@ using UnityEngine;
 public class GeyserManager : MonoBehaviour
 {
     [Header("Pipes")]
-    [SerializeField] private Transform pipeA;          // spawn point (left pipe)
-    [SerializeField] private Transform pipeB;          // landing point (right pipe)
+    [SerializeField] private Transform pipeA;
+    [SerializeField] private Transform pipeB;
 
     [Header("Trash")]
     [SerializeField] private GameObject trashPrefab;
 
     [Header("Timing")]
-    [SerializeField] private float intervalMin = 4f;
-    [SerializeField] private float intervalMax = 8f;
+    [SerializeField] private float intervalMin = 2f;
+    [SerializeField] private float intervalMax = 4f;
 
     private float _timer;
 
@@ -36,7 +36,7 @@ public class GeyserManager : MonoBehaviour
 
         GameObject obj = Instantiate(trashPrefab, pipeA.position, Quaternion.identity);
 
-        float flightTime = Random.Range(0.6f, 1.2f);
+        float flightTime = 1f;
 
         TrashFlow trash = obj.GetComponent<TrashFlow>();
         if (trash != null)

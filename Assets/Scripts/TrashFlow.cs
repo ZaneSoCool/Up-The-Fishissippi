@@ -9,6 +9,12 @@ public class TrashFlow : MonoBehaviour
     private float _elapsed;
     private bool _initialized;
 
+    private float bounceStrength = 2f;
+
+    private int trashFlowDamage;
+
+    Rigidbody2D playerRB;
+
     public void Initialize(Vector3 start, Vector3 end, float flightTime)
     {
         _start = start;
@@ -17,9 +23,8 @@ public class TrashFlow : MonoBehaviour
         _elapsed = 0f;
         _initialized = true;
 
-        Vector3 direction = (_end - _start).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 10f;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        bool travellingRight = end.x > start.x;
+        transform.rotation = Quaternion.Euler(0f, 0f, travellingRight ? 0f : 180f);
     }
 
     private void Update()
@@ -30,6 +35,7 @@ public class TrashFlow : MonoBehaviour
         float t = Mathf.Clamp01(_elapsed / _flightTime);
 
         transform.position = Vector3.Lerp(_start, _end, t);
+        transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z);
 
         if (t >= 1f)
             Arrive();
@@ -38,5 +44,17 @@ public class TrashFlow : MonoBehaviour
     private void Arrive()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            playerRB.linearVelocity *= -bounceStrength;
+            Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
+            playerAttackableScript.Attacked(trashFlowDamage);
+        }
+
     }
 }
