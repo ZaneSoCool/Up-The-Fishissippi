@@ -9,6 +9,9 @@ public class bubble : MonoBehaviour
     [SerializeField]
     float bounceStrength = 3.0f;
 
+    [SerializeField] AudioClip bounceClip;
+    [SerializeField] AudioClip popClip;
+
     Rigidbody2D playerRB;
 
     Animator bubbleAnimator;
@@ -24,6 +27,7 @@ public class bubble : MonoBehaviour
         bubbleAnimator = GetComponent<Animator>();
         bubbleCollider = GetComponent<CircleCollider2D>();
         attack = GetComponent<Attackable>();
+        attack.onDeath = bubbleAttacked;
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -31,20 +35,22 @@ public class bubble : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             playerRB.linearVelocity *= -bounceStrength;
+            if (bounceClip != null) AudioSource.PlayClipAtPoint(bounceClip, transform.position);
             Debug.Log("Calling SetTrigger Pop");
             bubbleAnimator.SetTrigger("Pop");
         }
     }
 
+    private bool _isDead = false;
+
     public void bubbleAttacked()
     {
-        if (attack.Die() == this)
-        {
-            Debug.Log("Calling SetTrigger Death");
-            bubbleCollider.enabled = false;
-            bubbleAnimator.SetTrigger("Death");
-            Destroy(this);
-        }
+        if (_isDead) return;
+        _isDead = true;
+        if (popClip != null) AudioSource.PlayClipAtPoint(popClip, transform.position);
+        Debug.Log("Calling SetTrigger Death");
+        bubbleCollider.enabled = false;
+        bubbleAnimator.SetTrigger("Death");
     }
 
     public void bubblePop()
@@ -54,7 +60,7 @@ public class bubble : MonoBehaviour
 
     public void bubbleDeath()
     {
-        Debug.Log("Death animation triggered!");
+        Destroy(gameObject);
     }
 }
 

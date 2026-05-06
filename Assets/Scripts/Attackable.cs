@@ -69,6 +69,7 @@ public class Attackable : MonoBehaviour
         {
             if (gameObject.CompareTag("Bubble") || gameObject.CompareTag("BigBubble"))
             {
+                onDeath?.Invoke();
                 return gameObject;
             }
             
