@@ -80,8 +80,8 @@ public class RoomTransitionManager : MonoBehaviour
     private void Start()
     {
         zoomCamera();
-        StartCoroutine(DoThingNextFrame()); // Wait a frame to ensure everything is initialized
-        cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
+        StartCoroutine(DoThingNextFrame());
+        cinemachineConfiner2D.InvalidateCache();
     }
 
     public void zoomCamera()
@@ -149,7 +149,7 @@ public class RoomTransitionManager : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             fadePanel.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
@@ -163,7 +163,7 @@ public class RoomTransitionManager : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             fadePanel.alpha = 1f - Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
@@ -186,23 +186,23 @@ public class RoomTransitionManager : MonoBehaviour
 
         // Tiny delay so objects in the new scene finish Awake/Start
         if (postLoadDelay > 0f)
-            yield return new WaitForSeconds(postLoadDelay);
+            yield return new WaitForSecondsRealtime(postLoadDelay);
 
         // Set new roomBounds for the CinemachineConfiner2D
         roomBoundsCollider = GameObject.Find("RoomBounds")?.GetComponent<PolygonCollider2D>();
         if (roomBoundsCollider == null)
         {
-            Debug.LogError("RoomTransitionManager: No GameObject named 'RoomBounds' with a PolygonCollider2D found in the loaded scene.");
-            yield return StartCoroutine(FadeFromBlack(fadeDuration));
-            if (_playerScript != null) _playerScript.inputEnabled = true;
-            _isTransitioning = false;
-            yield break;
+            Debug.LogWarning($"RoomTransitionManager: No 'RoomBounds' PolygonCollider2D found in '{sceneName}'. Camera confiner will not be updated.");
         }
-        cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
-        cinemachineConfiner2D.InvalidateCache();
+        else
+        {
+            cinemachineConfiner2D.m_BoundingShape2D = roomBoundsCollider;
+            cinemachineConfiner2D.InvalidateCache();
+        }
         zoomCamera();
         yield return null; // Wait a frame for the camera to update
-        cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
+        if (roomBoundsCollider != null)
+            cinemachineConfiner2D.InvalidateCache(); // Ensure confiner updates to new bounds
 
         PlacePlayerAtPendingSpawn();
 

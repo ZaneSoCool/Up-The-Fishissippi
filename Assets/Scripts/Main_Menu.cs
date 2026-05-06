@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
@@ -14,9 +15,10 @@ public class Main_Menu : MonoBehaviour
 
     public void startButtonPressed()
     {
-        roomTransitioner.GoToRoom("level_1");
-        player.gameObject.SetActive(true);
+        // SceneManager.LoadScene("opeining");
+        roomTransitioner.GoToRoom("opeining");
         UI.SetActive(true);
+        player.inputEnabled = true;
     }
 
     public void creditsButtonPressed()

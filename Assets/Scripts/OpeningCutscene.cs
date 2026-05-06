@@ -39,6 +39,7 @@ public class OpeningCutscene : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform playerStartPosition;
     [SerializeField] private Transform playerWaterEntryTarget;
     [SerializeField] private float playerArcHeight = 1.5f;
     [SerializeField] private Transform playerEscapeTarget;
@@ -46,6 +47,7 @@ public class OpeningCutscene : MonoBehaviour
 
     [Header("Camera")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private Transform boatCameraTarget;
 
     [Header("Next Room")]
     [SerializeField] private string nextScene;
@@ -70,6 +72,8 @@ public class OpeningCutscene : MonoBehaviour
 
         if (playerTransform != null)
         {
+            if (playerStartPosition != null)
+                playerTransform.position = playerStartPosition.position;
             _playerRenderers = playerTransform.GetComponentsInChildren<SpriteRenderer>(true);
             foreach (var sr in _playerRenderers) sr.enabled = false;
         }
@@ -83,6 +87,10 @@ public class OpeningCutscene : MonoBehaviour
             wigglePrompt.gameObject.SetActive(false);
         }
 
+        if (virtualCamera != null && boatCameraTarget != null)
+            virtualCamera.Follow = boatCameraTarget;
+
+        MusicManager.Instance?.StopBGMusic();
         StartCoroutine(RunCutscene());
     }
 
@@ -122,6 +130,7 @@ public class OpeningCutscene : MonoBehaviour
             _playerScript.inputEnabled = true;
         }
 
+        MusicManager.Instance?.PlayBGMusic();
         RoomTransitionManager.Instance?.GoToRoom(nextScene, nextSpawnId);
     }
 
