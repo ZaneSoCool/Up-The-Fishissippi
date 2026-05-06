@@ -53,15 +53,19 @@ public class Checkpoint : MonoBehaviour
     {
         // Flip Jaune to face the player
         if (playerIsNear && player != null && visuals != null)
+        {
             visuals.flipX = player.position.x > transform.position.x;
+        }
 
         // Check for interact input while player is in the interact zone
-        if (playerInInteractZone && interactAction != null && interactAction.WasPressedThisFrame())
+        if (interactAction != null && interactAction.WasPressedThisFrame())
         {
             if (isDialogOpen)
+            {
                 AdvanceDialog();
-            else
+            } else if (playerInInteractZone){
                 Activate();
+            }
         }
     }
 

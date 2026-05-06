@@ -116081,7 +116081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
   destinationSceneName: level_9
-  destinationSpawnId: Left_2
+  destinationSpawnId: Left_1
   SpawnId: Right_1
   _spawnedInside: 0
 --- !u!61 &1308194164
