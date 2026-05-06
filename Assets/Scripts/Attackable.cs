@@ -18,6 +18,10 @@ public class Attackable : MonoBehaviour
     private Color _originalColor;
     private Coroutine _flashCoroutine;
 
+    [SerializeField] AudioClip takingdamageClip;
+
+    [SerializeField] AudioClip deathClip;
+
     private int maxHealth;
 
     public bool canBeTailThwapped = true;
@@ -43,9 +47,11 @@ public class Attackable : MonoBehaviour
 
         if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
         _flashCoroutine = StartCoroutine(FlashRoutine());
+        if (takingdamageClip != null) AudioSource.PlayClipAtPoint(takingdamageClip, transform.position);
         health -= damage;
         if (health <= 0)
         {
+            if (deathClip != null) AudioSource.PlayClipAtPoint(takingdamageClip, transform.position);
             Die();
         }
     }
@@ -72,7 +78,7 @@ public class Attackable : MonoBehaviour
                 onDeath?.Invoke();
                 return gameObject;
             }
-            
+
             if (onDeath != null)
             {
                 onDeath.Invoke();
@@ -82,7 +88,8 @@ public class Attackable : MonoBehaviour
             if (parentDestroyOnDeath)
             {
                 Destroy(transform.parent.gameObject);
-            } else
+            }
+            else
             {
                 Destroy(gameObject);
             }
