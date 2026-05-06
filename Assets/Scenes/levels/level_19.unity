@@ -39135,7 +39135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3467967949886877938, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: isArea2
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3968241271249541621, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
