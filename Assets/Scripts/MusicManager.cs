@@ -24,4 +24,11 @@ public class MusicManager : MonoBehaviour
     {
         audioSource.Stop();
     }
+
+    public void PlayBGMusic()
+    {
+        audioSource.clip = bgMusic;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
 }
