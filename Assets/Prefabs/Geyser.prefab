@@ -49,8 +49,8 @@ MonoBehaviour:
   pipeA: {fileID: 1908060667102129136}
   pipeB: {fileID: 7798297227157719799}
   trashPrefab: {fileID: 4283787364019077820, guid: 1aee11326d8b04839a9d50c891d3d50c, type: 3}
-  intervalMin: 3
-  intervalMax: 6
+  intervalMin: 2
+  intervalMax: 2
 --- !u!1 &1049539035328077775
 GameObject:
   m_ObjectHideFlags: 0

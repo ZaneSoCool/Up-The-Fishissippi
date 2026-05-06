@@ -34,12 +34,12 @@ public class GeyserManager : MonoBehaviour
     {
         if (trashPrefab == null) return;
 
-        GameObject obj = Instantiate(trashPrefab, pipeA.position, Quaternion.identity);
+        GameObject obj = Instantiate(trashPrefab, pipeA.position - new Vector3(15,0,0), Quaternion.identity);
 
         float flightTime = 1f;
 
         TrashFlow trash = obj.GetComponent<TrashFlow>();
         if (trash != null)
-            trash.Initialize(pipeA.position, pipeB.position, flightTime);
+            trash.Initialize(pipeA.position - new Vector3(15,0,0), pipeB.position, flightTime);
     }
 }
