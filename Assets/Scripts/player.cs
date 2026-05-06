@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
-    
+
     //Movement variables
     [SerializeField]
     float maxSpeed = 1.0f;
@@ -23,7 +23,7 @@ public class player : MonoBehaviour
     BoxCollider2D skullBashHitbox;
     SkullBash skullBashScript;
     SpriteRenderer tailThwapSprite;
-    
+
     //Health variables
     [SerializeField]
     int maxPlayerHealth = 5;
@@ -40,16 +40,17 @@ public class player : MonoBehaviour
     public int coinsCount = 0;
 
     //vars for skullbash
-    private Vector2 skullBashDirection = new Vector2(1,0);
+    private Vector2 skullBashDirection = new Vector2(1, 0);
     [SerializeField]
     private float bashSpeed = 5.0f;
+    [SerializeField] AudioClip skullBashClip;
 
     //above-water gravity (only active during boss fight)
     [SerializeField] private float aboveWaterGravity = 12f;
     [SerializeField] private float maxFallSpeed = 6f;
     private float fallVelocity = 0f;
     private bool wasAboveWater = false;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -74,54 +75,66 @@ public class player : MonoBehaviour
     {
         if (!canMove) //boolean that prevents player from moving (used in cutscenes)
         {
-            rigidBody.linearVelocity = new Vector2(0,0);
+            rigidBody.linearVelocity = new Vector2(0, 0);
             return;
         }
-    
+
 
         bool aboveWater = IsAboveWater();
 
-        if (skullBashScript.isSkullBashing == true) { //do dash — allowed above water, gravity kicks in after it ends
+        if (skullBashScript.isSkullBashing == true)
+        { //do dash — allowed above water, gravity kicks in after it ends
             skullBashDirection.Normalize();
+            if (skullBashClip != null) AudioSource.PlayClipAtPoint(skullBashClip, transform.position);
             rigidBody.linearVelocity = bashSpeed * skullBashDirection;
 
-        } else if (aboveWater) { //above water: fall, no swimming
+        }
+        else if (aboveWater)
+        { //above water: fall, no swimming
             fallVelocity += aboveWaterGravity * Time.deltaTime;
             fallVelocity = Mathf.Min(fallVelocity, maxFallSpeed);
             float newX = Mathf.MoveTowards(rigidBody.linearVelocity.x, 0f, friction * Time.deltaTime);
             rigidBody.linearVelocity = new Vector2(newX, -fallVelocity);
 
-        } else { //normal underwater swimming
+        }
+        else
+        { //normal underwater swimming
             if (wasAboveWater) rigidBody.linearVelocity = Vector2.zero; //lose momentum on water re-entry
             fallVelocity = 0f;
 
             Vector2 direction = inputEnabled ? moveAction.ReadValue<Vector2>() : Vector2.zero;
 
-            if (direction != new Vector2(0,0))
+            if (direction != new Vector2(0, 0))
             {
                 skullBashDirection = direction;
                 rigidBody.linearVelocity += acceleration * direction * Time.deltaTime;
-            }  else {
-                rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, new Vector2(0,0), friction * Time.deltaTime);
+            }
+            else
+            {
+                rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, new Vector2(0, 0), friction * Time.deltaTime);
             }
 
             rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
         }
 
         wasAboveWater = aboveWater;
-        
+
         //flip sprite if needed
-        if (rigidBody.linearVelocity.x > 0){
+        if (rigidBody.linearVelocity.x > 0)
+        {
             spriteRenderer.flipX = false;
             tailThwapSprite.flipX = false;
 
-        } else if (rigidBody.linearVelocity.x < 0){
+        }
+        else if (rigidBody.linearVelocity.x < 0)
+        {
             spriteRenderer.flipX = true;
             tailThwapSprite.flipX = true;
         }
 
         //rotate player & hitboxes based on vertical speed
-        if (rigidBody.linearVelocity != new Vector2(0,0)){
+        if (rigidBody.linearVelocity != new Vector2(0, 0))
+        {
             float angle = Mathf.Atan2(rigidBody.linearVelocity.y, rigidBody.linearVelocity.x) * Mathf.Rad2Deg;
             if (spriteRenderer.flipX == false)
             {
@@ -129,7 +142,9 @@ public class player : MonoBehaviour
                 tailThwapHitbox.transform.localPosition = new Vector2(1f, 0f);
                 skullBashHitbox.transform.localPosition = new Vector2(0.5f, 0f);
 
-            } else{
+            }
+            else
+            {
                 angle -= 180;
                 gameObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 tailThwapHitbox.transform.localPosition = new Vector2(-1f, 0f);
@@ -144,9 +159,11 @@ public class player : MonoBehaviour
     {
         if (isDoingSpecialAnim) return;
 
-        if (rigidBody.linearVelocity.magnitude > 0){
+        if (rigidBody.linearVelocity.magnitude > 0)
+        {
             anim.Play("PlayerSwim");
-        } else
+        }
+        else
         {
             anim.Play("PlayerIdle");
         }

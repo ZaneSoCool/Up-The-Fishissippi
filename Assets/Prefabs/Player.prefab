@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   thwapDamage: 5
+  tailThwapClip: {fileID: 8300000, guid: 0319fd26d3dea9645a20b55e4341f88e, type: 3}
 --- !u!212 &4314098763051280720
 SpriteRenderer:
   serializedVersion: 2
@@ -477,6 +478,7 @@ MonoBehaviour:
   canMove: 1
   coinsCount: 0
   bashSpeed: 10
+  skullBashClip: {fileID: 8300000, guid: f2ab770d7f62cbf4cbb8c955aba63415, type: 3}
   aboveWaterGravity: 12
   maxFallSpeed: 6
 --- !u!114 &-2949073202235639812
@@ -494,5 +496,8 @@ MonoBehaviour:
   health: 5
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  takingdamageClip: {fileID: 8300000, guid: 828c84c76b9ab2a40854a5f9702d8a2a, type: 3}
+  deathClip: {fileID: 8300000, guid: 5465148fd32312847893145ea4ddf259, type: 3}
   canBeTailThwapped: 1
   canBeSkullBashed: 1
+  parentDestroyOnDeath: 0

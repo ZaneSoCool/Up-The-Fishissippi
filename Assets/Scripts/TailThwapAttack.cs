@@ -14,6 +14,7 @@ public class TailThwapAttack : MonoBehaviour
 
     [SerializeField]
     int thwapDamage = 5;
+    [SerializeField] AudioClip tailThwapClip;
     List<GameObject> objectsInTailThwap = new List<GameObject>(); //list of object currently in the hitbox of the tail thwap
 
     void Start()
@@ -52,12 +53,14 @@ public class TailThwapAttack : MonoBehaviour
         playerScript.isDoingSpecialAnim = true;
         anim.Play("TailThwap");
         effect_anim.Play("TailThwapWave");
-       
+        if (tailThwapClip != null) AudioSource.PlayClipAtPoint(tailThwapClip, transform.position);
+
         //for each object in objectInTailThwap call their attacked method
         for (int i = 0; i < objectsInTailThwap.Count; i++)
         {
             Attackable victimScript = objectsInTailThwap[i].GetComponent<Attackable>();
-            if (victimScript != null && victimScript.canBeTailThwapped){
+            if (victimScript != null && victimScript.canBeTailThwapped)
+            {
                 victimScript.Attacked(thwapDamage);
             }
         }
