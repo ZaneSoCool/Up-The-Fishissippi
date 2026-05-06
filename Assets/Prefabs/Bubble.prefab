@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bubble
   bounceStrength: 1.5
+  bounceClip: {fileID: 8300000, guid: 33815c388cb07524295acfef0080d3f6, type: 3}
+  popClip: {fileID: 8300000, guid: 0ed80c8a20409a1489afb23dde0f370f, type: 3}
 --- !u!114 &5020199319096347611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   flashDuration: 0.1
   canBeTailThwapped: 1
   canBeSkullBashed: 1
+  parentDestroyOnDeath: 0
 --- !u!95 &6917959476668513174
 Animator:
   serializedVersion: 7
