@@ -1823,6 +1823,8 @@ MonoBehaviour:
   background: {fileID: 7421831048255652405}
   wallTiles: {fileID: 8951794303157862469}
   hiddenWallTiles: {fileID: 6765510435794271787}
+  backgroundWallTiles: {fileID: 6911753179684918214}
+  backgroundWallTiles2: {fileID: 2342981973114781971}
   area2backColor: {r: 0, g: 1, b: 0.23586345, a: 1}
   area2wallColor: {r: 0.5464513, g: 0.8037735, b: 0.53231037, a: 1}
 --- !u!1 &7421831048255652405

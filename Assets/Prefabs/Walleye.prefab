@@ -161,7 +161,7 @@ MonoBehaviour:
   territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
   trackingInterval: 0.1
   alertDistance: 4
-  alertSpeed: 10
+  alertSpeed: 15
   territoryRadius: 3
   patrolRadius: 0.5
   patrolSpeed: 2
