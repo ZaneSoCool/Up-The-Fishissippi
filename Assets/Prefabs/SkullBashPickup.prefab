@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactPrompt: {fileID: 5142416817933432641}
   promptFadeDuration: 0.2
-  collectableId: skullBashUnlock
+  canvas: {fileID: 6173589001172699022}
 --- !u!212 &8957634107219559517
 SpriteRenderer:
   serializedVersion: 2
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_text: Press K to use SkullBash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
-  m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,7 +455,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
-  m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

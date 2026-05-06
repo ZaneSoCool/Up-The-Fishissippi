@@ -67,5 +67,6 @@ public class TailThwapAttack : MonoBehaviour
     public void TailThwapWaveAnimEnded()
     {
         effect_anim.Play("TailThwapWaveIdle");
+        playerScript.isDoingSpecialAnim = false;
     }
 }
