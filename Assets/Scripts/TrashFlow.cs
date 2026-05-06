@@ -9,9 +9,9 @@ public class TrashFlow : MonoBehaviour
     private float _elapsed;
     private bool _initialized;
 
-    private float bounceStrength = 2f;
+    [SerializeField] private float bounceStrength = 2f;
 
-    private int trashFlowDamage;
+    [SerializeField] private int trashFlowDamage;
 
     Rigidbody2D playerRB;
 
@@ -53,10 +53,9 @@ public class TrashFlow : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            playerRB.linearVelocity *= -bounceStrength;
+            playerRB.linearVelocity += new Vector2(bounceStrength, 0);
             Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
             playerAttackableScript.Attacked(trashFlowDamage);
         }
-
     }
 }

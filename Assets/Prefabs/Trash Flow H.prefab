@@ -111,7 +111,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -390624536721909986, guid: 7b58e51a460513c4c94e7f2d49268073, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -243,3 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb326180c4524bc5a9eb1b5385aa65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashFlow
+  bounceStrength: 15
+  trashFlowDamage: 2
