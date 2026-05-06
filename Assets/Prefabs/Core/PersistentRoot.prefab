@@ -551,7 +551,7 @@ MonoBehaviour:
   player: {fileID: 6182045185916823085}
   postLoadDelay: 0.02
   zeroPlayerVelocityOnSpawn: 1
-  virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 2661149898807265086}
   fadePanel: {fileID: 8728929621069749970}
   normalFadeDuration: 0.3
   deathFadeDuration: 1
@@ -622,9 +622,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.14722222
+    width: 0.1890625
+    height: 0.18902558
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -816,7 +816,7 @@ Transform:
   m_GameObject: {fileID: 5615192776048392553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000054378437, y: -0.02451, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
-  m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
