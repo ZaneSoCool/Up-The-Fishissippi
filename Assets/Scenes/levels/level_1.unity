@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998047
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6182045185916823085, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33350,6 +33350,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4939603026801567469, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7205822643815624865, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1810774090}
     - targetCorrespondingSourceObject: {fileID: 851441834887600475, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 617737110}
@@ -33369,6 +33372,11 @@ PolygonCollider2D:
 --- !u!4 &1249633421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 851441834887600475, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
+  m_PrefabInstance: {fileID: 1249633419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1249633422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7205822643815624865, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}
   m_PrefabInstance: {fileID: 1249633419}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317441958
@@ -33462,6 +33470,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1249633421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1810774089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810774090}
+  - component: {fileID: 1810774092}
+  - component: {fileID: 1810774091}
+  m_Layer: 0
+  m_Name: Up_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810774090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810774089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28, y: 6.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1249633422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810774091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810774089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9875375bb6d8a4a448187371f59bae4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
+  destinationSceneName: level_2
+  destinationSpawnId: Left_1
+  SpawnId: Right_1
+  SpawnOffset: {x: 0, y: -1}
+  _spawnedInside: 0
+--- !u!61 &1810774092
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810774089}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.043000698}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.67795086}
+  m_EdgeRadius: 0
 --- !u!1 &1996081016
 GameObject:
   m_ObjectHideFlags: 0

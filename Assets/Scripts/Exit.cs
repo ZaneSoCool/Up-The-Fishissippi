@@ -6,6 +6,7 @@ public class ExitTrigger : MonoBehaviour
     [SerializeField] private string destinationSceneName;
     [SerializeField] private string destinationSpawnId;
     [SerializeField] public string SpawnId;
+    [SerializeField] public Vector2 SpawnOffset;
 
     private bool _isTriggered = false;
     public bool _spawnedInside = false;

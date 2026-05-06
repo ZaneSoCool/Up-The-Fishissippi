@@ -269,7 +269,7 @@ public class RoomTransitionManager : MonoBehaviour
         }
 
         matchedSpawn._spawnedInside = true;
-        player.position = matchedSpawn.transform.position;
+        player.position = matchedSpawn.transform.position + (Vector3)matchedSpawn.SpawnOffset;
         ResetPlayerVelocity();
     }
 

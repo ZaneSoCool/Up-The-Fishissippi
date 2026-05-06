@@ -32,6 +32,7 @@ public class CutsceneDirector : MonoBehaviour
     [SerializeField] private Transform boatCameraTarget;
 
     public bool IsPlaying { get; private set; }
+    public bool controlsCamera = true;
 
     private player _playerScript;
     private InputAction _interactAction;
@@ -84,7 +85,7 @@ public class CutsceneDirector : MonoBehaviour
             DialogBox box = BoxForSpeaker(line.speaker);
             Transform speakerTransform = TransformForSpeaker(line.speaker);
 
-            if (virtualCamera != null)
+            if (controlsCamera && virtualCamera != null)
                 virtualCamera.Follow = line.speaker == Speaker.Gillgamesh
                     ? _playerScript?.transform
                     : boatCameraTarget;
@@ -113,7 +114,7 @@ public class CutsceneDirector : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        if (virtualCamera != null) virtualCamera.Follow = originalFollow;
+        if (controlsCamera && virtualCamera != null) virtualCamera.Follow = originalFollow;
         Time.timeScale = originalTimeScale;
         if (_playerScript != null) _playerScript.inputEnabled = true;
         IsPlaying = false;
