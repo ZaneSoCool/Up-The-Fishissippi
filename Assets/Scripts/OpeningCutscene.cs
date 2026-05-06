@@ -40,6 +40,7 @@ public class OpeningCutscene : MonoBehaviour
     [Header("Player")]
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform playerStartPosition;
+    [SerializeField] private Animator playerSwim;
     [SerializeField] private Transform playerWaterEntryTarget;
     [SerializeField] private float playerArcHeight = 1.5f;
     [SerializeField] private Transform playerEscapeTarget;
@@ -133,7 +134,6 @@ public class OpeningCutscene : MonoBehaviour
         }
 
         MusicManager.Instance?.PlayBGMusic();
-        UI.SetActive(true);
         RoomTransitionManager.Instance?.GoToRoom(nextScene, nextSpawnId);
     }
 
@@ -180,10 +180,12 @@ public class OpeningCutscene : MonoBehaviour
     {
         bobbyTransform.SetParent(null);
 
-        // Enable animator now so Bobby animates through the whole dive (same as Bobby.cs ActivatePhase2)
+        // Enable animator now so Bobby and player animates through the whole dive
         if (bobbyAnim != null) bobbyAnim.enabled = true;
+        if (playerSwim != null) playerSwim.enabled = true;
+        playerSwim.Play("PlayerSwim");
 
-        // Hop off the boat — face upward (head up = jumping)
+        // Hop off the boat 
         float elapsed = 0f;
         while (elapsed < bobbyHopDuration)
         {
@@ -289,5 +291,6 @@ public class OpeningCutscene : MonoBehaviour
         }
         wigglePrompt.alpha = target;
         if (target == 0f) wigglePrompt.gameObject.SetActive(false);
+        UI.SetActive(true);
     }
 }

@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.9998047
       objectReference: {fileID: 0}
     - target: {fileID: 6182045185916823085, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -402,9 +402,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7581752736511651407, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 1212655433}
+    - target: {fileID: 7581752736511651407, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 149133865}
+    - target: {fileID: 7581752736511651407, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+      propertyPath: holdBlackDuration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9159368589450210525, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -421,11 +429,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8728929621069749970, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+--- !u!225 &1212655433 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3326406112608746416, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+  m_PrefabInstance: {fileID: 1212655432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249633419
 PrefabInstance:
   m_ObjectHideFlags: 0

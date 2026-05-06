@@ -440,6 +440,7 @@ MonoBehaviour:
   destinationSceneName: level_7
   destinationSpawnId: Right_2
   SpawnId: Left_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &942372944
 BoxCollider2D:
@@ -116062,7 +116063,7 @@ Transform:
   m_GameObject: {fileID: 1308194161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.93, y: -9.71, z: 0}
+  m_LocalPosition: {x: 9.98, y: -8.86, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -116083,6 +116084,7 @@ MonoBehaviour:
   destinationSceneName: level_9
   destinationSpawnId: Left_1
   SpawnId: Right_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &1308194164
 BoxCollider2D:
@@ -116118,7 +116120,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.007294342, y: 0.40118885}
+  m_Offset: {x: 0.007294342, y: -0.026216984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116128,7 +116130,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1061057, y: 5.0118866}
+  m_Size: {x: 0.1061057, y: 2.7957106}
   m_EdgeRadius: 0
 --- !u!4 &1325362195 stripped
 Transform:

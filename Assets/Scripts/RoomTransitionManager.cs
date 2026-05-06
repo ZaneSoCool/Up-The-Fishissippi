@@ -31,6 +31,7 @@ public class RoomTransitionManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadePanel;
     [SerializeField] private float normalFadeDuration = 0.3f;
     [SerializeField] private float deathFadeDuration = 1.0f;
+    [SerializeField] private float holdBeforeFadeIn = 0.2f;
 
     [Header("Default Spawn Settings")]
     [SerializeField] private string defaultScene = "level_1";
@@ -71,6 +72,7 @@ public class RoomTransitionManager : MonoBehaviour
         Instance = this;
         _playerScript = player.GetComponent<player>();
         cinemachineConfiner2D = virtualCamera.GetComponent<CinemachineConfiner2D>();
+
         if (cinemachineConfiner2D == null)
         {
             Debug.LogError("RoomTransitionManager: No CinemachineConfiner2D found on the assigned virtual camera.");
@@ -146,11 +148,10 @@ public class RoomTransitionManager : MonoBehaviour
     {
         if (fadePanel == null) yield break;
         fadePanel.alpha = 0f;
-        float elapsed = 0f;
-        while (elapsed < duration)
+        float start = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup - start < duration)
         {
-            elapsed += Time.unscaledDeltaTime;
-            fadePanel.alpha = Mathf.Clamp01(elapsed / duration);
+            fadePanel.alpha = Mathf.Clamp01((Time.realtimeSinceStartup - start) / duration);
             yield return null;
         }
         fadePanel.alpha = 1f;
@@ -160,11 +161,11 @@ public class RoomTransitionManager : MonoBehaviour
     {
         if (fadePanel == null) yield break;
         fadePanel.alpha = 1f;
-        float elapsed = 0f;
-        while (elapsed < duration)
+        yield return new WaitForSecondsRealtime(holdBeforeFadeIn);
+        float start = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup - start < duration)
         {
-            elapsed += Time.unscaledDeltaTime;
-            fadePanel.alpha = 1f - Mathf.Clamp01(elapsed / duration);
+            fadePanel.alpha = 1f - Mathf.Clamp01((Time.realtimeSinceStartup - start) / duration);
             yield return null;
         }
         fadePanel.alpha = 0f;
@@ -211,6 +212,10 @@ public class RoomTransitionManager : MonoBehaviour
         {
             player.GetComponent<Attackable>()?.ResetHealth();
         }
+
+        // Snap camera to correct position before revealing the scene
+        virtualCamera.PreviousStateIsValid = false;
+        yield return null;
 
         yield return StartCoroutine(FadeFromBlack(fadeDuration));
 

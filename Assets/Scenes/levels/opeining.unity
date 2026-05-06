@@ -183,7 +183,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -4
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7669919602303784790, guid: c9c5a067a2294514eb80beadf0f1417c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -411,6 +411,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+--- !u!95 &90109700 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8533898071932762354, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
+  m_PrefabInstance: {fileID: 90109699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303804030
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +802,7 @@ MonoBehaviour:
   bobbySwimSpeed: 3
   playerTransform: {fileID: 1595266317}
   playerStartPosition: {fileID: 812230176}
+  playerSwim: {fileID: 90109700}
   playerWaterEntryTarget: {fileID: 1132253482}
   playerArcHeight: 1.5
   playerEscapeTarget: {fileID: 812804013}

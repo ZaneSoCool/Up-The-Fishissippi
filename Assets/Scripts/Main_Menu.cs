@@ -15,9 +15,7 @@ public class Main_Menu : MonoBehaviour
 
     public void startButtonPressed()
     {
-        // SceneManager.LoadScene("opeining");
         roomTransitioner.GoToRoom("opeining");
-        UI.SetActive(true);
         player.inputEnabled = true;
     }
 
