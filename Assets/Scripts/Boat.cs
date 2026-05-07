@@ -10,6 +10,8 @@ public class Boat : MonoBehaviour
     [SerializeField] private Transform PointLeft;
     [SerializeField] private Transform PointRight;
 
+    public bool movementDisabled = true;
+
     private Transform targetPoint;
     private Vector2 targetpos;
     private Vector2 initialPosition;
@@ -41,14 +43,13 @@ public class Boat : MonoBehaviour
     void Start()
     {
         targetPoint = PointLeft;
-        transform.position = PointRight.position;
         initialPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return;
+        if (movementDisabled) return;
 
         float bobbingOffset = Mathf.Sin(Time.time * bobbingFrequency) * bobbingAmplitude;
         targetpos = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);

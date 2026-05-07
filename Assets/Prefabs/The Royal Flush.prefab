@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &134478987705186227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5740682592439891836}
+  m_Layer: 0
+  m_Name: BobbyReturnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5740682592439891836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134478987705186227}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.345438, y: 1.6199999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 104355143929648088}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2201160877544224687
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,10 +63,11 @@ Transform:
   m_GameObject: {fileID: 2201160877544224687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.868042, y: -1.3243294, z: 0}
+  m_LocalPosition: {x: 0.92, y: -1.3243294, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5740682592439891836}
   - {fileID: 2983852863636293251}
   - {fileID: 991691535704042534}
   - {fileID: 1631546966570830057}
@@ -113,10 +145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boat
   speed: 3
-  bobbingAmplitude: 0.25
-  bobbingFrequency: 3
+  bobbingAmplitude: 0.1
+  bobbingFrequency: 2
   PointLeft: {fileID: 4493298189534100685}
   PointRight: {fileID: 5512292125032249005}
+  movementDisabled: 1
 --- !u!114 &2426201101711767530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossBoat
   bashBounceSpeed: 10
+  movementDisabled: 0
 --- !u!61 &5347008276179684676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,8 +225,12 @@ MonoBehaviour:
   health: 280
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  takingdamageClip: {fileID: 0}
+  deathClip: {fileID: 0}
   canBeTailThwapped: 0
   canBeSkullBashed: 1
+  parentDestroyOnDeath: 0
+  suppressDestroy: 0
 --- !u!50 &2787978723416466399
 Rigidbody2D:
   serializedVersion: 5
@@ -407,6 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4128670213691638710}
   - component: {fileID: 6158482848479841002}
+  - component: {fileID: 6085192882135889614}
   m_Layer: 0
   m_Name: The Royal Flush
   m_TagString: Untagged
@@ -430,6 +469,7 @@ Transform:
   - {fileID: 104355143929648088}
   - {fileID: 4493298189534100685}
   - {fileID: 5512292125032249005}
+  - {fileID: 7332717031800342521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6158482848479841002
@@ -446,10 +486,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TheRoyalFlush
   bossStarted: 0
   healthBar: {fileID: 0}
+  roomExit: {fileID: 0}
   boat: {fileID: 104355143929648088}
   mongerRenderer: {fileID: 3851544305957001273}
   anglerRenderer: {fileID: 1163681130424106763}
   bobbyRenderer: {fileID: 5317363890697801998}
+  mongerHook: {fileID: 0}
   mongerBattleSprite: {fileID: -8599352820169461156, guid: f97e58fea9470a8429cf45444a7e213d, type: 3}
   anglerBattleSprite: {fileID: 6360750635851268815, guid: 550eeb1afcc6f1d488f3b6a052560ac7, type: 3}
   bobbyBattleSprite: {fileID: 4786381079661380111, guid: bbead035f389f9f42ad9c9ceb063bf73, type: 3}
@@ -457,6 +499,117 @@ MonoBehaviour:
   bobbyHitSprite: {fileID: 1796284496712075856, guid: 340e704bc8c441142983745dc5133021, type: 3}
   hitFlashDuration: 0.5
   bobbyOnBoat: 1
+  bobby: {fileID: 3165271381407725885}
+  anglerSniper: {fileID: 3401705081812955626}
+  bossBoat: {fileID: 2426201101711767530}
+  boatMovement: {fileID: 0}
+  bobbyReturnPoint: {fileID: 5740682592439891836}
+  introLines:
+  - speaker: 0
+    text: Motor fixed!
+  - speaker: 2
+    text: Took you long enough. We still have to find that fish she's looking for.
+  - speaker: 1
+    text: I'm not paying you to fix motors, I'm paying you to catch a- FISH! FISH!
+  - speaker: 0
+    text: "Ow, my ears\u2026"
+  - speaker: 1
+    text: I see you now, Gill! Monger, hook him!
+  - speaker: 2
+    text: Right away, miss.
+  phase2Lines:
+  - speaker: 0
+    text: Boat leaking! Boat leaking!
+  - speaker: 2
+    text: What kind of bluegill is this?!
+  - speaker: 1
+    text: A *very* dangerous bluegill. Bobby, catch him.
+  - speaker: 0
+    text: "I\u2026 What?"
+  - speaker: 1
+    text: I said, CATCH HIM!
+  - speaker: 0
+    text: O- Okay!
+  phase3Lines:
+  - speaker: 1
+    text: You think you're sooooo clever, huh, Gill? You think that you know what's
+      best for this country?
+  - speaker: 1
+    text: You have a lot to learn about politics, traitor.
+  outroLines:
+  - speaker: 0
+    text: Did we do it? Did we catch him?
+  - speaker: 2
+    text: My boat! My lucky Royal Flush! She's torn!
+  - speaker: 1
+    text: "No\u2026 NO! You aren't going to get away with this! You think this is
+      over, Gill? You think I'm the only one he sent?"
+  - speaker: 1
+    text: No matter how far you run, we will bring your slippery little life to an
+      end.
+  - speaker: 3
+    text: "\u2026 Who said I was running?"
+  - speaker: 2
+    text: Did- did that fish just-
+  - speaker: 3
+    text: I knew he would send you here to kill me. I'm truly baffled that he wasted
+      his chance by granting me exile, but we both know that the Prime Finister isn't
+      the brightest fish in the bowl.
+  - speaker: 0
+    text: "My brain hurts\u2026"
+  - speaker: 1
+    text: The nation is reaching its first golden age in a century! He knows what
+      is best for us! What did you do, huh? Ride the wave of Gill Bill to the top?
+      What about unemployment, Gill?
+  - speaker: 3
+    text: Is that yours or the money's mouth that's moving?
+  - speaker: 1
+    text: Shut up!
+  - speaker: 3
+    text: Nothing has changed. Despite the whole coup d'etat, I still live and breathe
+      and the country still goes on without people noticing anything better about
+      their lives.
+  - speaker: 3
+    text: Frankly, Angie, I don't care about them- and I know your Prime Finister
+      doesn't either. All I care about is calling the shots again, and you nor any
+      amount of his money will stop me from watching his blood stain the glass of
+      his perfect little bowl.
+  - speaker: 3
+    text: I *will* take my seat again.
+  - speaker: 1
+    text: "\u2026 You really think you can take all of us, you slimy bastard?"
+  - speaker: 3
+    text: Try me, worm.
+  mongerDefeatSprite: {fileID: 1594924628969175684, guid: 32dcf40cb74fa2248bee3bb4402afc6d, type: 3}
+  anglerDefeatSprite: {fileID: 6563345728519461451, guid: 41b508fc929d439418a3628b7b7953d5, type: 3}
+  bobbyDefeatSprite: {fileID: 1796284496712075856, guid: 340e704bc8c441142983745dc5133021, type: 3}
+  boatAnimator: {fileID: 4457819251457830223}
+  defeatStateName: Defeat
+  explosionStateName: Explosion
+  defeatFadeDuration: 1
+--- !u!114 &6085192882135889614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259722112067656594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e64444686a99c40b51e6f6fb1d0a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneDirector
+  landBox: {fileID: 0}
+  waterBox: {fileID: 0}
+  bobbySpeaker: {fileID: 991691535704042534}
+  anglerSpeaker: {fileID: 2983852863636293251}
+  mongerSpeaker: {fileID: 1631546966570830057}
+  gillgameshSpeaker: {fileID: 0}
+  bobAmount: 0.05
+  bobSpeed: 20
+  virtualCamera: {fileID: 0}
+  boatCameraTarget: {fileID: 104355143929648088}
+  controlsCamera: 1
 --- !u!1 &5513106600479101157
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,9 +893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b488ae9e2a905d24b84c2c2f5098fe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MongerHook
-  chaseSpeed: 2.5
+  chaseSpeed: 3
   detectionRange: 10
-  returnSpeed: 1.5
+  returnSpeed: 3
   bounceSpeed: 7
   bounceDuration: 0.5
   hookDamage: 1
@@ -942,8 +1095,12 @@ MonoBehaviour:
   health: 9999
   flashColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   flashDuration: 0.1
+  takingdamageClip: {fileID: 0}
+  deathClip: {fileID: 0}
   canBeTailThwapped: 1
   canBeSkullBashed: 1
+  parentDestroyOnDeath: 0
+  suppressDestroy: 0
 --- !u!58 &3406795620864080370
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1005,7 +1162,7 @@ Transform:
   m_GameObject: {fileID: 7751028156529029102}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.35, y: -1, z: 0}
+  m_LocalPosition: {x: 8, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1169,8 +1326,12 @@ MonoBehaviour:
   health: 9999
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  takingdamageClip: {fileID: 0}
+  deathClip: {fileID: 0}
   canBeTailThwapped: 0
   canBeSkullBashed: 1
+  parentDestroyOnDeath: 0
+  suppressDestroy: 0
 --- !u!50 &1148733589670418652
 Rigidbody2D:
   serializedVersion: 5
@@ -1235,6 +1396,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.4473579}
   m_Size: {x: 1.140625, y: 2.8947158}
   m_Direction: 0
+--- !u!1 &8529161068652336170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7332717031800342521}
+  m_Layer: 0
+  m_Name: BossTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7332717031800342521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529161068652336170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4128670213691638710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8611074710478047278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1452,7 @@ Transform:
   m_GameObject: {fileID: 8611074710478047278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.65, y: -1, z: 0}
+  m_LocalPosition: {x: -17, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

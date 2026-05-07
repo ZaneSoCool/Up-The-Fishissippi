@@ -9,6 +9,7 @@ public class BossBoat : MonoBehaviour
     private int maxHealth;
     private player playerScript;
 
+    public bool movementDisabled = false;
     private bool phase2Triggered = false;
     private bool phase3Triggered = false;
     private bool deathTriggered = false;
@@ -37,7 +38,7 @@ public class BossBoat : MonoBehaviour
     {
         if (attackable == null || playerScript == null) return;
         if (TheRoyalFlush.Instance == null || !TheRoyalFlush.Instance.bossStarted) return;
-        if (deathTriggered) return;
+        if (deathTriggered || movementDisabled) return;
 
         int currentHealth = attackable.CurrentHealth;
 

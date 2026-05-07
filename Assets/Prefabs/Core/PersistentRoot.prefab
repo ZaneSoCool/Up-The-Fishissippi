@@ -499,6 +499,7 @@ MonoBehaviour:
   fadePanel: {fileID: 3326406112608746416}
   normalFadeDuration: 0.5
   deathFadeDuration: 1
+  holdBeforeFadeIn: 0.2
   defaultScene: level_1
   defaultSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4828630988428134968
@@ -566,9 +567,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.2537037
-    width: 0.25208336
-    height: 0.2520341
+    y: 0.25
+    width: 0.2515625
+    height: 0.25151336
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -867,7 +868,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

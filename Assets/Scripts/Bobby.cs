@@ -38,6 +38,7 @@ public class Bobby : MonoBehaviour
     private bool isLaunching = false;
     private bool isKnockedBack = false;
     private bool isHitStunned = false;
+    private bool isReturning = false;
     private float damageTimer = 0f;
     private float fallVelocity = 0f;
     private float currentAngle = 0f;
@@ -71,6 +72,7 @@ public class Bobby : MonoBehaviour
     void Update()
     {
         if (!TheRoyalFlush.Instance.bossStarted) return;
+        if (isReturning) return;
 
         damageTimer -= Time.deltaTime;
 
@@ -127,6 +129,37 @@ public class Bobby : MonoBehaviour
         transform.SetParent(null); // detach so boat movement doesn't carry Bobby
         anim.enabled = true;
         StartCoroutine(DiveSequence());
+    }
+
+    public void ReturnToBoat(Transform boatParent, Vector3 returnPosition, System.Action onComplete)
+    {
+        StartCoroutine(ReturnToBoatRoutine(boatParent, returnPosition, onComplete));
+    }
+
+    private IEnumerator ReturnToBoatRoutine(Transform boatParent, Vector3 returnPosition, System.Action onComplete)
+    {
+        isReturning = true;
+        isKnockedBack = false;
+        isHitStunned = false;
+        isLaunching = false;
+        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+
+        while (Vector2.Distance(transform.position, returnPosition) > 0.05f)
+        {
+            Vector3 dir = (returnPosition - transform.position).normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            transform.position = Vector3.MoveTowards(transform.position, returnPosition, chaseSpeed * Time.unscaledDeltaTime);
+            yield return null;
+        }
+
+        transform.position = returnPosition;
+        if (boatParent != null) transform.SetParent(boatParent);
+        transform.localRotation = Quaternion.identity;
+        anim.enabled = false;
+
+        isReturning = false;
+        onComplete?.Invoke();
     }
 
     IEnumerator DiveSequence()

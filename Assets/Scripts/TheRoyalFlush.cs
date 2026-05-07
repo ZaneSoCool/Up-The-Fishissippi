@@ -18,6 +18,7 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private SpriteRenderer mongerRenderer;
     [SerializeField] private SpriteRenderer anglerRenderer;
     [SerializeField] private SpriteRenderer bobbyRenderer;
+    [SerializeField] private GameObject mongerHook;
 
     [Header("Battle Idle Sprites")]
     [SerializeField] private Sprite mongerBattleSprite;
@@ -33,12 +34,26 @@ public class TheRoyalFlush : MonoBehaviour
     [Header("Phase Scripts")]
     [SerializeField] private Bobby bobby;
     [SerializeField] private AnglerSniper anglerSniper;
+    [SerializeField] private BossBoat bossBoat;
+    [SerializeField] private Boat boatMovement;
+    [SerializeField] private Transform bobbyReturnPoint;
 
     [Header("Cutscenes")]
     [SerializeField] private CutsceneDirector.DialogLine[] introLines;
     [SerializeField] private CutsceneDirector.DialogLine[] phase2Lines;
     [SerializeField] private CutsceneDirector.DialogLine[] phase3Lines;
     [SerializeField] private CutsceneDirector.DialogLine[] outroLines;
+
+    [Header("Defeat Sprites")]
+    [SerializeField] private Sprite mongerDefeatSprite;
+    [SerializeField] private Sprite anglerDefeatSprite;
+    [SerializeField] private Sprite bobbyDefeatSprite;
+
+    [Header("Defeat Sequence")]
+    [SerializeField] private Animator boatAnimator;
+    [SerializeField] private string defeatStateName = "Defeat";
+    [SerializeField] private string explosionStateName = "Explosion";
+    [SerializeField] private float defeatFadeDuration = 1.5f;
 
     private CutsceneDirector _cutsceneDirector;
     private bool _introStarted = false;
@@ -48,11 +63,7 @@ public class TheRoyalFlush : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         _cutsceneDirector = GetComponent<CutsceneDirector>();
-    }
-
-    void Start()
-    {
-        StartBossFight();
+        if (mongerHook != null) mongerHook.SetActive(false);
     }
 
     public void StartBossFight()
@@ -69,9 +80,11 @@ public class TheRoyalFlush : MonoBehaviour
     private void OnIntroComplete()
     {
         bossStarted = true;
+        if (boatMovement != null) boatMovement.movementDisabled = false;
         MusicManager.Instance?.StopBGMusic();
 
         if (healthBar != null) healthBar.gameObject.SetActive(true);
+        if (mongerHook != null) mongerHook.SetActive(true);
 
         if (mongerRenderer != null && mongerBattleSprite != null)
             mongerRenderer.sprite = mongerBattleSprite;
@@ -94,11 +107,50 @@ public class TheRoyalFlush : MonoBehaviour
     // Call this when the boss is defeated
     public void OnBossDefeated()
     {
-        _cutsceneDirector.Play(outroLines, () =>
+        Time.timeScale = 0f;
+        if (bossBoat != null) bossBoat.movementDisabled = true;
+        if (boatMovement != null) boatMovement.movementDisabled = true;
+        if (boatAnimator != null) boatAnimator.Play(defeatStateName);
+
+        if (bobby != null && bobbyReturnPoint != null)
         {
-            if (roomExit != null) roomExit.Unlock();
-            if (boat != null) Destroy(boat.gameObject);
-        });
+            bobbyOnBoat = true;
+            bobby.ReturnToBoat(boat, bobbyReturnPoint.position, OnBobbyReturned);
+        }
+        else
+        {
+            OnBobbyReturned();
+        }
+    }
+
+    private void OnBobbyReturned()
+    {
+        if (mongerRenderer != null && mongerDefeatSprite != null)
+            mongerRenderer.sprite = mongerDefeatSprite;
+        if (anglerRenderer != null && anglerDefeatSprite != null)
+            anglerRenderer.sprite = anglerDefeatSprite;
+        if (bobbyRenderer != null && bobbyDefeatSprite != null)
+            bobbyRenderer.sprite = bobbyDefeatSprite;
+
+        _cutsceneDirector.Play(outroLines, () => StartCoroutine(DefeatSequence()));
+    }
+
+    private IEnumerator DefeatSequence()
+    {
+        if (boatAnimator != null)
+        {
+            boatAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            boatAnimator.Play(explosionStateName);
+            yield return null; // wait one frame for the state to start
+            while (true)
+            {
+                AnimatorStateInfo info = boatAnimator.GetCurrentAnimatorStateInfo(0);
+                if (info.IsName(explosionStateName) && info.normalizedTime >= 1f) break;
+                yield return null;
+            }
+        }
+
+        yield return StartCoroutine(RoomTransitionManager.Instance.FadeToBlack(defeatFadeDuration));
     }
 
     public void OnBoatHit()

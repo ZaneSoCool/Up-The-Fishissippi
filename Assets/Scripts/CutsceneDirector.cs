@@ -81,6 +81,9 @@ public class CutsceneDirector : MonoBehaviour
 
         Transform originalFollow = virtualCamera != null ? virtualCamera.Follow : null;
 
+        if (controlsCamera && virtualCamera != null)
+            virtualCamera.Follow = boatCameraTarget;
+
         foreach (DialogLine line in lines)
         {
             DialogBox box = BoxForSpeaker(line.speaker);

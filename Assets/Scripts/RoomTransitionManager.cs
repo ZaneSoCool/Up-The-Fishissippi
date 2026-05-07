@@ -144,7 +144,7 @@ public class RoomTransitionManager : MonoBehaviour
         yield return null; // wait 1 frame
     }
 
-    private IEnumerator FadeToBlack(float duration)
+    public IEnumerator FadeToBlack(float duration)
     {
         if (fadePanel == null) yield break;
         fadePanel.alpha = 0f;
