@@ -21,6 +21,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] AudioClip takingdamageClip;
 
     [SerializeField] AudioClip deathClip;
+    [SerializeField] AudioClip urchinBreakClip;
 
     private int maxHealth;
 
