@@ -7,6 +7,8 @@ public class muskieTease : MonoBehaviour
     private player playerScript;
     private bool fleeReady = false; //used to handle muskie behavior if trigger is hit earlier than expected
 
+    [SerializeField] AudioClip muskieTeaseClip;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -28,7 +30,8 @@ public class muskieTease : MonoBehaviour
         if (fleeReady)
         {
             flee();
-        } else
+        }
+        else
         {
             fleeReady = true;
         }
@@ -42,6 +45,7 @@ public class muskieTease : MonoBehaviour
             return;
         }
         anim.Play("MuskieFlee");
+        if (muskieTeaseClip != null) AudioSource.PlayClipAtPoint(muskieTeaseClip, transform.position, 1f);
     }
 
     IEnumerator timer()

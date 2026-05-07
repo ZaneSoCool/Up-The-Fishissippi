@@ -243,7 +243,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68527500}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -294,6 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab66ec4408b07f048941e9f77026927c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  muskieAttackClip: {fileID: 8300000, guid: 605a810dee76f4536a6e03fe6dd08c3c, type: 3}
+  muskieYelpClip: {fileID: 8300000, guid: c7a695268b7424d4b97d7db94e02fac2, type: 3}
 --- !u!1 &317443956
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +628,7 @@ MonoBehaviour:
   destinationSceneName: level_15
   destinationSpawnId: Left_1
   SpawnId: Right_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &637400039
 BoxCollider2D:
@@ -903,6 +906,7 @@ MonoBehaviour:
   destinationSceneName: level_11
   destinationSpawnId: Right_1
   SpawnId: Left_2
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &768671362
 BoxCollider2D:
@@ -1180,6 +1184,7 @@ MonoBehaviour:
   destinationSceneName: level_9
   destinationSpawnId: Right_1
   SpawnId: Left_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &942372944
 BoxCollider2D:
@@ -1392,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.4453819
+      value: 2.4453816
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1400,7 +1405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4453819
+      value: -2.4453816
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1456,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.015604681
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1464,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.9688354
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

@@ -8,7 +8,18 @@ public class Muskie : MonoBehaviour
     private player playerScript;
     private bool sequenceActive = false;
 
+    private BoxCollider2D trigger;
+
     InputAction tailThwapAction;
+
+    [SerializeField] AudioClip muskieAttackClip;
+    [SerializeField] AudioClip muskieYelpClip;
+
+    void Awake()
+    {
+        trigger = GetComponent<BoxCollider2D>();
+        trigger.enabled = false;
+    }
 
     void Start()
     {
@@ -26,6 +37,14 @@ public class Muskie : MonoBehaviour
 
         //call tail thwap if action is performed
         tailThwapAction.performed += OnTailThwapPerformed;
+
+        //fixes bug where player activates trigger on entrance
+        Invoke("enableTrigger", 0.5f);
+    }
+
+    void enableTrigger()
+    {
+        trigger.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,6 +56,7 @@ public class Muskie : MonoBehaviour
         playerScript.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         playerScript.canMove = false;
         anim.Play("MuskieAttack");
+        if (muskieAttackClip != null) AudioSource.PlayClipAtPoint(muskieAttackClip, transform.position, 1f);
     }
 
     public void MuskieAttackEnded()
@@ -44,10 +64,12 @@ public class Muskie : MonoBehaviour
         playerScript.hasTailThwap = true;
         canvas.SetActive(true);
     }
+
     private void OnTailThwapPerformed(InputAction.CallbackContext context)
     {
         if (!sequenceActive || playerScript == null || !playerScript.hasTailThwap) return;
 
+        if (muskieYelpClip != null) AudioSource.PlayClipAtPoint(muskieYelpClip, transform.position, 1f);
         sequenceActive = false;
         anim.Play("MuskieThwap");
     }
@@ -58,5 +80,5 @@ public class Muskie : MonoBehaviour
         canvas.SetActive(false);
         Destroy(gameObject);
     }
-    
+
 }
