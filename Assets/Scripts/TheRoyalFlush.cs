@@ -207,6 +207,8 @@ public class TheRoyalFlush : MonoBehaviour
                 cg.alpha = 1f;
             }
         }
+
+        Application.Quit();
     }
 
     private IEnumerator BlastOffSequence()
