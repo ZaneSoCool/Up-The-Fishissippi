@@ -33,6 +33,8 @@ public class Attackable : MonoBehaviour
     // Optional: set to intercept death instead of auto-destroying
     public System.Action onDeath = null;
 
+    private int iframes = 0;
+
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -42,10 +44,21 @@ public class Attackable : MonoBehaviour
             _originalColor = rend.material.color;
     }
 
+    void Update()
+    {
+        if (iframes > 0)
+        {
+            iframes -= 1;
+        }
+    }
+
     public void Attacked(int damage)
     {
         // Don't take damage during scene transitions
         if (RoomTransitionManager.Instance != null && RoomTransitionManager.Instance.IsTransitioning) return;
+
+        // Don't take damage during iframes
+        if (iframes > 0) return;
 
         if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
         _flashCoroutine = StartCoroutine(FlashRoutine());
@@ -54,6 +67,9 @@ public class Attackable : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        } else
+        {
+            iframes = 100;
         }
     }
 

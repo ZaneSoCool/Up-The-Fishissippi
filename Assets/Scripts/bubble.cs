@@ -29,6 +29,7 @@ public class bubble : MonoBehaviour
         attack = GetComponent<Attackable>();
         attack.onDeath = bubbleAttacked;
     }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         playerRB = col.gameObject.GetComponent<Rigidbody2D>();
@@ -36,7 +37,10 @@ public class bubble : MonoBehaviour
         {
             playerRB.linearVelocity *= -bounceStrength;
             if (bounceClip != null) AudioSource.PlayClipAtPoint(bounceClip, transform.position);
-            bubbleAnimator.SetTrigger("Pop");
+            if(bubbleAnimator != null)
+            {
+                bubbleAnimator.SetTrigger("Pop");
+            }
         }
     }
 
