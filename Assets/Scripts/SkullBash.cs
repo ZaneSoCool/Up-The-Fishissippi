@@ -18,6 +18,8 @@ public class SkullBash : MonoBehaviour
 
     [SerializeField] float cancelCooldown = 0.5f;
 
+    [SerializeField] AudioClip skullBashClip;
+
     public bool isSkullBashing = false;
     private float cooldownTimer = 0f;
 
@@ -72,6 +74,7 @@ public class SkullBash : MonoBehaviour
 
         //play animation and wait bashTime (in seconds) then end bash
         anim.Play("SkullBash");
+        if (skullBashClip != null) AudioSource.PlayClipAtPoint(skullBashClip, transform.position, 1f);
         Invoke("endSkullBash", bashTime);
     }
 
@@ -95,7 +98,8 @@ public class SkullBash : MonoBehaviour
         for (int i = 0; i < objectsInSkullBash.Count; i++)
         {
             Attackable victimScript = objectsInSkullBash[i].GetComponent<Attackable>();
-            if (victimScript != null && victimScript.canBeSkullBashed){
+            if (victimScript != null && victimScript.canBeSkullBashed)
+            {
                 Debug.Log("attacked");
                 victimScript.Attacked(bashDamage);
             }

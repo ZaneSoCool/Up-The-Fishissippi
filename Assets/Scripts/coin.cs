@@ -12,7 +12,7 @@ public class coin : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out player playerScript))
         {
             playerScript.coinsCount += value;
-            if (coincollectClip != null) AudioSource.PlayClipAtPoint(coincollectClip, transform.position);
+            if (coincollectClip != null) AudioSource.PlayClipAtPoint(coincollectClip, transform.position, 1f);
             Destroy(gameObject);
         }
     }

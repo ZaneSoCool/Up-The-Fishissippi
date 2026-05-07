@@ -21,6 +21,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] AudioClip takingdamageClip;
 
     [SerializeField] AudioClip deathClip;
+    [SerializeField] AudioClip urchinBreakClip;
 
     private int maxHealth;
 
@@ -52,7 +53,6 @@ public class Attackable : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            if (deathClip != null) AudioSource.PlayClipAtPoint(takingdamageClip, transform.position);
             Die();
         }
     }
@@ -68,6 +68,7 @@ public class Attackable : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             rend.material.color = rend.material.color;
+            if (deathClip != null) AudioSource.PlayClipAtPoint(deathClip, transform.position, 1f);
             RoomTransitionManager.Instance.RespawnAtDefault();
 
             return null;

@@ -70,6 +70,7 @@ MonoBehaviour:
 '
   dialogAlpha: 0.85
   dialogFadeDuration: 0.25
+  healClip: {fileID: 8300000, guid: 605ac1a69c2c199489864c09db64f010, type: 3}
 --- !u!1 &430757519589425961
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
-  m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -697,7 +698,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
-  m_sharedMaterial: {fileID: 8605290502663577014, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
+  m_sharedMaterial: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
