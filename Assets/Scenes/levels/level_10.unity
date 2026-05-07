@@ -243,7 +243,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68527500}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -626,6 +626,7 @@ MonoBehaviour:
   destinationSceneName: level_15
   destinationSpawnId: Left_1
   SpawnId: Right_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &637400039
 BoxCollider2D:
@@ -903,6 +904,7 @@ MonoBehaviour:
   destinationSceneName: level_11
   destinationSpawnId: Right_1
   SpawnId: Left_2
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &768671362
 BoxCollider2D:
@@ -1180,6 +1182,7 @@ MonoBehaviour:
   destinationSceneName: level_9
   destinationSpawnId: Right_1
   SpawnId: Left_1
+  SpawnOffset: {x: 0, y: 0}
   _spawnedInside: 0
 --- !u!61 &942372944
 BoxCollider2D:
@@ -1392,19 +1395,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.4453819
+      value: 2.443645
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.95035
+      value: -8.95034
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4453819
+      value: -2.443645
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.03965
+      value: -2.0396595
       objectReference: {fileID: 0}
     - target: {fileID: 5262826704955428752, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_AnchorMax.y
