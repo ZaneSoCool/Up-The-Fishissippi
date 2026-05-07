@@ -1,8 +1,8 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -14,10 +14,11 @@ public class Checkpoint : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private CanvasGroup dialogCanvasGroup;
     [SerializeField] private TextMeshProUGUI dialogText;
-    [SerializeField] [TextArea] private string[] firstMeetLines;
-    [SerializeField] [TextArea] private string[] respawnLines;
+    [SerializeField][TextArea] private string[] firstMeetLines;
+    [SerializeField][TextArea] private string[] respawnLines;
     [SerializeField] private float dialogAlpha = 0.85f;
     [SerializeField] private float dialogFadeDuration = 0.25f;
+    [SerializeField] AudioClip healClip;
 
     private Transform player;
     private bool playerIsNear = false;
@@ -63,7 +64,9 @@ public class Checkpoint : MonoBehaviour
             if (isDialogOpen)
             {
                 AdvanceDialog();
-            } else if (playerInInteractZone){
+            }
+            else if (playerInInteractZone)
+            {
                 Activate();
             }
         }
@@ -112,6 +115,8 @@ public class Checkpoint : MonoBehaviour
         RoomTransitionManager.Instance.SetCheckpoint(currentScene, spawnPos);
 
         player?.GetComponent<Attackable>()?.ResetHealth();
+        if (healClip != null) AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
+
 
         Debug.Log("Checkpoint activated: " + currentScene + " @ " + spawnPos);
 

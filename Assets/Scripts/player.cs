@@ -24,6 +24,8 @@ public class player : MonoBehaviour
     SkullBash skullBashScript;
     SpriteRenderer tailThwapSprite;
 
+    AudioSource audioSource;
+
     //Health variables
     [SerializeField]
     int maxPlayerHealth = 5;
@@ -43,11 +45,12 @@ public class player : MonoBehaviour
     private Vector2 skullBashDirection = new Vector2(1, 0);
     [SerializeField]
     private float bashSpeed = 5.0f;
-    [SerializeField] AudioClip skullBashClip;
 
     //above-water gravity (only active during boss fight)
     [SerializeField] private float aboveWaterGravity = 12f;
     [SerializeField] private float maxFallSpeed = 6f;
+
+    // [SerializeField] AudioClip GillswimClip;
     private float fallVelocity = 0f;
     private bool wasAboveWater = false;
 
@@ -59,6 +62,7 @@ public class player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         tailThwapHitbox = transform.Find("TailThwapHitbox").gameObject.GetComponent<BoxCollider2D>();
         tailThwapSprite = transform.Find("TailThwapHitbox").gameObject.GetComponent<SpriteRenderer>();
@@ -85,7 +89,6 @@ public class player : MonoBehaviour
         if (skullBashScript.isSkullBashing == true)
         { //do dash — allowed above water, gravity kicks in after it ends
             skullBashDirection.Normalize();
-            if (skullBashClip != null) AudioSource.PlayClipAtPoint(skullBashClip, transform.position);
             rigidBody.linearVelocity = bashSpeed * skullBashDirection;
 
         }
@@ -112,6 +115,14 @@ public class player : MonoBehaviour
             else
             {
                 rigidBody.linearVelocity = Vector2.MoveTowards(rigidBody.linearVelocity, new Vector2(0, 0), friction * Time.deltaTime);
+            }
+
+            if (rigidBody.linearVelocity.x > 0 || rigidBody.linearVelocity.y > 0)
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
             }
 
             rigidBody.linearVelocity = Vector2.ClampMagnitude(rigidBody.linearVelocity, maxSpeed);
