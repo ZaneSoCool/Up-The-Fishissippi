@@ -188,6 +188,7 @@ public class TerritorialFish : Territory
                 playerAttackableScript.Attacked(walleyeDamage);
             }
         }
+        patrolCenter = transform.position;
         SetState(EnemyState.Patrol);
     }
 
