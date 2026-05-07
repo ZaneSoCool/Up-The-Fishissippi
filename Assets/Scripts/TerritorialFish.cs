@@ -37,7 +37,6 @@ public class TerritorialFish : Territory
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
 
         SetupTerritoryTrigger();
@@ -101,7 +100,8 @@ public class TerritorialFish : Territory
         if (Mathf.Abs(angle) < 90)
         {
             spriteRenderer.flipX = true;
-        } else
+        }
+        else
         {
             spriteRenderer.flipX = false;
             angle -= 180;
@@ -115,6 +115,7 @@ public class TerritorialFish : Territory
         Vector2 directionToPlayer = ((Vector2)trackedPlayer.position - rb.position).normalized;
         rb.MovePosition(rb.position + directionToPlayer * alertSpeed * Time.deltaTime);
         spriteRenderer.flipX = trackedPlayer.position.x > transform.position.x;
+        animator.SetTrigger("Chase");
 
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
 
@@ -140,7 +141,6 @@ public class TerritorialFish : Territory
     {
         base.OnPlayerEnterTerritory(player);
         trackedPlayer = player;
-        animator.SetTrigger("Chase");
         //audioSource.Play();
         SetState(EnemyState.Alert);
     }
@@ -171,7 +171,8 @@ public class TerritorialFish : Territory
             playerRB.linearVelocity = bounceDirection * bounceStrength;
 
             Attackable playerAttackableScript = playerRB.gameObject.GetComponent<Attackable>();
-            if (playerAttackableScript != null) {
+            if (playerAttackableScript != null)
+            {
                 playerAttackableScript.Attacked(walleyeDamage);
             }
         }

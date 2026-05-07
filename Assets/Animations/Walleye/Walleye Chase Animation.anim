@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walleye Swim Animation
+  m_Name: Walleye Chase Animation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
+      value: {fileID: -1602991736268707612, guid: 8f997be3f3381b34abc4dab06020bba1, type: 3}
     - time: 0.033333335
-      value: {fileID: 3757036187911416214, guid: f91f785affc677841bcd625aebc875ff, type: 3}
+      value: {fileID: -1199402142275152127, guid: 6f4fbc9ebe8aeba4ca3b8816328fc8fb, type: 3}
     - time: 0.06666667
-      value: {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
-    - time: 0.1
-      value: {fileID: -9177997731581077310, guid: 77a6d9cab6a26a44ba1659c6b31b8fe7, type: 3}
+      value: {fileID: 4183205441185447151, guid: 2cb9cca9da3d9d74db388914357cd64c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
-    - {fileID: 3757036187911416214, guid: f91f785affc677841bcd625aebc875ff, type: 3}
-    - {fileID: -5069304544404927607, guid: de70e01eba1880046a17bf266e09e425, type: 3}
-    - {fileID: -9177997731581077310, guid: 77a6d9cab6a26a44ba1659c6b31b8fe7, type: 3}
+    - {fileID: -1602991736268707612, guid: 8f997be3f3381b34abc4dab06020bba1, type: 3}
+    - {fileID: -1199402142275152127, guid: 6f4fbc9ebe8aeba4ca3b8816328fc8fb, type: 3}
+    - {fileID: 4183205441185447151, guid: 2cb9cca9da3d9d74db388914357cd64c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.11666667
+    m_StopTime: 0.083333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,11 +75,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: ChasePlayer
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
