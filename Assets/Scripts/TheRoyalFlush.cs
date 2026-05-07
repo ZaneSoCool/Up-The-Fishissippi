@@ -56,6 +56,16 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private string explosionStateName = "Explosion";
     [SerializeField] private float defeatFadeDuration = 1.5f;
 
+    [Header("Blastoff Sequence")]
+    [SerializeField] private Transform blastOffMidpoint;
+    [SerializeField] private Transform blastOffTarget;
+    [SerializeField] private Transform blastOffCamPoint;
+    [SerializeField] private GameObject starObject;
+    [SerializeField] private float blastOffDuration = 2f;
+    [SerializeField] private Sprite mongerBlastOffSprite;
+    [SerializeField] private Sprite anglerBlastOffSprite;
+    [SerializeField] private Sprite bobbyBlastOffSprite;
+
     [Header("End Screen")]
     [SerializeField] private GameObject toBeContinuedPanel;
     [SerializeField] private float endScreenFadeIn = 1f;
@@ -176,6 +186,8 @@ public class TheRoyalFlush : MonoBehaviour
             }
         }
         
+        yield return StartCoroutine(BlastOffSequence());
+
         yield return StartCoroutine(RoomTransitionManager.Instance.FadeToBlack(defeatFadeDuration));
 
         if (toBeContinuedPanel != null)
@@ -195,6 +207,71 @@ public class TheRoyalFlush : MonoBehaviour
                 cg.alpha = 1f;
             }
         }
+    }
+
+    private IEnumerator BlastOffSequence()
+    {
+        if (mongerHook != null) mongerHook.SetActive(false);
+
+        if (_cutsceneDirector != null && blastOffCamPoint != null)
+            _cutsceneDirector.SetCameraFollow(blastOffCamPoint);
+
+        int remaining = 3;
+
+        StartCoroutine(MongerBlastOff(() => remaining--));
+
+        if (bobby != null && blastOffMidpoint != null && blastOffTarget != null)
+            bobby.StartBlastOff(blastOffMidpoint, blastOffTarget, bobbyBlastOffSprite, blastOffDuration, () => remaining--);
+        else
+            remaining--;
+
+        if (anglerRenderer != null && anglerBlastOffSprite != null)
+            anglerRenderer.sprite = anglerBlastOffSprite;
+
+        if (anglerSniper != null)
+            anglerSniper.StartBlastOff(blastOffMidpoint, blastOffTarget, blastOffDuration, () => remaining--);
+        else
+            remaining--;
+
+        while (remaining > 0) yield return null;
+
+        if (starObject != null) starObject.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+    }
+
+    private IEnumerator MongerBlastOff(System.Action onComplete)
+    {
+        if (mongerRenderer == null) { onComplete?.Invoke(); yield break; }
+
+        if (mongerBlastOffSprite != null) mongerRenderer.sprite = mongerBlastOffSprite;
+
+        Transform t = mongerRenderer.transform;
+        t.SetParent(null);
+
+        float elapsed = 0f;
+        Vector3 startPos = t.position;
+        Vector3 startScale = t.localScale;
+
+        while (elapsed < blastOffDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float pct = Mathf.Clamp01(elapsed / blastOffDuration);
+
+            if (blastOffMidpoint != null && blastOffTarget != null)
+            {
+                Vector2 m1 = Vector2.Lerp(startPos, blastOffMidpoint.position, pct);
+                Vector2 m2 = Vector2.Lerp(blastOffMidpoint.position, blastOffTarget.position, pct);
+                t.position = Vector2.Lerp(m1, m2, pct);
+            }
+            t.localScale = Vector3.Lerp(startScale, Vector3.zero, pct);
+
+            yield return null;
+        }
+
+        if (blastOffTarget != null) t.position = blastOffTarget.position;
+        t.localScale = Vector3.zero;
+        onComplete?.Invoke();
     }
 
     public void OnBoatHit()

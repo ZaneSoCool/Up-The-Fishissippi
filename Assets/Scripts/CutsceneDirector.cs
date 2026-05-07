@@ -54,6 +54,11 @@ public class CutsceneDirector : MonoBehaviour
             virtualCamera.Follow = boatCameraTarget;
     }
 
+    public void SetCameraFollow(Transform target)
+    {
+        if (virtualCamera != null) virtualCamera.Follow = target;
+    }
+
     // onComplete fires after the last line is dismissed
     public void Play(DialogLine[] lines, Action onComplete = null)
     {

@@ -131,6 +131,42 @@ public class Bobby : MonoBehaviour
         StartCoroutine(DiveSequence());
     }
 
+    public void StartBlastOff(Transform midpoint, Transform target, Sprite blastOffSprite, float duration, System.Action onComplete = null)
+    {
+        StartCoroutine(BlastOffRoutine(midpoint, target, blastOffSprite, duration, onComplete));
+    }
+
+    private IEnumerator BlastOffRoutine(Transform midpoint, Transform target, Sprite blastOffSprite, float duration, System.Action onComplete)
+    {
+        isReturning = true;
+        if (spriteRenderer != null && blastOffSprite != null)
+            spriteRenderer.sprite = blastOffSprite;
+
+        transform.SetParent(null);
+        transform.rotation = Quaternion.identity;
+
+        float elapsed = 0f;
+        Vector3 startPos = transform.position;
+        Vector3 startScale = transform.localScale;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            Vector2 m1 = Vector2.Lerp(startPos, midpoint.position, t);
+            Vector2 m2 = Vector2.Lerp(midpoint.position, target.position, t);
+            transform.position = Vector2.Lerp(m1, m2, t);
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
+
+            yield return null;
+        }
+
+        transform.position = target.position;
+        transform.localScale = Vector3.zero;
+        onComplete?.Invoke();
+    }
+
     public void ReturnToBoat(Transform boatParent, Vector3 returnPosition, System.Action onComplete)
     {
         StartCoroutine(ReturnToBoatRoutine(boatParent, returnPosition, onComplete));
