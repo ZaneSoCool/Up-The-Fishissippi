@@ -42,6 +42,16 @@ public class CutsceneDirector : MonoBehaviour
     {
         _playerScript = GameObject.FindWithTag("Player")?.GetComponent<player>();
         _interactAction = InputSystem.actions.FindAction("Interact");
+
+        // virtualCamera lives on PersistentRoot — always re-grab from the surviving
+        // singleton so both direct-scene-start and scene-transition paths work.
+        virtualCamera = PersistentRoot.Instance?.GetComponentInChildren<CinemachineVirtualCamera>();
+    }
+
+    public void SnapCameraToBoat()
+    {
+        if (virtualCamera != null && boatCameraTarget != null)
+            virtualCamera.Follow = boatCameraTarget;
     }
 
     // onComplete fires after the last line is dismissed

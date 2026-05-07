@@ -72,7 +72,7 @@ public class Territory : MonoBehaviour
 
     protected virtual void OnPlayerExitTerritory(Transform player)
     {
-        Debug.Log($"[{gameObject.name}] Player '{player.name}' EXITED territory.");
+        // Debug.Log($"[{gameObject.name}] Player '{player.name}' EXITED territory.");
     }
 
     protected virtual void OnPlayerMoved(Transform player, Vector2 localPos, float distance)

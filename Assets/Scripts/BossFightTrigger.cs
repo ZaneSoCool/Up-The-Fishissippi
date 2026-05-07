@@ -1,18 +1,29 @@
+using System.Collections;
 using UnityEngine;
 
 public class BossFightTrigger : MonoBehaviour
 {
+    private Collider2D _collider;
 
-    [SerializeField] private float triggerTimer = 0f;
-    [SerializeField] private float triggerDuration = 1f;
-    void OnTriggerStay2D(Collider2D col)
+    void Start()
+    {
+        _collider = GetComponent<Collider2D>();
+        if (_collider != null) _collider.enabled = false;
+        StartCoroutine(EnableAfterTransition());
+    }
+
+    private IEnumerator EnableAfterTransition()
+    {
+        yield return new WaitUntil(() =>
+            RoomTransitionManager.Instance == null ||
+            !RoomTransitionManager.Instance.IsTransitioning);
+        if (_collider != null) _collider.enabled = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
-        triggerTimer += Time.deltaTime;
-        if (triggerTimer >= triggerDuration)
-        {
-            TheRoyalFlush.Instance?.StartBossFight();
-            gameObject.SetActive(false);
-        }
+        TheRoyalFlush.Instance?.StartBossFight();
+        gameObject.SetActive(false);
     }
 }

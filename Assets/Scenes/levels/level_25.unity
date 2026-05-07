@@ -468,19 +468,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.87
+      value: -2.174078
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.56
+      value: -12.99867
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.695922
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.56133
       objectReference: {fileID: 0}
     - target: {fileID: 5262826704955428752, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -588,11 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6447370366860863022, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: hasSkullBash
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6447370366860863022, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: hasTailThwap
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7581752736511651407, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: virtualCamera

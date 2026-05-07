@@ -13,8 +13,15 @@ public class BossHealthBar : MonoBehaviour
     void Start()
     {
         if (bossAttackable == null) return;
-        maxHealth = bossAttackable.CurrentHealth;
-        BuildSegments();
+        Initialize(bossAttackable);
+    }
+
+    public void Initialize(Attackable attackable)
+    {
+        bossAttackable = attackable;
+        maxHealth = attackable.CurrentHealth;
+        if (segments == null)
+            BuildSegments();
     }
 
     void BuildSegments()

@@ -35,6 +35,7 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private Bobby bobby;
     [SerializeField] private AnglerSniper anglerSniper;
     [SerializeField] private BossBoat bossBoat;
+    [SerializeField] private Attackable bossAttackable;
     [SerializeField] private Boat boatMovement;
     [SerializeField] private Transform bobbyReturnPoint;
 
@@ -66,6 +67,16 @@ public class TheRoyalFlush : MonoBehaviour
         if (mongerHook != null) mongerHook.SetActive(false);
     }
 
+    void Start()
+    {
+        // Serialized refs point to PersistentRoot children. When loading via scene
+        // transition the scene's duplicate PersistentRoot is Destroy-scheduled in Awake
+        // (appears non-null then) but is actually gone by Start. Always re-grab from
+        // the surviving singleton here so both paths (direct scene start + transition) work.
+        healthBar = PersistentRoot.Instance?.GetComponentInChildren<BossHealthBar>(true);
+        if (healthBar != null) healthBar.gameObject.SetActive(false);
+    }
+
     public void StartBossFight()
     {
         if (_introStarted) return;
@@ -73,8 +84,10 @@ public class TheRoyalFlush : MonoBehaviour
 
         if (roomExit != null) roomExit.Lock();
 
-        // Play intro cutscene, then activate fight mechanics once it ends
-        _cutsceneDirector.Play(introLines, OnIntroComplete);
+        if (_cutsceneDirector != null)
+            _cutsceneDirector.Play(introLines, OnIntroComplete);
+        else
+            OnIntroComplete();
     }
 
     private void OnIntroComplete()
@@ -83,7 +96,11 @@ public class TheRoyalFlush : MonoBehaviour
         if (boatMovement != null) boatMovement.movementDisabled = false;
         MusicManager.Instance?.StopBGMusic();
 
-        if (healthBar != null) healthBar.gameObject.SetActive(true);
+        if (healthBar != null)
+        {
+            if (bossAttackable != null) healthBar.Initialize(bossAttackable);
+            healthBar.gameObject.SetActive(true);
+        }
         if (mongerHook != null) mongerHook.SetActive(true);
 
         if (mongerRenderer != null && mongerBattleSprite != null)

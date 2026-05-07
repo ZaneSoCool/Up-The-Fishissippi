@@ -20411,6 +20411,10 @@ PrefabInstance:
       propertyPath: boatMovement
       value: 
       objectReference: {fileID: 1601869948}
+    - target: {fileID: 6158482848479841002, guid: b08525cd28849b74f9d6737002da8c7f, type: 3}
+      propertyPath: bossAttackable
+      value: 
+      objectReference: {fileID: 1431667979}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
