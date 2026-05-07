@@ -31,7 +31,7 @@ public class player : MonoBehaviour
     int maxPlayerHealth = 5;
     public int playerHealth;
 
-    //Wether player is currently doing an animation outside of standard movement
+    //Player state trackers for anims & cutscenes
     public bool isDoingSpecialAnim = false;
     public bool inputEnabled = true;
 
