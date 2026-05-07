@@ -50,8 +50,13 @@ public class TerritorialFish : Territory
     {
         if (currentState == EnemyState.Patrol)
             Patrol();
-        else if (currentState == EnemyState.Alert && trackedPlayer != null)
-            ChasePlayer();
+        else if (currentState == EnemyState.Alert)
+        {
+            if (trackedPlayer == null)
+                Debug.LogError("Alert state but trackedPlayer is null!");
+            else
+                ChasePlayer();
+        }
     }
 
     private void SetupTerritoryTrigger()
@@ -111,12 +116,20 @@ public class TerritorialFish : Territory
 
     private void ChasePlayer()
     {
+        if (trackedPlayer == null || trackedPlayer.gameObject == null)
+        {
+            trackedPlayer = null;
+            SetState(EnemyState.Patrol);
+            return;
+        }
+
         Vector2 directionToPlayer = ((Vector2)trackedPlayer.position - rb.position).normalized;
         rb.MovePosition(rb.position + directionToPlayer * alertSpeed * Time.deltaTime);
         spriteRenderer.flipX = trackedPlayer.position.x > transform.position.x;
-        animator.SetTrigger("Chase");
 
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+
+        animator.SetTrigger("Chase");
 
         if (spriteRenderer.flipX == false) //makes fish angle work with flipped sprite
         {
@@ -140,7 +153,6 @@ public class TerritorialFish : Territory
     {
         base.OnPlayerEnterTerritory(player);
         trackedPlayer = player;
-        //audioSource.Play();
         SetState(EnemyState.Alert);
     }
 
@@ -148,6 +160,7 @@ public class TerritorialFish : Territory
     {
         base.OnPlayerExitTerritory(player);
         trackedPlayer = null;
+        // Reset patrol center to current position so it patrols from where it stopped
         patrolCenter = transform.position;
         SetState(EnemyState.Patrol);
     }
