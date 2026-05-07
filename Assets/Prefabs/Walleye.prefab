@@ -161,7 +161,7 @@ MonoBehaviour:
   territoryColor: {r: 0, g: 1, b: 0, a: 0.2}
   trackingInterval: 0.1
   alertDistance: 4
-  alertSpeed: 10
+  alertSpeed: 8
   territoryRadius: 3
   patrolRadius: 0.5
   patrolSpeed: 2
@@ -266,6 +266,7 @@ MonoBehaviour:
   health: 13
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
+  rend: {fileID: 0}
   takingdamageClip: {fileID: 0}
   deathClip: {fileID: 0}
   urchinBreakClip: {fileID: 0}
