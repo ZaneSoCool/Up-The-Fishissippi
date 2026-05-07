@@ -56,8 +56,17 @@ public class TheRoyalFlush : MonoBehaviour
     [SerializeField] private string explosionStateName = "Explosion";
     [SerializeField] private float defeatFadeDuration = 1.5f;
 
+    [Header("End Screen")]
+    [SerializeField] private GameObject toBeContinuedPanel;
+    [SerializeField] private float endScreenFadeIn = 1f;
+
+    [Header("Boat")]
+    [SerializeField] private SpriteRenderer boatSpriteRenderer;
+
     private CutsceneDirector _cutsceneDirector;
     private bool _introStarted = false;
+
+    private Color _originalColor = Color.white;
 
     void Awake()
     {
@@ -69,10 +78,7 @@ public class TheRoyalFlush : MonoBehaviour
 
     void Start()
     {
-        // Serialized refs point to PersistentRoot children. When loading via scene
-        // transition the scene's duplicate PersistentRoot is Destroy-scheduled in Awake
-        // (appears non-null then) but is actually gone by Start. Always re-grab from
-        // the surviving singleton here so both paths (direct scene start + transition) work.
+
         healthBar = PersistentRoot.Instance?.GetComponentInChildren<BossHealthBar>(true);
         if (healthBar != null) healthBar.gameObject.SetActive(false);
     }
@@ -113,17 +119,20 @@ public class TheRoyalFlush : MonoBehaviour
 
     public void StartPhase2()
     {
+        boatSpriteRenderer.material.color = _originalColor;
         _cutsceneDirector.Play(phase2Lines, () => bobby?.ActivatePhase2());
     }
 
     public void StartPhase3()
     {
+        boatSpriteRenderer.material.color = _originalColor;
         _cutsceneDirector.Play(phase3Lines, () => anglerSniper?.ActivatePhase3());
     }
 
     // Call this when the boss is defeated
     public void OnBossDefeated()
     {
+        boatSpriteRenderer.material.color = _originalColor;
         Time.timeScale = 0f;
         if (bossBoat != null) bossBoat.movementDisabled = true;
         if (boatMovement != null) boatMovement.movementDisabled = true;
@@ -166,8 +175,26 @@ public class TheRoyalFlush : MonoBehaviour
                 yield return null;
             }
         }
-
+        
         yield return StartCoroutine(RoomTransitionManager.Instance.FadeToBlack(defeatFadeDuration));
+
+        if (toBeContinuedPanel != null)
+        {
+            toBeContinuedPanel.SetActive(true);
+            CanvasGroup cg = toBeContinuedPanel.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                cg.alpha = 0f;
+                float t = 0f;
+                while (t < endScreenFadeIn)
+                {
+                    t += Time.unscaledDeltaTime;
+                    cg.alpha = Mathf.Clamp01(t / endScreenFadeIn);
+                    yield return null;
+                }
+                cg.alpha = 1f;
+            }
+        }
     }
 
     public void OnBoatHit()

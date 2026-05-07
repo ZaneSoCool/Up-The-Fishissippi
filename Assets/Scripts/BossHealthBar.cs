@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossHealthBar : MonoBehaviour
@@ -9,6 +10,21 @@ public class BossHealthBar : MonoBehaviour
 
     private Image[] segments;
     private int maxHealth;
+
+    void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameObject.SetActive(false);
+    }
 
     void Start()
     {

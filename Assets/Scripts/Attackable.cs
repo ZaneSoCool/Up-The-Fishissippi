@@ -14,7 +14,7 @@ public class Attackable : MonoBehaviour
     //for sprite flash red
     public Color flashColor = Color.red;
     public float flashDuration = 0.1f;
-    private Renderer rend;
+    public Renderer rend;
     private Color _originalColor;
     private Coroutine _flashCoroutine;
 

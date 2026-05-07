@@ -525,6 +525,17 @@
                     "action": "SkullBash",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4f6a8b0-3e5f-7c9b-0d2e-4f6a8c0b2d4f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SkullBash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

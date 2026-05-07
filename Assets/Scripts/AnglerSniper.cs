@@ -10,6 +10,7 @@ public class AnglerSniper : MonoBehaviour
     [Header("Angler")]
     [SerializeField] private SpriteRenderer anglerRenderer;
     [SerializeField] private Sprite rifleBattleSprite;
+    [SerializeField] private Sprite blastOffSprite;
 
     [Header("Rifle")]
     [SerializeField] private Transform rifleTransform;       // child that rotates to aim
@@ -28,6 +29,11 @@ public class AnglerSniper : MonoBehaviour
     [SerializeField] private float hitRadius = 0.8f;
     [SerializeField] private int bulletDamage = 1;
     [SerializeField] private float fireCooldown = 2.5f;
+
+    [Header("Blast Off")]
+    [SerializeField] private Transform blastOffTarget;
+    [SerializeField] private Transform blastOffMidpoint;
+    [SerializeField] private float blastOffDuration = 2f;
 
     private static readonly Color laserColor  = Color.red;
     private static readonly Color bulletColor = Color.black;
@@ -160,6 +166,30 @@ public class AnglerSniper : MonoBehaviour
         }
 
         line.enabled = false;
+    }
+    IEnumerator BlastOff()
+    {
+        if (anglerRenderer != null && blastOffSprite != null)
+            anglerRenderer.sprite = blastOffSprite;
+        float elapsed = 0f;
+        Vector2 startPos = transform.position;
+        while (elapsed < blastOffDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / blastOffDuration;
+            // Move along a quadratic Bezier curve defined by startPos, blastOffMidpoint, and blastOffTarget
+            Vector2 m1 = Vector2.Lerp(startPos, blastOffMidpoint.position, t);
+            Vector2 m2 = Vector2.Lerp(blastOffMidpoint.position, blastOffTarget.position, t);
+            transform.position = Vector2.Lerp(m1, m2, t);
+            yield return null;
+        }
+        elapsed = 0f;
+        while (elapsed < 1f)
+        {
+            elapsed += Time.deltaTime;
+            transform.position = Vector2.Lerp(blastOffTarget.position, blastOffTarget.position, elapsed);
+            yield return null;
+        }
     }
 
     void AimRifle()
