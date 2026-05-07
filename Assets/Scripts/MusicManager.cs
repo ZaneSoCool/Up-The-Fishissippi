@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
@@ -11,13 +12,26 @@ public class MusicManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void Start()
+    void OnDestroy()
     {
-        audioSource.clip = bgMusic;
-        audioSource.loop = true;
-        audioSource.Play();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Main_Menu")
+        {
+            audioSource.Stop();
+        }
+        else if (!audioSource.isPlaying)
+        {
+            audioSource.clip = bgMusic;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     public void StopBGMusic()
