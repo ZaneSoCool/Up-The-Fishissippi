@@ -121,6 +121,7 @@ public class player : MonoBehaviour
             {
                 if (!audioSource.isPlaying)
                 {
+                    audioSource.volume = 0.5f;
                     audioSource.Play();
                 }
             }
