@@ -24,7 +24,6 @@ public class TerritorialFish : Territory
     private float bounceStrength = 15f;
     public int walleyeDamage = 1;
     private SpriteRenderer spriteRenderer;
-    //private AudioSource audioSource;
     private EnemyState currentState = EnemyState.Patrol;
 
     private Transform trackedPlayer;

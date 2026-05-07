@@ -750,19 +750,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6465063
+      value: -3.6464987
       objectReference: {fileID: 0}
     - target: {fileID: 4934870504950772131, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.32011
+      value: -13.32012
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.163494
+      value: -6.1635017
       objectReference: {fileID: 0}
     - target: {fileID: 5130339068592741435, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010109901
+      value: 0.010119438
       objectReference: {fileID: 0}
     - target: {fileID: 5262826704955428752, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -834,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: -7546798912749757806, guid: aa24e62fe830def4e842a1a2a3f3e60c, type: 2}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.015604681
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -842,11 +842,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.9688354
       objectReference: {fileID: 0}
     - target: {fileID: 5945481295231350238, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998047
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6182045185916823085, guid: b15ec163cc17d4748a29a47a9f9b08c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116402,6 +116402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1cebc3b4e59a54cad1e1682ece167b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  muskieTeaseClip: {fileID: 8300000, guid: 0910d842351f841f0be80be695137288, type: 3}
 --- !u!4 &1325362195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7205822643815624865, guid: 1d82c5ca2496e7a49a76dbfed9373f14, type: 3}

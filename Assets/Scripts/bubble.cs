@@ -36,7 +36,6 @@ public class bubble : MonoBehaviour
         {
             playerRB.linearVelocity *= -bounceStrength;
             if (bounceClip != null) AudioSource.PlayClipAtPoint(bounceClip, transform.position);
-            Debug.Log("Calling SetTrigger Pop");
             bubbleAnimator.SetTrigger("Pop");
         }
     }
@@ -48,7 +47,6 @@ public class bubble : MonoBehaviour
         if (_isDead) return;
         _isDead = true;
         if (popClip != null) AudioSource.PlayClipAtPoint(popClip, transform.position);
-        Debug.Log("Calling SetTrigger Death");
         bubbleCollider.enabled = false;
         bubbleAnimator.SetTrigger("Death");
     }
